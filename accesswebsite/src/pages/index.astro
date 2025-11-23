@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+<Navbar />
+<Layout>
+  <div class="aurora-ribbon aurora-1"></div>
+  <div class="aurora-ribbon aurora-2"></div>
+  <div class="aurora-ribbon aurora-3"></div>
+
+  <canvas id="starCanvas"></canvas>
+
+  <div class="page-container">
+    <h1>Computer & Communication Engineering</h1>
+    <p>Welcome to the official branch website. Explore academics, faculty, labs, achievements, and more.</p>
+
+    <section id="about">
+      <h2>About the Branch</h2>
+      <p>
+        The Computer & Communication branch focuses on the intersection of computing,
+        networking, AI, hardware communication systems, and real-world applications.
+      </p>
+    </section>
+
+    <section id="faculty">
+      <h2>Our Faculty</h2>
+      <p>List of faculty with images and designations can be added here.</p>
+    </section>
+
+    <section id="labs">
+      <h2>Laboratories</h2>
+      <p>Details of networking labs, programming labs, communication labs, etc.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Department office info, email, phone, map, etc.</p>
+    </section>
+  </div>
+
+  <script src="/stars.js" is:inline defer></script>
+  
+</Layout>
+<Footer />
