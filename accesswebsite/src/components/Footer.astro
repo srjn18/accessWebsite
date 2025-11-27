@@ -18,7 +18,7 @@
   </p>
 
   <p class="credit">
-    Made with<img src="/images/icons/heart.svg" alt="heart" /> by <a href="#" class="devteam">Development Team</a>
+    Made with<img src="/images/icons/heart.svg" alt="heart" /> by <a href="/developers" class="devteam">Development Team</a>
   </p>
 </footer>
 
@@ -81,4 +81,33 @@
     font-weight: 600;
     text-decoration: underline;
   }
+
+  @media (max-width: 768px) {
+    .social-icons {
+      gap: 30px;
+    }
+    .credit .img{
+      width: 19px;
+      height: 19px;
+    }
+
+    .copy {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding: 10px 6px;
+    }
+
+    .social-icons img {
+      width: 43px;
+    }
+
+    .copy, .credit {
+      font-size: 1rem;
+    }
+  }
+
 </style>
