@@ -1,10 +1,10 @@
 ---
-/* JS for hamburger toggle */
+const current = Astro.url.pathname;
 let menuOpen = false;
 
 function toggleMenu() {
   const nav = document.querySelector(".nav-links");
-  const burger = document.querySelector(".hamburger");
+  const burger = document.querySelector(".burger");
 
   menuOpen = !menuOpen;
 
@@ -22,8 +22,8 @@ function toggleMenu() {
     <img src="/images/homePages/accesslogo.png" alt="logo" />
   </div>
 
-  <!-- Hamburger Icon -->
-  <div class="hamburger" onclick="toggleMenu()">
+  <!-- CLEAN HAMBURGER -->
+  <div class="burger" onclick="toggleMenu()">
     <span></span>
     <span></span>
     <span></span>
@@ -31,147 +31,155 @@ function toggleMenu() {
 
   <nav>
     <ul class="nav-links">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="/faculty">Faculty</a></li>
-      <li><a href="/committee">Committee Members</a></li>
-      <li><a href="/placements">Placements</a></li>
-      <li><a href="/notes">Notes & Resources</a></li>
-      <li><a href="/events">Events</a></li>
-      <li><a href="/about">About Us</a></li>
+      <li><a href="/" class={current === "/" ? "active" : ""}>Home</a></li>
+      <li><a href="/faculty" class={current === "/faculty" ? "active" : ""}>Faculty</a></li>
+      <li><a href="/committee" class={current === "/committee" ? "active" : ""}>Committee</a></li>
+      <li><a href="/placements" class={current === "/placements" ? "active" : ""}>Placements</a></li>
+      <li><a href="/notes" class={current === "/notes" ? "active" : ""}>Notes & Resources</a></li>
+      <li><a href="/events" class={current === "/events" ? "active" : ""}>Events</a></li>
+      <li><a href="/about" class={current === "/about" ? "active" : ""}>About Us</a></li>
     </ul>
   </nav>
 </header>
 
 <style>
-  .navbar {
-    width: 90%;
+/* --------------------------- */
+/* MAIN NAVBAR */
+/* --------------------------- */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* FIXED */
+  align-items: center;
+  padding: 20px 20px;
+  font-size: 1.3rem;
+  background: linear-gradient(to bottom, #020203a6 80%, transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height:50px;
+}
+
+/* Logo */
+.logo img {
+  height: 60px;
+}
+
+/* Desktop Nav Links */
+.nav-links {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+  align-items: right;
+  z-index: 9999;
+}
+
+.nav-links a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #e6e6e6;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* Underline on hover/active */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -3px;
+  background: #e8eaea;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --------------------------- */
+/* HAMBURGER */
+/* --------------------------- */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.burger span {
+  width: 32px;
+  height: 4px;
+  background: #ffffff;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+/* Animation */
+.burger.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* --------------------------- */
+/* MOBILE MENU */
+/* --------------------------- */
+
+@media (max-width: 1024px) {
+  .burger {
     display: flex;
-    justify-content: space-between; /* FIXED */
-    align-items: center;
-    padding: 20px 10px;
-    font-size: 1.2rem;
-    background: linear-gradient(to bottom, #020203a6 90%, transparent);
-    position: fixed;
-    top: 0;
+  }
+
+  @media (max-width: 1024px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
     left: 0;
-    z-index: 999;
+    width: 100%;
+    background: #0b0b0f;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 25px;
+    display: none;
+    border-bottom: 1px solid #222;
+    z-index: 999999 !important;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+  .nav-links a {
+    font-size: 1.2rem;
   }
 
   .logo img {
-    height: 60px;
+    height: 50px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
   }
 
-  /* Desktop Nav */
-  .nav-links {
-    display: flex;
-    gap: 50px;
-    list-style: none;
-    align-items: center;
+  .burger span {
+    width: 28px;
   }
-
-  .nav-links a {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: #e6e6e6;
-    text-decoration: none;
-    position: relative;
-  }
-
-  .nav-links a.active::after,
-  .nav-links a:hover::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #441069;
-    border-radius: 4px;
-  }
-
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: #441069;
-    transition: 0.3s;
-  }
-
-  .nav-links a:hover::after {
-    width: 100%;
-  }
-
-  /* HAMBURGER MENU */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    position: absolute;
-    justify-content: : space-between;
-    right: 25px;
-    top: 30px; /* aligned better */
-    z-index: 2000;
-  }
-
-  .hamburger span {
-    width: 30px;
-    height: 4px;
-    justify-content: right;
-    background: #fff;
-    transition: 0.3s ease;
-  }
-
-  /* Animation when open */
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-  .hamburger.open span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  /* MOBILE MENU */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex !important;
-    }
-
-    .logo img {
-      height: 45px !important;
-    }
-
-    .nav-links {
-      position: absolute;
-      top: 100px;
-      right: 0;
-      width: 100%;
-      background: #0f0f13;
-      flex-direction: column;
-      text-align: center;
-      padding: 20px 0;
-      gap: 25px;
-      display: none;
-      border-bottom: 1px solid #222;
-    }
-
-    .nav-links.show {
-      display: flex;
-    }
-
-    .nav-links a {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logo img {
-      height: 38px !important;
-    }
-  }
+}
 </style>

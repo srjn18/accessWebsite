@@ -12,140 +12,104 @@ import Footer from "../components/Footer.astro";
   <canvas id="starCanvas"></canvas>
 
   <div class="page-container">
-    <img src="/images/homePages/image1.svg" alt="Decorative Image" class="decorative-image" />
-
-    <section id="about">
-      <div class="typing-container ">
-        <span class="typing-text" id="typing-text">Welcome to Department of Computer and Communication Engineering,<br>-</span>
+    <!--<img src="/images/homePages/image1.svg" alt="Decorative Image" class="decorative-image" />
+    Welcome section of the page -->
+    <section id="welcoming">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="gradient-text">Welcome to</span><br>
+            <span class="hero-main">Department of Computer and<br>Communication Engineering</span>
+          </h1>
+          <p class="hero-subtitle">Shaping the future of technology through innovation, excellence, and transformative education</p>
+        </div>
+        <div class="hero-accent"></div>
       </div>
-      <div class="info-section content-section">
-                    <p>We Specialize in</p>
-                        <ul>
-                            <li>Computer Communication Technologies & Telecommunications</li>
-                            <li>Programme is on Computer Networks</li>
-                            <li>Telecommunications technologies</li>
-                        </ul>
-                </div>
-            </div>
+    </section> 
+
+    <!--Specialization and programs offered -->
+    <section id="features-section">
+
+      <div class="features-container">
+        <div class="feature-main">
+          <div class="feature-content">
+            <h2 class="feature-title">We Specialize In</h2>
+            <p class="feature-description">Computer Networks, Telecommunications and Communication Technologies</p>
+            <a href="#" class="feature-link">Explore More →</a>
+          </div>
+          <div class="feature-glow"></div>
         </div>
 
-        <div class="information">
-            <div class="img_info-section">
-                <div class="info-section content-section">
-                    <p>Program's we offer</p>
-                        <ul>
-                            <li>Courses in Computer Science</li>
-                            <li>Cloud Computing</li>
-                            <li>Multimedia Communications</li>
-                            <li>Big Data Analytics</li>
-                        </ul>
-                </div>
-                <div class="content-section-topics">
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/cs cources.webp" alt="Courses in Computer Science">
-                    </div>
-                    
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/multymedia.jpeg" alt="Multimedia Communications">
-                    </div>
-                    
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/cloud.jpg" alt="Cloud Computing">
-                    </div>   
-
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/bigdata.jpeg" alt="Big Data Analytics">  
-                    </div>                
-                </div>
+        <div class="feature-grid">
+          <div class="feature-item feature-programs">
+            <div class="feature-icon">📚</div>
+            <h3>Programs We Offer</h3>
+            <div class="feature-list">
+              <span class="feature-tag">Computer Science</span>
+              <span class="feature-tag">Cloud Computing</span>
+              <span class="feature-tag">Multimedia Systems</span>
+              <span class="feature-tag">Data Analytics</span>
             </div>
+          </div>
+
+          <div class="feature-item feature-learning">
+            <div class="feature-icon">🔬</div>
+            <h3>Experiential Learning</h3>
+            <p>Cyber Security, Networks, Emerging Tech</p>
+          </div>
+
+          <div class="feature-item feature-innovation">
+            <div class="feature-icon">🚀</div>
+            <h3>Your Pathway to Innovation</h3>
+            <p>Projects, workshops and hands-on learning</p>
+          </div>
         </div>
-
-
-        <div class="information">
-            <div class="img_info-section">
-                <div class="content-section-topics">
-                    <div class="content-section-topic rotate-left" id="cctt">
-                        <img src="./HomeImages/cs.jpeg" alt="Computer science">
-                    </div>
-                    
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/computer networks.jpeg" alt="Communication networks">
-                    </div>
-                    
-                    <div class="content-section-topic rotate-left">
-                        <img src="./HomeImages/cyber security.jpeg" alt="Security and associated subjects">
-                    </div>                
-                </div>
-                <div class="info-section content-section">
-                    <p>We Provide Experiential learning in</p>
-                        <ul>
-                            <li>Security and associated subjects</li>
-                            <li>Computer science</li>
-                            <li>Communication networks</li>
-                        </ul>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="information">
-            <div class="info-section content-section">
-                <p>The Principal's Message</p>
-                <div>
-                    <p>"Genius is one percent inspiration and ninety-nine percent perspiration."</p>
-                    <img src="./HomeImages/52.jpg" alt="Principal">
-                </div>
-                <p class="author">-Niranjan N. Chiplunkar</p>
-            </div>
-        </div>
-
-
-
-        <div class="information">
-            <div class="img_info-section">
-                <div class="info-section content-section">
-                    <p>College Mission</p>
-                        <ul>
-                            <li>To develop NMAM Institute of Technology, Nitte, as Center of Excellence by imparting Quality Education to generate Competent, Skilled and Humane Manpower to face emerging Scientific, Technological, Managerial and Social Challenges with Credibility, Integrity, Ethics and Social Concern</li>
-                </div>
-                <div class="fiftyV">
-                    <div class="content-section-topic rotate-left" id="ttcc">
-                        <img src="./HomeImages/nitte_logo.png" alt="nmamit Logo">
-                    </div>            
-                </div>
-            </div>
-        </div>
-
-        <div class="information">
-            <div class="img_info-section">
-                <div class="fiftyV">
-                    <div class="content-section-topic rotate-left" id="ttcc">
-                        <img src="./HomeImages/nitte_pic1.jpeg" alt="Computer science">
-                    </div>            
-                </div>
-                <div class="info-section content-section">
-                    <p>College Vision</p>
-                        <ul>
-                            <li>Pursuing Excellence, Empowering people, Partnering in Community Development</li>
-                        </ul>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section id="faculty">
-      
+    <script src="/bento-animate.js" is:inline defer></script>
+
+    <section id="headmessage">
+      <div class="message-wrapper">
+        <div class="message-image">
+          <div class="image-container">
+            <img src="/images/homePages/astronaut.png" alt="Principal" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23333%22 width=%22200%22 height=%22200%22/%3E%3Ctext fill=%22%23999%22 font-family=%22Arial%22 font-size=%2218%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPrincipal%3C/text%3E%3C/svg%3E'">
+            <div class="image-glow"></div>
+          </div>
+        </div>
+        <div class="message-content">
+          <span class="message-label">The Principal's Message</span>
+          <blockquote class="message-quote">
+            "Genius is one percent inspiration and ninety-nine percent perspiration."
+          </blockquote>
+          <cite class="message-author">— Niranjan N. Chiplunkar</cite>
+        </div>
+      </div>
     </section>
 
-    <section id="labs">
-      
+    <section id="vision-mission">
+      <div class="vm-container">
+        <div class="vm-item vm-mission">
+          <div class="vm-number">01</div>
+          <h2 class="vm-title">College Mission</h2>
+          <p class="vm-text">To develop NMAM Institute of Technology, Nitte, as Center of Excellence by imparting Quality Education to generate Competent, Skilled and Humane Manpower to face emerging Scientific, Technological, Managerial and Social Challenges with Credibility, Integrity, Ethics and Social Concern</p>
+        </div>
+        <div class="vm-divider"></div>
+        <div class="vm-item vm-vision">
+          <div class="vm-number">02</div>
+          <h2 class="vm-title">College Vision</h2>
+          <p class="vm-text">Pursuing Excellence, Empowering people, Partnering in Community Development</p>
+        </div>
+      </div>
     </section>
+    <!--till here the main part is completed, welcom, programs offered, principal's message a
+    and vision and mission of college -->
 
-    <section id="contact">
-    </section>
+    <!--corosel effect of events section -->
 
-  </div>
+    <!--access something  -->
+
+  </div><!--of page container, so dont delete -->
 
   <script src="/stars.js" is:inline defer></script>
   
