@@ -162,25 +162,23 @@ const yearData = [
   .space-background .image1 img,
   .space-background .image2 img{
     display: block;
-    opacity: 0.7;
+    opacity: 0.9;
     image-rendering: optimizeQuality;
   }
 
   /* Responsive adjustments */
   @media (max-width: 1024px) {
-    .space-background .image1 { top: 6%; left: 6%; }
-    .space-background .image2 { top: 50%; left: 50%; }
-    .space-background .image1 img,
-    .space-background .image2 img{ width: clamp(64px, 18vw, 180px); }
+    .space-background .image1 { top: 10%; left: 4%; }
+    .space-background .image2 { top: 50%; left: 82%; }
+    
   }
 
   @media (max-width: 640px) {
     .space-background .image1,
-    .space-background .image2{ opacity: 0.7; }
-    .space-background .image1 { top: 4%; left: 50%; transform: translate(-50%, 0); }
-    .space-background .image2 { top: 40%; left: 50%; transform: translate(-50%, -40%); }
-    .space-background .image1 img,
-    .space-background .image2 img{ width: clamp(56px, 22vw, 140px); }
+    .space-background .image2{ opacity: 0.9; }
+    .space-background .image1 { top: 10%; left: 4%; transform: translate(-50%, 0); }
+    .space-background .image2 { top: 50%; left: 82%; transform: translate(-50%, -40%); }
+    
   }
 
   #starCanvas {
