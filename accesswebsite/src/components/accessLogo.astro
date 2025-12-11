@@ -1,0 +1,149 @@
+---
+/* LiquidAccess.astro */
+---
+
+<div class="force-field-container">
+  <svg style="display: none;">
+    <defs>
+      <filter id="nebula-warp">
+        <feTurbulence 
+          id="turbulence" 
+          type="fractalNoise" 
+          baseFrequency="0.02" 
+          numOctaves="3" 
+          result="noise" 
+        />
+        <feDisplacementMap 
+          id="displacement" 
+          in="SourceGraphic" 
+          in2="noise" 
+          scale="10" 
+        />
+      </filter>
+    </defs>
+  </svg>
+
+  <h1 class="liquid-text" id="liquidText">ACCESS</h1>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+  .force-field-container {
+    position: relative;
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    /* No background here, so your Aurora shows through */
+  }
+
+  .liquid-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8rem; /* Massive size */
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    cursor: crosshair;
+    user-select: none;
+    
+    /* Transparent fill to see your background */
+    color: transparent; 
+    
+    /* The Outline Design */
+    -webkit-text-stroke: 2px rgba(200, 240, 255, 0.8);
+    
+    /* Apply the SVG Filter */
+    filter: url(#nebula-warp) drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));
+    
+    /* Smooth Transition for color changes */
+    transition: all 0.5s ease;
+  }
+
+  /* Interaction: When close/hovered, fill with light */
+  .liquid-text.active {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
+    text-shadow: 
+      0 0 20px rgba(0, 229, 255, 0.8),
+      0 0 40px rgba(0, 229, 255, 0.4);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .liquid-text {
+      font-size: 4rem;
+    }
+  }
+</style>
+
+<script>
+  // Select elements
+  const text = document.getElementById('liquidText');
+  const turbulence = document.getElementById('turbulence');
+  const displacement = document.getElementById('displacement');
+  
+  // Configuration
+  let state = {
+    freq: 0.02, // Base ripples
+    scale: 10,   // Base distortion
+    seed: 0
+  };
+
+  let target = {
+    freq: 0.02,
+    scale: 10
+  };
+
+  // Mouse tracking
+  document.addEventListener('mousemove', (e) => {
+    if(!text) return;
+
+    const rect = text.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Calculate distance from mouse to center of text
+    const dist = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+    
+    // Interaction Zone: 400px radius
+    const maxDist = 400;
+    
+    if (dist < maxDist) {
+      // The closer the mouse, the higher the distortion
+      const intensity = 1 - (dist / maxDist); // 0 to 1
+      
+      target.freq = 0.02 + (intensity * 0.08); // Range: 0.02 -> 0.1
+      target.scale = 10 + (intensity * 40);    // Range: 10 -> 50
+      
+      text.classList.add('active');
+    } else {
+      // Reset to calm state
+      target.freq = 0.02;
+      target.scale = 10;
+      text.classList.remove('active');
+    }
+  });
+
+  // Animation Loop (Lerping for smoothness)
+  function animate() {
+    // Linear Interpolation (Lerp) to make changes feel fluid, not instant
+    state.freq += (target.freq - state.freq) * 0.1;
+    state.scale += (target.scale - state.scale) * 0.1;
+    
+    // Increment seed slightly to make the "gas" flow continuously
+    state.seed += 1;
+
+    // Apply to SVG attributes
+    if(turbulence && displacement) {
+      // Changing baseFrequency creates the flowing motion
+      turbulence.setAttribute('baseFrequency', `${state.freq} ${0.01}`); 
+      displacement.setAttribute('scale', `${state.scale}`);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  // Start
+  animate();
+</script>
