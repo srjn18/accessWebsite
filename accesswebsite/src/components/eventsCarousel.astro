@@ -1,0 +1,133 @@
+/*
+const images = [
+  "/images/Events/2025-26/MindQuest.png",
+  "/images/Events/2025-26/rangoli.jpeg",
+  "/images/Events/2025-26/MindQuest.png",
+  "/images/Events/2025-26/Git.jpg",
+  "/images/Events/2025-26/MindQuest.png",
+  "/images/Events/2025-26/memory.jpg",
+  "/images/Events/2025-26/MindQuest.png",
+];*/
+
+---
+const events = [
+  {
+    title: "Memory Lane 2.0",
+    date: "27th Sep",
+    image: "/images/memory-lane.png",
+  },
+  {
+    title: "MIND Quest",
+    date: "28th Sep",
+    image: "/images/mind-quest.png",
+  },
+  {
+    title: "Galaxy Trivia",
+    date: "29th Sep",
+    image: "/images/galaxy-trivia.png",
+  }
+];
+---
+
+<section class="scroll-carousel">
+  <div class="parallax-bg"></div>
+  <div class="cards">
+    {events.map((item, i) => (
+      <div class="card" style={`--delay:${i * 0.2}s`}>
+        <img src={item.image} alt={item.title} />
+        <h3>{item.title}</h3>
+        <p>{item.date}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+.scroll-carousel {
+  position: relative;
+  padding: 100px 0;
+  background: radial-gradient(ellipse at center, #0a001f 0%, #000 100%);
+  overflow: hidden;
+
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-size: cover;
+    transform: translateY(-30%);
+    animation: drift 60s linear infinite;
+    z-index: -1;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .card {
+    width: 320px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(160, 80, 255, 0.4);
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.8s ease-out;
+    transition-delay: var(--delay);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 1rem;
+      margin: 4px 0 0;
+    }
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(-30%);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  cards.forEach(card => observer.observe(card));
+});
+</script>
