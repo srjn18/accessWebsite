@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Department of Computer and Communication Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    /* --- Global Styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0f;
+      color: #eaeaea;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- Navbar --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,255,255,0.2);
+    }
+    nav .title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #00ffff;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00ffff;
+    }
+    nav ul li a.access {
+      border: 1px solid #00ffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #00ffff;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #0d1b2a 0%, #000000 90%);
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #b0b0b0;
+    }
+    .hero button {
+      margin-top: 30px;
+      background: transparent;
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      padding: 10px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .hero button:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    /* --- Section General --- */
+    section {
+      padding: 100px 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    section h2 {
+      font-family: 'Poppins', sans-serif;
+      color: #00ffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #00ffff;
+    }
+    section p {
+      max-width: 800px;
+      line-height: 1.8;
+      color: #bfbfbf;
+    }
+
+    /* --- Clubs Section --- */
+    .clubs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .club-card {
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .club-card:hover {
+      box-shadow: 0 0 15px #00ffff;
+      transform: translateY(-5px);
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    footer span {
+      color: #00ffff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="title">ACCESS</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#clubs">Clubs</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#access" class="access">ACCESS</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Department of Computer and Communication Engineering</h1>
+    <p>Bridging Circuits and Code.</p>
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore</button>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About the Department</h2>
+    <p>
+      The Department of Computer and Communication Engineering blends computing, networking, and communication technologies
+      to empower the next generation of innovators. Our focus is on research, hands-on learning, and real-world applications
+      that prepare students to excel in the evolving tech landscape.
+    </p>
+  </section>
+
+  <!-- Clubs -->
+  <section id="clubs">
+    <h2>Student Clubs & Associations</h2>
+    <div class="clubs">
+      <div class="club-card">
+        <h3>ACCESS</h3>
+        <p>Association of Computer and Communication Engineering Students — organizing workshops, projects, and technical fests.</p>
+      </div>
+      <div class="club-card">
+        <h3>AI & ML Club</h3>
+        <p>Hands-on sessions and hackathons focused on artificial intelligence and machine learning.</p>
+      </div>
+      <div class="club-card">
+        <h3>Network Society</h3>
+        <p>Exploring the world of communication, IoT, and next-gen networks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    © 2025 <span>Department of Computer and Communication Engineering</span> — All rights reserved.
+  </footer>
+</body>
+</html>

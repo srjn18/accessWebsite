@@ -1,0 +1,113 @@
+<footer class="footer">
+  <div class="social-icons">
+    <a href="https://www.instagram.com/access.nmamit/" target="_blank" aria-label="Instagram">
+      <img src="/images/icons/instagram.svg" alt="Instagram" />
+    </a>
+
+    <a href="https://www.linkedin.com/company/computer-and-communication-engineering/" target="_blank" aria-label="LinkedIn">
+      <img src="/images/icons/linkedin.svg" alt="LinkedIn" />
+    </a>
+
+    <a href="https://github.com/" target="_blank" aria-label="Github">
+      <img src="/images/icons/github.svg" alt="Github" />
+    </a>
+  </div>
+
+  <p class="copy"><img src="/images/icons/copyright.svg" alt="copyRight" />
+    2026 Department of Computer and Communication Engineering, NMAMIT, Nitte.
+  </p>
+
+  <p class="credit">
+    Made with<img src="/images/icons/heart.svg" alt="heart" /> by <a href="/developers" class="devteam">Development Team</a>
+  </p>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    padding: 60px 20px;
+    background: #020203a6; /* clean dark like your reference */
+    text-align: center;
+    color: #dcdcdc;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 80px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+
+  .social-icons img {
+    width: 55px;
+    height: 55px;
+    opacity: 1;
+    transition: 0.2s ease;
+  }
+
+  .social-icons img:hover {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  .copy {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #e6e6e6;
+  }
+  .copy img {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  .credit {
+    font-size: 1.3rem;
+    color: #cfcfcf;
+  }
+  .credit img {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin: 0 6px;
+  }
+
+  .devteam {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .social-icons {
+      gap: 30px;
+    }
+    .credit .img{
+      width: 19px;
+      height: 19px;
+    }
+
+    .copy {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding: 10px 6px;
+    }
+
+    .social-icons img {
+      width: 43px;
+    }
+
+    .copy, .credit {
+      font-size: 1rem;
+    }
+  }
+
+</style>

@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import AccessForceEffect from "../components/accessLogo.astro";
+---
+<Navbar />
+<Layout>
+  <div class="aurora-ribbon aurora-1"></div>
+  <div class="aurora-ribbon aurora-2"></div>
+  <div class="aurora-ribbon aurora-3"></div>
+
+  <canvas id="starCanvas"></canvas>
+
+  <div class="page-container">
+    <!--<img src="/images/homePages/image1.svg" alt="Decorative Image" class="decorative-image" />
+    Welcome section of the page -->
+    <section id="welcoming">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="gradient-text">Welcome to</span><br>
+            <span class="hero-main">Department of Computer and<br>Communication Engineering</span>
+          </h1>
+          <p class="hero-subtitle">Shaping the future of technology through innovation, excellence, and transformative education</p>
+        </div>
+        <!-- <div class="hero-accent"></div>-->
+      </div>
+    </section>
+
+    <section id="features-section">
+      <div class="section-header">
+        <h2 class="section-title">We Specialize In</h2>
+        <p class="section-subtitle">Computer Networks, Telecommunications and Communication Technologies</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card feature-card-large">
+          <div class="card-header">
+            <span class="card-number">01</span>
+            <h3 class="card-title">Programs We Offer</h3>
+          </div>
+          <div class="card-content">
+            <div class="program-list">
+              <div class="program-item">Computer Science</div>
+              <div class="program-item">Cloud Computing</div>
+              <div class="program-item">Multimedia Systems</div>
+              <div class="program-item">Data Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-number">02</span>
+            <h3 class="card-title">Experiential Learning</h3>
+          </div>
+          <div class="card-content">
+            <p>Cyber Security, Networks, Emerging Tech</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-number">03</span>
+            <h3 class="card-title">Pathway to Innovation</h3>
+          </div>
+          <div class="card-content">
+            <p>Projects, workshops and hands-on learning</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/bento-animate.js" is:inline defer></script>
+
+    <section id="headmessage">
+      <div class="vm-card">
+        <div class="message-container">
+          <div class="message-image">
+            <!--<img src="/images/homePages/principal.jpg" alt="Principal">-->
+            <!-- <Image src={principal.src} alt="Principal" />-->
+          </div>
+          <div class="message-text">
+            <span class="message-label">Principal's Message</span>
+            <blockquote class="message-quote">"Genius is one percent inspiration and ninety-nine percent perspiration."</blockquote>
+            <cite class="message-author"> Niranjan N. Chiplunkar</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision-mission">
+      <div class="vm-grid">
+        <div class="vm-card vm-mission">
+          <div class="vm-header">
+            <span class="vm-badge">Mission</span>
+            <h2 class="vm-title">College Mission</h2>
+          </div>
+          <p class="vm-text">To develop NMAM Institute of Technology, Nitte, as Center of Excellence by imparting Quality Education to generate Competent, Skilled and Humane Manpower to face emerging Scientific, Technological, Managerial and Social Challenges with Credibility, Integrity, Ethics and Social Concern</p>
+        </div>
+        <div class="vm-card vm-vision">
+          <div class="vm-header">
+            <span class="vm-badge">Vision</span>
+            <h2 class="vm-title">College Vision</h2>
+          </div>
+          <p class="vm-text">Pursuing Excellence, Empowering people, Partnering in Community Development</p>
+        </div>
+      </div>
+    </section>
+    <!--till here the main part is completed, welcom, programs offered, principal's message a
+    and vision and mission of college -->
+
+    <!--corosel effect of events section -->
+    
+    <!--access something  -->
+
+  </div><!--of page container, so dont delete -->
+
+  <script src="/stars.js" is:inline defer></script>
+  <script src="/scroll-animations.js" is:inline defer></script>
+  <AccessForceEffect />
+    
+</Layout>
+<Footer />

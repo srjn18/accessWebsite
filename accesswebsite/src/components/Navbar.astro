@@ -1,0 +1,185 @@
+---
+const current = Astro.url.pathname;
+let menuOpen = false;
+
+function toggleMenu() {
+  const nav = document.querySelector(".nav-links");
+  const burger = document.querySelector(".burger");
+
+  menuOpen = !menuOpen;
+
+  if (menuOpen) {
+    nav?.classList.add("show");
+    burger?.classList.add("open");
+  } else {
+    nav?.classList.remove("show");
+    burger?.classList.remove("open");
+  }
+}
+---
+<header class="navbar">
+  <div class="logo">
+    <img src="/images/homePages/accesslogo.png" alt="logo" />
+  </div>
+
+  <!-- CLEAN HAMBURGER -->
+  <div class="burger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="/" class={current === "/" ? "active" : ""}>Home</a></li>
+      <li><a href="/faculty" class={current === "/faculty" ? "active" : ""}>Faculty</a></li>
+      <li><a href="/committee" class={current === "/committee" ? "active" : ""}>Committee</a></li>
+      <li><a href="/placements" class={current === "/placements" ? "active" : ""}>Placements</a></li>
+      <li><a href="/notes" class={current === "/notes" ? "active" : ""}>Notes</a></li>
+      <li><a href="/about" class={current === "/about" ? "active" : ""}>About Us</a></li>
+      <li><a href="/admin" class={current === "/admin" ? "active" : ""}><img src="/images/icons/user.svg" alt="heart" /></a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+/* --------------------------- */
+/* MAIN NAVBAR */
+/* --------------------------- */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* FIXED */
+  align-items: center;
+  padding: 20px 20px;
+  font-size: 1.3rem;
+  background: linear-gradient(to bottom, #020203a6 80%, transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height:50px;
+}
+
+/* Logo */
+.logo img {
+  height: 60px;
+}
+
+/* Desktop Nav Links */
+.nav-links {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+  align-items: right;
+  z-index: 9999;
+}
+
+.nav-links a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #e6e6e6;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* Underline on hover/active */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -3px;
+  background: #e8eaea;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --------------------------- */
+/* HAMBURGER */
+/* --------------------------- */
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.burger span {
+  width: 32px;
+  height: 4px;
+  background: #ffffff;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+/* Animation */
+.burger.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* --------------------------- */
+/* MOBILE MENU */
+/* --------------------------- */
+
+@media (max-width: 1024px) {
+  .burger {
+    display: flex;
+  }
+
+  @media (max-width: 1024px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #0b0b0f;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 25px;
+    display: none;
+    border-bottom: 1px solid #222;
+    z-index: 999999 !important;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+
+  .burger span {
+    width: 28px;
+  }
+}
+</style>
