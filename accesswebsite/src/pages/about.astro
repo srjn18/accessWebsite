@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import AccessForceEffect from "../components/accessLogo.astro";
+import "../styles/about.css";
+---
+
+<Navbar />
+
+<Layout>
+  <div class="aurora-ribbon aurora-1"></div>
+  <div class="aurora-ribbon aurora-2"></div>
+  <div class="aurora-ribbon aurora-3"></div>
+
+  <canvas id="starCanvas"></canvas>
+
+  <div class="page-container">
+    <section id="committee" style="padding:60px 20px;">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div style="display:flex;gap:30px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+          <div style="flex:1;min-width:320px;">
+            <div class="vm-card" style="padding:30px;border-radius:12px;">
+              <h2 style="margin:0 0 10px 0;text-align:left;font-size:1.8rem;">The ACCESS Committee</h2>
+              <h3 style="margin:0 0 18px 0;color:rgba(255,255,255,0.95);">ACCESS stands for the Association of Computer and Communication Engineering Students</h3>
+              <p style="color:rgba(209,209,209,0.95);line-height:1.7;margin:0;">It is the official student branch association of our department and plays a significant role in organizing various events and activities that contribute to the growth and development of students while also supporting the department in multiple ways.</p>
+            </div>
+          </div>
+
+          <div class="committee-image image" style="flex:0 0 360px;min-width:280px;">
+            <!-- intentionally left empty for now (no images) -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" style="padding:30px 20px;">
+      <div style="max-width:1200px;margin:0 auto;">
+        <div class="vm-card" style="padding:20px;border-radius:10px;margin-bottom:18px;">
+          <h4 style="text-align:center;margin:6px 0 12px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;">VISION</h4>
+          <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:center;">To be a centre of excellence in the Computer Networks and Computer Security education and research, to produce comprehensively trained, technically skilled, ethically strong, innovative engineers to excel globally, take future challenges and contribute for social welfare.</p>
+        </div>
+
+        <div class="vm-card" style="padding:20px;border-radius:10px;">
+          <h4 style="text-align:center;margin:6px 0 12px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;">MISSION</h4>
+          <div style="color:rgba(209,209,209,0.95);line-height:1.8;">
+            <ol style="margin:0 0 0 18px;padding:0;">
+              <li>To provide excellent academic environment to students for continuous improvement in Computer Science and Computer Network specialization and by imparting education with innovation, skills and positive attitude to make them competent engineers and leaders to solve the real world problems to inculcate values of professional ethics, leadership qualities and lifelong learning.</li>
+              <li>To strengthen the industry partnership for collaborative work and prepare graduates in cutting edge Computer Network technologies in par with industrial standards by undertaking collaborative projects which offer opportunities for long term interaction between academia and industry.</li>
+              <li>To include research, ethical values, professionalism, lifelong learning to make them globally competent and socially committed.</li>
+              <li>To provide resources that contribute to congenial learning environment and encourages students to pursue higher education and take competitive exams.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- page-container -->
+
+  <script src="/bento-animate.js" is:inline defer></script>
+  <script src="/stars.js" is:inline defer></script>
+  <script src="/scroll-animations.js" is:inline defer></script>
+  <AccessForceEffect />
+
+</Layout>
+
+<Footer />
