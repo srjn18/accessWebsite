@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bg-img { 
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.93;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.wrapper{
+    width: 100%;
+    max-width: 420px;
+    background: transparent;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    color: beige;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 15px 0;
+} 
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    transition: border-color 0.3s ease;
+}
+.input-box input:focus{
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+}
+.input-box input::placeholder{
+    color: rgba(255, 255, 255, 0.8);
+}
+.input-box img{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+.wrapper .goback{
+    margin-top: 20px;
+    text-align: center;
+}
+.wrapper .goback a{
+    color: beige;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.wrapper .goback a svg{
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+
+}
+.wrapper .goback a:hover{
+    color: rgba(245, 245, 220, 0.8);
+    text-decoration: underline;
+}
+.wrapper .access-btn{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.wrapper .access-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.wrapper .access-btn:active {
+    transform: translateY(0);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .bg-img {
+        padding: 15px;
+    }
+    
+    .wrapper {
+        padding: 25px 30px;
+    }
+
+    .wrapper h1 {
+        font-size: 28px;
+    }
+
+    .input-box input {
+        font-size: 15px;
+    }
+
+    .wrapper .access-btn {
+        font-size: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .bg-img {
+        padding: 10px;
+        min-height: 100vh;
+    }
+    
+    .wrapper {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px 20px;
+        border-width: 2px;
+    }
+
+    .wrapper h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .wrapper .input-box {
+        height: 45px;
+        margin: 12px 0;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 15px 40px 15px 15px;
+    }
+
+    .input-box img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .wrapper .access-btn {
+        height: 42px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .wrapper .goback a {
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+
+    .wrapper .goback a svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .wrapper {
+        padding: 18px 16px;
+    }
+
+    .wrapper h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .wrapper .input-box {
+        height: 42px;
+        margin: 10px 0;
+    }
+
+    .input-box input {
+        font-size: 13px;
+        padding: 12px 35px 12px 12px;
+    }
+
+    .wrapper .access-btn {
+        height: 40px;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+
+    .wrapper .goback a {
+        font-size: 0.9rem;
+    }
+}

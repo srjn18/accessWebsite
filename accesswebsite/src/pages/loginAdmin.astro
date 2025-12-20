@@ -1,0 +1,37 @@
+---
+import "../styles/login.css";
+import loginBg from '@assets/homePages/loginBg.png'
+import mailIcon from '@assets/icons/mail.svg';
+import lockIcon from '@assets/icons/lock.svg';
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+
+<section
+  class="bg-img"
+  style={`background-image: url(${loginBg.src});`}
+>
+    <div class="wrapper">
+        <form action="">
+          <h1>Admin Login</h1>
+          <div class="input-box">
+            <input type="email" placeholder="Email" required="required" />
+            <img src={mailIcon.src} alt="user icon" />
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" required="required" />
+            <img src={lockIcon.src} alt="lock icon" />
+          </div>
+
+          <button type="submit" class="access-btn">Login</button>
+
+          <div class="goback">
+            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 28 28">
+	              <path fill="#fff" d="m14 17l-5-5l5-5z" /></svg>Go Back</a>
+          </div>
+
+        </form>
+    </div>
+
+</section>
