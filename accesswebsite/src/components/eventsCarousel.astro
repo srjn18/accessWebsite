@@ -1,0 +1,162 @@
+---
+import event1 from '@assets/Events/2025-26/git.jpg';
+import event2 from '@assets/Events/2025-26/AyudhaPooja.jpg';
+import event3 from '@assets/Events/2025-26/Fresher.jpg';
+import event4 from '@assets/Events/2025-26/DSA.png';
+import event5 from '@assets/Events/2025-26/Overleaf.png';
+import event6 from '@assets/Events/2025-26/IOT.jpeg';
+import event7 from '@assets/Events/2025-26/Teacher.png';
+import event8 from '@assets/Events/2025-26/Deepavali.png';
+---
+
+<div class="page">
+  <div class="marquee">
+    <div class="track" id="track">
+
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event1.src} alt="githubEvent" />
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event2.src} alt="AyudhaPoojaEvent" />
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event3.src} alt="FresherEvent" />
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event4.src} alt="DSAEvent" />
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event5.src} alt="OverleafEvent" />
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event6.src} alt="IOTEvent" />
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event7.src} alt="TeacherEvent" />
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="card">
+        <div class="events" aria-hidden="true">
+          <img src={event8.src} alt="DeepawaliEvent" />
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --card-bg: rgba(255, 255, 255, 0.095);
+    --card-border: rgba(255, 255, 255, 1);
+    --radius: 20px;
+    --gap: 24px;
+    --blur: 9px;
+    --shadow: 0 1px 0 rgba(15, 13, 13, 0.02), 0 10px 30px rgba(0, 0, 0, .08);
+    --duration: 120s;
+  }
+
+  * { box-sizing: border-box; }
+
+  .page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+  }
+
+  .marquee {
+    width: min(1600px, 100%);
+    overflow: hidden;
+    padding: 8px;
+  }
+
+  .track {
+    display: flex;
+    gap: var(--gap);
+    width: max-content;
+    animation: scroll var(--duration) linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .card {
+    width: 360px;                 /* consistent card width */
+    aspect-ratio: 3 / 4;          /* poster ratio */
+    padding: 12px;
+
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur));
+    box-shadow: var(--shadow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .events {
+    width: 100%;
+    height: 100%;
+  }
+
+  .events img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* poster-style */
+    border-radius: calc(var(--radius) - 4px);
+  }
+</style>
+
+<script is:inline>
+  const track = document.getElementById('track');
+
+  if (track) {
+    track.innerHTML += track.innerHTML;
+
+    const SPEED_PX_PER_SEC = 50;
+
+    function setDuration() {
+      const totalWidth = track.scrollWidth / 2;
+      const duration = totalWidth / SPEED_PX_PER_SEC;
+      track.style.setProperty('--duration', `${duration}s`);
+    }
+
+    setDuration();
+    window.addEventListener('resize', setDuration);
+  }
+</script>
