@@ -360,8 +360,76 @@ canvas {
   margin: 0;
 }
 
-/* ---------- ACCESS svg styles ---------- */
+/* ---------- Events carousel styles ---------- */
+.eventsSec {
+  padding: 32px 48px 24px;   /* reduced top & bottom */
+  margin-top: 40px;
+}
 
+/* ---------- HEADER ROW ---------- */
+
+.eventsHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* ---------- TEXT ---------- */
+
+.headingWrap h2 {
+  margin: 0;
+  font-size: 3.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 40px;
+
+  /* subtle galaxy glow */
+  text-shadow:
+    0 0 12px rgba(120, 90, 255, 0.45),
+    0 0 30px rgba(80, 120, 255, 0.25);
+}
+
+.headingWrap p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  /*margin-left: 40px;*/
+  margin: 8px 0 0;
+}
+
+/* ---------- ARROW ---------- */
+
+.eventsArrow {
+  width: 65px;
+  height: 65px;
+  border-radius: 33px;
+  display: grid;
+  place-items: center;
+  margin-right: 40px;
+  margin-bottom: 60px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eventsArrow img {
+  width: 55px;
+  height: 55px;
+  filter: brightness(1.2);
+}
+
+/* Hover micro-interaction */
+.eventsArrow:hover {
+  transform: translateX(4px) scale(1.05);
+  box-shadow:
+    0 10px 30px rgba(120, 90, 255, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* event carousel*/
+.eventsCarousel {
+  margin-top: 8px;           /* instead of huge default gap */
+}
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 1200px) {
