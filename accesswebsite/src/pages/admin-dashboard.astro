@@ -1,0 +1,22 @@
+---
+// Just a test page - no authentication check yet
+---
+
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>✅ LOGIN SUCCESSFUL!</h1>
+  <p>If you see this page, the login is working correctly!</p>
+  
+  <button onclick="logout()">Logout</button>
+  
+  <script>
+    function logout() {
+      localStorage.removeItem('authToken');
+      window.location.href = '/loginAdmin';
+    }
+  </script>
+</body>
+</html>
