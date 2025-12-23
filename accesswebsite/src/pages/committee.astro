@@ -1,0 +1,460 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+// --- COMMITTEE DATA ---
+// I've separated them into "Core Team" (Big cards) and "Executive Members" (Grid)
+// for a better visual hierarchy.
+
+const coreTeam = [
+  {
+    name: "Arjun Mehta",
+    role: "President",
+    image: "", // Add image path e.g., "/images/committee/pres.jpg"
+    email: "mailto:arjun@example.com",
+    linkedin: "https://linkedin.com/in/arjun",
+  },
+  {
+    name: "Sarah Jen",
+    role: "Vice President",
+    image: "",
+    email: "mailto:sarah@example.com",
+    linkedin: "https://linkedin.com/in/sarah",
+  },
+  {
+    name: "Varun Nair",
+    role: "General Secretary",
+    image: "",
+    email: "mailto:varun@example.com",
+    linkedin: "https://linkedin.com/in/varun",
+  }
+];
+
+const executiveMembers = [
+  { name: "Karthik R", role: "Technical Lead", email: "#", linkedin: "#", image: "" },
+  { name: "Meera S", role: "Event Coordinator", email: "#", linkedin: "#", image: "" },
+  { name: "John Doe", role: "Design Head", email: "#", linkedin: "#", image: "" },
+  { name: "Jane Smith", role: "Media Lead", email: "#", linkedin: "#", image: "" },
+  { name: "Rahul V", role: "Treasurer", email: "#", linkedin: "#", image: "" },
+  { name: "Pooja K", role: "Documentation", email: "#", linkedin: "#", image: "" },
+];
+
+// Helper for initials
+function getInitials(name: string) {
+  return name.split(' ').map(n => n[0]).join('').substring(0, 2);
+}
+---
+
+<Navbar />
+<Layout title="Committee | The Team">
+  
+  <!-- BACKGROUND: Indigo/Pink Nebula -->
+  <div class="cosmos-bg">
+    <canvas id="starCanvas"></canvas>
+    <div class="nebula-orb orb-1"></div>
+    <div class="nebula-orb orb-2"></div>
+  </div>
+
+  <div class="command-deck">
+    
+    <!-- HEADER -->
+    <header class="deck-header">
+      <div class="hud-line"></div>
+      <h1 class="deck-title">CORE <span class="hollow">COMMITTEE</span></h1>
+      <p class="deck-subtitle">The driving force behind our department's initiatives.</p>
+    </header>
+
+    <!-- SECTION 1: THE CORE (Triangle Layout or Centered) -->
+    <section class="core-section">
+      <div class="core-grid">
+        {coreTeam.map((member) => (
+          <div class="hud-card core-card">
+            <div class="card-border"></div>
+            <div class="card-content">
+              <div class="member-image-container">
+                {member.image ? (
+                  <img src={member.image} alt={member.name} class="member-img" />
+                ) : (
+                  <div class="member-placeholder">{getInitials(member.name)}</div>
+                )}
+                <div class="role-tag">{member.role}</div>
+              </div>
+              
+              <div class="member-info">
+                <h3>{member.name}</h3>
+                
+                <div class="social-dock">
+                  <a href={member.email} class="dock-item" aria-label="Mail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  </a>
+                  <div class="dock-line"></div>
+                  <a href={member.linkedin} target="_blank" class="dock-item" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXECUTIVES (Compact Grid) -->
+    <section class="exec-section">
+      <div class="section-divider">
+        <span class="divider-text">EXECUTIVE BOARD // 2024</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="exec-grid">
+        {executiveMembers.map((member) => (
+          <div class="hud-card exec-card">
+            <div class="card-border"></div>
+            <div class="card-content">
+              <div class="exec-flex">
+                <div class="exec-avatar">
+                   {member.image ? (
+                    <img src={member.image} alt={member.name} />
+                  ) : (
+                    <span>{getInitials(member.name)}</span>
+                  )}
+                </div>
+                <div class="exec-details">
+                  <h4>{member.name}</h4>
+                  <span class="exec-role">{member.role}</span>
+                </div>
+                <div class="exec-actions">
+                  <a href={member.linkedin} target="_blank" class="mini-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/stars.js" is:inline defer></script>
+</Layout>
+
+<style>
+  /* --- THEME: INDIGO COMMAND DECK --- */
+
+  .cosmos-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #09090b;
+    overflow: hidden;
+  }
+
+  .nebula-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: floatOrb 10s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #8b5cf6; /* Violet */
+    top: -100px;
+    left: -100px;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #ec4899; /* Pink */
+    bottom: 0;
+    right: -100px;
+    animation-delay: -5s;
+  }
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 50px); }
+  }
+
+  #starCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+
+  /* --- LAYOUT --- */
+  .command-deck {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 7rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- HEADER --- */
+  .deck-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .hud-line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #ec4899);
+    margin: 0 auto 1rem;
+  }
+
+  .deck-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .hollow {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+  }
+
+  .deck-subtitle {
+    color: #a1a1aa;
+    margin-top: 0.5rem;
+    font-family: monospace;
+  }
+
+  /* --- COMMON CARD STYLES (HUD LOOK) --- */
+  .hud-card {
+    position: relative;
+    background: rgba(20, 20, 25, 0.4);
+    backdrop-filter: blur(10px);
+    /* Sci-fi "cut corners" shape */
+    clip-path: polygon(
+      20px 0, 100% 0, 
+      100% calc(100% - 20px), calc(100% - 20px) 100%, 
+      0 100%, 0 20px
+    );
+    transition: transform 0.3s ease;
+  }
+
+  .hud-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-border {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.1));
+    z-index: -1;
+  }
+  
+  /* Glowing corners logic could be added here, but keeping it simpler for clean code */
+
+  /* --- SECTION 1: CORE TEAM --- */
+  .core-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .core-card {
+    width: 300px;
+    padding: 2px; /* For border effect */
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), transparent) border-box; 
+    /* The clip-path needs to apply to the wrapper */
+  }
+
+  .core-card .card-content {
+    background: #0f0f12; /* Darker inner */
+    height: 100%;
+    padding: 2rem 1.5rem;
+    clip-path: polygon(
+      19px 0, 100% 0, 
+      100% calc(100% - 19px), calc(100% - 19px) 100%, 
+      0 100%, 0 19px
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+  }
+
+  .member-img, .member-placeholder {
+    width: 100%;
+    height: 100%;
+    /* Hexagon Image Shape */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    object-fit: cover;
+    background: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #52525b;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .role-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8b5cf6;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+  }
+
+  .member-info h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .social-dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.03);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .dock-line {
+    width: 1px;
+    height: 15px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .dock-item {
+    color: #a1a1aa;
+    transition: color 0.2s;
+    display: flex;
+  }
+
+  .dock-item:hover {
+    color: #ec4899;
+  }
+
+  /* --- SECTION 2: EXECUTIVES --- */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .divider-text {
+    font-family: monospace;
+    color: #ec4899;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .divider-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, #ec4899, transparent);
+  }
+
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .exec-card {
+    border-left: 2px solid rgba(236, 72, 153, 0.5); /* Pink accent border */
+  }
+
+  .exec-card .card-content {
+    padding: 1.25rem;
+  }
+
+  .exec-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .exec-avatar {
+    width: 50px;
+    height: 50px;
+    background: #27272a;
+    border-radius: 8px; /* Slightly rounded square */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .exec-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .exec-avatar span {
+    color: #71717a;
+    font-weight: 700;
+  }
+
+  .exec-details {
+    flex-grow: 1;
+  }
+
+  .exec-details h4 {
+    margin: 0;
+    color: #e4e4e7;
+    font-size: 1rem;
+  }
+
+  .exec-role {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+    font-family: monospace;
+  }
+
+  .mini-icon {
+    color: #52525b;
+    transition: color 0.2s;
+  }
+
+  .mini-icon:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .deck-title { font-size: 2rem; }
+    .core-grid { gap: 3rem; } /* More space for vertical stack */
+  }
+</style>

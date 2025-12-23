@@ -395,8 +395,7 @@ canvas {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
   line-height: 2rem;
-  /*margin-left: 40px;*/
-  margin: 8px 0 0;
+  margin: 20px 0 0 40px;
 }
 
 /* ---------- ARROW ---------- */
