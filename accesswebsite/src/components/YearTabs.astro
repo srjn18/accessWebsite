@@ -1,0 +1,34 @@
+---
+const { years } = Astro.props;
+---
+
+<div class="year-tabs">
+  {years.map(year => (
+    <button class="year-tab" data-year={year}>{year}</button>
+  ))}
+</div>
+
+<style>
+.year-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.year-tab {
+  background: transparent;
+  border: 1px solid #ff5e00;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.year-tab:hover,
+.year-tab.active {
+  background: linear-gradient(135deg, #ff5e00, #8a2be2);
+  box-shadow: 0 0 20px #ff5e00;
+}
+</style>
