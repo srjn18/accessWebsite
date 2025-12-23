@@ -1,0 +1,206 @@
+---
+import MemberCard from "../components/MemberCard.astro";
+import YearTabs from "../components/YearTabs.astro";
+import { committeeData } from "../data/committee";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const years = Object.keys(committeeData);
+---
+
+<Navbar />
+
+<Layout>
+  <main class="space">
+
+    <!-- ⭐ MOVING STARS -->
+    <div class="stars"></div>
+
+    <!-- 🪨 FLOATING STONES -->
+    <div class="stones">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- 🚀 AUTO ROCKETS -->
+    <div class="rockets">
+      <span></span><span></span><span></span>
+    </div>
+
+    <!-- 📄 CONTENT -->
+    <div class="content">
+      <h1 class="page-title">ACCESS Committee Members</h1>
+
+      <YearTabs years={years} />
+
+      {years.map((year) => (
+        <section class="year-section" data-year={year}>
+          <h2 class="year-title">{committeeData[year].title}</h2>
+
+          <div class="grid">
+            {committeeData[year].members.map((member) => (
+              <MemberCard {...member} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+  </main>
+</Layout>
+
+<Footer />
+
+<!-- ================= JS ================= -->
+<script>
+  const tabs = document.querySelectorAll(".year-tab");
+  const sections = document.querySelectorAll(".year-section");
+
+  function showYear(year) {
+    sections.forEach(section => {
+      section.style.display =
+        section.dataset.year === year ? "block" : "none";
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      showYear(tab.dataset.year);
+    });
+  });
+
+  if (tabs.length) {
+    tabs[0].classList.add("active");
+    showYear(tabs[0].dataset.year);
+  }
+</script>
+
+<!-- ================= CSS ================= -->
+<style>
+/* ===== BASE SPACE ===== */
+.space {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0b0033, #000);
+}
+
+/* ===== MOVING STARS ===== */
+.stars {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 30% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 70% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 90% 10%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 75%, #fff, transparent);
+  background-size: 200px 200px;
+  animation: starMove 60s linear infinite;
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes starMove {
+  from { background-position: 0 0; }
+  to { background-position: -2000px 2000px; }
+}
+
+/* ===== STONES ===== */
+.stones span {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at top, #aaa, #333);
+  border-radius: 50%;
+  opacity: 0.45;
+  animation: floatStone linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stones span:nth-child(1){ top:20%; left:10%; animation-duration:20s; }
+.stones span:nth-child(2){ top:60%; left:80%; animation-duration:26s; }
+.stones span:nth-child(3){ top:40%; left:40%; animation-duration:24s; }
+.stones span:nth-child(4){ top:75%; left:25%; animation-duration:30s; }
+.stones span:nth-child(5){ top:30%; left:70%; animation-duration:22s; }
+
+@keyframes floatStone {
+  to { transform: translateY(-600px) rotate(360deg); }
+}
+
+/* ===== ROCKETS ===== */
+.rockets span {
+  position: fixed;
+  width: 70px;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, #ffd166, #ff7b00, white);
+  filter: drop-shadow(0 0 12px #ff7b00);
+  animation: rocketFly 8s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rockets span::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 6px;
+  background: radial-gradient(circle, #fff176, #ff3c00, transparent);
+}
+
+.rockets span:nth-child(1){ top:30%; animation-delay:0s; }
+.rockets span:nth-child(2){ top:55%; animation-delay:2.5s; }
+.rockets span:nth-child(3){ top:75%; animation-delay:5s; }
+
+@keyframes rocketFly {
+  from { transform: translate(-300px,300px) rotate(45deg); opacity:0; }
+  10% { opacity:1; }
+  to { transform: translate(1400px,-800px) rotate(45deg); opacity:0; }
+}
+
+/* ===== CONTENT ===== */
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 90px 24px;
+  color: white;
+}
+
+.page-title {
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 40px;
+  background: linear-gradient(90deg,#ff6a00,#9d4edd);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.year-title {
+  text-align: center;
+  color: #e9c6ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.year-section {
+  display: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:480px){
+  .grid{ grid-template-columns:1fr; }
+}
+</style>
