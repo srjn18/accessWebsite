@@ -21,7 +21,7 @@ const { name, role, semester, image } = Astro.props;
 }
 
 .member-card:hover {
-  transform: translateY(-10px) scale(1.05);
+  transform: translateY(-10px) scale(0.9);
   box-shadow: 0 0 40px rgba(255, 94, 0, 0.8);
 }
 
@@ -34,10 +34,11 @@ const { name, role, semester, image } = Astro.props;
 .role {
   color: #ff9f43;
   font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .semester {
   color: #cfcfcf;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 </style>

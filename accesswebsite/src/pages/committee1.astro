@@ -1,5 +1,5 @@
 ---
-import MemberCard from "../components/MemberCard.astro";
+import MemberCard from "../components/Membercard.astro";
 import YearTabs from "../components/YearTabs.astro";
 import { committeeData } from "../data/committee";
 import Layout from "../layouts/Layout.astro";
@@ -35,10 +35,10 @@ const years = Object.keys(committeeData);
 
       {years.map((year) => (
         <section class="year-section" data-year={year}>
-          <h2 class="year-title">{committeeData[year].title}</h2>
+          <h2 class="year-title">{committeeData[year as keyof typeof committeeData].title}</h2>
 
           <div class="grid">
-            {committeeData[year].members.map((member) => (
+            {committeeData[year as keyof typeof committeeData].members.map((member) => (
               <MemberCard {...member} />
             ))}
           </div>
@@ -56,10 +56,10 @@ const years = Object.keys(committeeData);
   const tabs = document.querySelectorAll(".year-tab");
   const sections = document.querySelectorAll(".year-section");
 
-  function showYear(year) {
+  function showYear(year: string) {
     sections.forEach(section => {
-      section.style.display =
-        section.dataset.year === year ? "block" : "none";
+      (section as HTMLElement).style.display =
+        (section as HTMLElement).dataset.year === year ? "block" : "none";
     });
   }
 
@@ -67,13 +67,13 @@ const years = Object.keys(committeeData);
     tab.addEventListener("click", () => {
       tabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
-      showYear(tab.dataset.year);
+      showYear((tab as HTMLElement).dataset.year || "");
     });
   });
 
   if (tabs.length) {
     tabs[0].classList.add("active");
-    showYear(tabs[0].dataset.year);
+    showYear((tabs[0] as HTMLElement).dataset.year || "");
   }
 </script>
 

@@ -3,7 +3,7 @@ const { years } = Astro.props;
 ---
 
 <div class="year-tabs">
-  {years.map(year => (
+  {years.map((year: string) => (
     <button class="year-tab" data-year={year}>{year}</button>
   ))}
 </div>
