@@ -1,0 +1,765 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Navbar />
+
+<Layout>
+  <!-- Animated Orange Starfield Background -->
+  <div class="bg-animation">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div id="stars4"></div>
+  </div>
+
+  <div class="page-container">
+    <section id="events-section" style="padding: 60px 20px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header" style="margin-bottom: 40px;">
+          <div class="vm-card" style="padding: 30px; border-radius: 12px;">
+            <h2 class="section-title" style="text-align: center; margin: 0 0 10px 0;">Our Events</h2>
+            <p class="section-subtitle" style="text-align: center; margin: 0; color: rgba(209,209,209,0.95);">
+              Explore the exciting events and activities organized by ACCESS
+            </p>
+          </div>
+        </div>
+
+        <!-- Year Tabs -->
+        <div class="year-tabs-container" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;">
+          <button class="year-tab active" data-year="2025-26" style="padding: 12px 30px; background: rgba(196, 153, 82, 0.2); border: 2px solid rgba(196, 153, 82, 0.5); border-radius: 8px; color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+            2025-26
+          </button>
+          <button class="year-tab" data-year="2024-25" style="padding: 12px 30px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.2); border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+            2024-25
+          </button>
+        </div>
+
+        <!-- Events 2025-26 -->
+        <div id="year-2025-26" class="year-content" style="display: block;">
+          <h3 style="color: rgba(255,255,255,0.9); font-size: 1.5rem; margin-bottom: 25px; text-align: center;">
+            Academic Year 2025-26
+          </h3>
+          <div class="events-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/AyudhaPooja.jpg" alt="Ayudha Pooja" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Ayudha Pooja</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Ayudha Pooja</h4>
+                  <p>Traditional Ayudha Pooja celebration with the department, marking gratitude for tools and knowledge.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/DSA.png" alt="DSA Workshop" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">DSA Workshop</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>DSA Workshop</h4>
+                  <p>Hands-on Data Structures and Algorithms practice session to strengthen problem‑solving skills.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/Garba_Poster.png" alt="Garba Night" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Garba Night</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Garba Night</h4>
+                  <p>Festive Garba evening filled with music, dance and celebration for the whole department.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/Git.jpg" alt="Git Workshop" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Git Workshop</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Git Workshop</h4>
+                  <p>Introduction to Git and GitHub, teaching version control basics and collaborative workflows.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/ISRO.jpg" alt="ISRO Event" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">ISRO Event</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>ISRO Event</h4>
+                  <p>Session highlighting ISRO’s missions and opportunities for students in space and research domains.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/Madvertising.jpg" alt="Madvertising" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Madvertising</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Madvertising</h4>
+                  <p>Creative marketing and ad‑making competition to showcase imagination and presentation skills.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/memory.jpg" alt="Memory Challenge" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Memory Challenge</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Memory Challenge</h4>
+                  <p>Fun game to test memory, focus and attention through interactive rounds.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/MindQuest.png" alt="MindQuest" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">MindQuest</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>MindQuest</h4>
+                  <p>Quiz‑style event covering logic, tech and general knowledge to challenge curious minds.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/rangoli.jpeg" alt="Rangoli Competition" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Rangoli Competition</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Rangoli Competition</h4>
+                  <p>Artistic Rangoli designs bringing color and creativity to the campus corridors.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2025-26/Teacher.png" alt="Teacher's Day" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Teacher's Day</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Teacher's Day</h4>
+                  <p>Celebration to appreciate and thank our faculty for their guidance and support.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events 2024-25 -->
+        <div id="year-2024-25" class="year-content" style="display: none;">
+          <h3 style="color: rgba(255,255,255,0.9); font-size: 1.5rem; margin-bottom: 25px; text-align: center;">
+            Academic Year 2024-25
+          </h3>
+          <div class="events-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/AccessFootball.webp" alt="Access Football" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Access Football</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Access Football</h4>
+                  <p>Friendly football tournament conducted by ACCESS to encourage teamwork and sportsmanship.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/Bollywood.png" alt="Bollywood Night" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Bollywood Night</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Bollywood Night</h4>
+                  <p>Cultural evening with Bollywood music, dance and performances by students.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/DataStructures.webp" alt="Data Structures Workshop" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Data Structures Workshop</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Data Structures Workshop</h4>
+                  <p>Concepts and practice problems on core data structures for coding interviews.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/GitHubWorkshop.webp" alt="GitHub Workshop" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">GitHub Workshop</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>GitHub Workshop</h4>
+                  <p>Session on using GitHub for open source, collaboration and portfolio building.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/GoodVibesGathering.webp" alt="Good Vibes Gathering" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Good Vibes Gathering</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Good Vibes Gathering</h4>
+                  <p>Relaxed get‑together with games and activities to build community in the department.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/LogoRush.webp" alt="Logo Rush" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Logo Rush</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Logo Rush</h4>
+                  <p>Design sprint where participants create and present creative logos under time pressure.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/MemeWar.png" alt="Meme War" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Meme War</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Meme War</h4>
+                  <p>Online/offline meme competition showcasing humor and creativity around tech and campus life.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/Militia.webp" alt="Militia" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Militia</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Militia</h4>
+                  <p>Team‑based strategy event combining puzzles, tasks and coordination challenges.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/PrepQuest.png" alt="PrepQuest" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">PrepQuest</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>PrepQuest</h4>
+                  <p>Preparation‑oriented quiz focusing on aptitude, reasoning and placement‑style questions.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/Quiz.jpg" alt="Quiz Competition" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Quiz Competition</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Quiz Competition</h4>
+                  <p>General and technical quiz event conducted in multiple exciting rounds.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/SmokelessBites.png" alt="Smokeless Bites" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Smokeless Bites</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Smokeless Bites</h4>
+                  <p>Food‑themed event promoting creativity and fun with smoke‑free snacks and stalls.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/Spin.png" alt="Spin" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Spin</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Spin</h4>
+                  <p>Interactive spin‑the‑wheel style event with quick games and instant prizes.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/Startup.webp" alt="Startup Event" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Startup Event</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Startup Event</h4>
+                  <p>Platform for pitching startup ideas, getting feedback and learning entrepreneurship basics.</p>
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-card-inner">
+                <div class="event-card-front">
+                  <img src="/images/Events/2024-25/TechFusion.webp" alt="Tech Fusion" />
+                  <div class="event-card-body">
+                    <h4 style="margin: 0; color: rgba(255,255,255,0.9);">Tech Fusion</h4>
+                  </div>
+                </div>
+                <div class="event-card-back">
+                  <h4>Tech Fusion</h4>
+                  <p>Flagship tech event combining coding, hardware, and innovation‑driven challenges.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/scroll-animations.js" is:inline defer></script>
+
+  <script>
+    // Generate orange stars dynamically
+    function generateStars() {
+      const starColor = '#c49952';
+      const maxX = Math.max(window.innerWidth, 2000);
+      const maxY = Math.max(window.innerHeight, 2000);
+      
+      function createStarShadows(count, width, height) {
+        let shadows = [];
+        for (let i = 0; i < count; i++) {
+          const x = Math.random() * width;
+          const y = Math.random() * height;
+          shadows.push(`${Math.round(x)}px ${Math.round(y)}px ${starColor}`);
+        }
+        return shadows.join(', ');
+      }
+      
+      const stars1 = document.getElementById('stars');
+      const stars2 = document.getElementById('stars2');
+      const stars3 = document.getElementById('stars3');
+      const stars4 = document.getElementById('stars4');
+      
+      // Remove existing after elements
+      document.querySelectorAll('.star-after').forEach(el => el.remove());
+      
+      if (stars1) {
+        const shadow = createStarShadows(200, maxX, maxY);
+        stars1.style.boxShadow = shadow;
+        const after1 = stars1.cloneNode(true);
+        after1.className = 'star-after';
+        after1.style.top = '2000px';
+        after1.style.animationDuration = '50s';
+        after1.style.boxShadow = shadow;
+        stars1.parentNode.appendChild(after1);
+      }
+      
+      if (stars2) {
+        const shadow = createStarShadows(100, maxX, maxY);
+        stars2.style.boxShadow = shadow;
+        const after2 = stars2.cloneNode(true);
+        after2.className = 'star-after';
+        after2.style.top = '2000px';
+        after2.style.animationDuration = '100s';
+        after2.style.boxShadow = shadow;
+        stars2.parentNode.appendChild(after2);
+      }
+      
+      if (stars3) {
+        const shadow = createStarShadows(50, maxX, maxY);
+        stars3.style.boxShadow = shadow;
+        const after3 = stars3.cloneNode(true);
+        after3.className = 'star-after';
+        after3.style.top = '2000px';
+        after3.style.animationDuration = '150s';
+        after3.style.boxShadow = shadow;
+        stars3.parentNode.appendChild(after3);
+      }
+      
+      if (stars4) {
+        const shadow = createStarShadows(300, maxX, maxY);
+        stars4.style.boxShadow = shadow;
+        const after4 = stars4.cloneNode(true);
+        after4.className = 'star-after';
+        after4.style.top = '2000px';
+        after4.style.animationDuration = '600s';
+        after4.style.boxShadow = shadow;
+        stars4.parentNode.appendChild(after4);
+      }
+    }
+    
+    // Generate stars on load and resize
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', generateStars);
+    } else {
+      generateStars();
+    }
+    window.addEventListener('resize', generateStars);
+
+    // Year tab switching + card glow behaviour
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.year-tab');
+      const contents = document.querySelectorAll('.year-content');
+
+      // Year tab switching
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const selectedYear = this.getAttribute('data-year');
+
+          // Update tab styles
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.style.background = 'rgba(255,255,255,0.05)';
+            t.style.borderColor = 'rgba(255,255,255,0.2)';
+            t.style.color = 'rgba(255,255,255,0.7)';
+          });
+
+          this.classList.add('active');
+          this.style.background = 'rgba(196, 153, 82, 0.2)';
+          this.style.borderColor = 'rgba(196, 153, 82, 0.5)';
+          this.style.color = 'rgba(255,255,255,0.9)';
+
+          // Show/hide content
+          contents.forEach(content => {
+            if (content.id === `year-${selectedYear}`) {
+              content.style.display = 'block';
+            } else {
+              content.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Card glow that follows cursor inside each event card
+      const cardInners = document.querySelectorAll<HTMLElement>('.event-card-inner');
+      cardInners.forEach(inner => {
+        // Create glow overlay
+        const glow = document.createElement('div');
+        glow.className = 'event-card-glow';
+        inner.appendChild(glow);
+
+        // Ensure base border/shadow
+        (inner as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)';
+        (inner as HTMLElement).style.boxShadow = 'none';
+
+        // Bobbing animation while hovered
+        inner.addEventListener('mouseenter', () => {
+          inner.classList.add('hover-bob');
+        });
+        inner.addEventListener('mouseleave', () => {
+          inner.classList.remove('hover-bob');
+        });
+
+        inner.addEventListener('mousemove', (e) => {
+          const rect = inner.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+
+          const dx = (x - cx) / rect.width;
+          const dy = (y - cy) / rect.height;
+          const dist = Math.sqrt(dx * dx + dy * dy); // 0 at center
+
+          let intensity = 1 - dist * 1.5;
+          // Extra boost when cursor is near the top of the card
+          const topBoost = Math.max(0, (cy - y) / cy); // 1 at very top, 0 at center/bottom
+          intensity += 0.4 * topBoost;
+          if (intensity < 0) intensity = 0;
+          if (intensity > 1) intensity = 1;
+
+          const px = (x / rect.width) * 100;
+          const py = (y / rect.height) * 100;
+
+          glow.style.opacity = intensity.toString();
+          const innerRadius = 20 + 10 * topBoost;
+          const midRadius = 40 + 10 * topBoost;
+          glow.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(196,153,82,${0.6 + 0.2 * topBoost}) 0%, rgba(196,153,82,0.25) ${innerRadius}%, transparent ${midRadius}%)`;
+
+          (inner as HTMLElement).style.borderColor = `rgba(196,153,82,${0.25 + 0.45 * intensity})`;
+          (inner as HTMLElement).style.boxShadow = `0 ${-1 - 3 * topBoost}px ${20 + 22 * intensity}px rgba(196,153,82,${0.2 + 0.35 * intensity})`;
+        });
+
+        inner.addEventListener('mouseleave', () => {
+          glow.style.opacity = '0';
+          (inner as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)';
+          (inner as HTMLElement).style.boxShadow = 'none';
+          inner.classList.remove('hover-bob');
+        });
+      });
+    });
+  </script>
+
+</Layout>
+
+<Footer />
+
+<style>
+  /* Black background */
+  body {
+    background-color: black;
+  }
+
+  /* Starfield Background Animation */
+  .bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    overflow: hidden;
+  }
+
+  .full-wh {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  /* Ensure page content appears above background */
+  .page-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .year-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(196, 153, 82, 0.3);
+  }
+
+  .year-tab.active {
+    background: rgba(196, 153, 82, 0.2) !important;
+    border-color: rgba(196, 153, 82, 0.5) !important;
+    color: rgba(255,255,255,0.9) !important;
+  }
+
+  .year-content {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stars Layer 1 - Small stars */
+  #stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: absolute;
+    animation: animStar 50s linear infinite;
+  }
+
+  /* Stars Layer 2 - Medium stars */
+  #stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    position: absolute;
+    animation: animStar 100s linear infinite;
+  }
+
+  /* Stars Layer 3 - Large stars */
+  #stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    position: absolute;
+    animation: animStar 150s linear infinite;
+  }
+
+  /* Stars Layer 4 - Tiny stars */
+  #stars4 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: absolute;
+    animation: animStar 600s linear infinite;
+  }
+
+  /* Duplicate stars for seamless loop */
+  .star-after {
+    position: absolute;
+    animation: animStar linear infinite;
+  }
+
+  /* Star animation keyframes */
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
+
+  /* Event card (no flip, simple hover effect) */
+  .event-card {
+    height: 100%;
+  }
+
+  .event-card-inner {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  }
+
+  .event-card-front {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-card-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .event-card-front .event-card-body {
+    padding: 20px;
+  }
+
+  /* Hide back side completely (no flip) */
+  .event-card-back {
+    display: none;
+  }
+
+  .event-card:hover .event-card-inner {
+    border-color: rgba(196, 153, 82, 0.5);
+    box-shadow: 0 10px 30px rgba(196, 153, 82, 0.3);
+  }
+
+  /* Glow overlay that follows cursor inside event card */
+  .event-card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    mix-blend-mode: screen;
+  }
+
+  .event-card-inner.hover-bob {
+    animation: card-bob 3s ease-in-out infinite;
+  }
+
+  @keyframes card-bob {
+    0%   { transform: translateY(-4px); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(-4px); }
+  }
+
+  @media (max-width: 768px) {
+    .events-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .year-tabs-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .year-tab {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+</style>
+
