@@ -1,0 +1,464 @@
+---
+import Layout from "../layouts/Layout.astro";
+import adminBg from '@assets/homePages/adminBg.png'
+
+// Note: In a real application, you would add authentication checks here
+// to prevent unauthorized access.
+---
+
+<section
+  class="bg-img"
+  style={`background-image: url(${adminBg.src});`}
+>
+  <!-- Background -->
+  <div class="admin-bg">
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="admin-badge">ADMIN</div>
+        <h3>Control Panel</h3>
+      </div>
+      
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-target="events">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Manage Events
+        </button>
+        <button class="nav-btn" data-target="placements">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          Add Placement
+        </button>
+        <button class="nav-btn" data-target="committee">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Update Committee
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" class="back-link"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 256 256">
+	<path fill="#fff" d="M230 128a6 6 0 0 1-6 6H86.49l61.75 61.76a6 6 0 1 1-8.48 8.48l-72-72a6 6 0 0 1 0-8.48l72-72a6 6 0 0 1 8.48 8.48L86.49 122H224a6 6 0 0 1 6 6M40 34a6 6 0 0 0-6 6v176a6 6 0 0 0 12 0V40a6 6 0 0 0-6-6" />
+</svg>Back to Website</a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+      
+      <!-- 1. EVENTS FORM -->
+      <section id="events" class="panel active">
+        <div class="panel-header">
+          <h2>Post New Event</h2>
+          <p>Add upcoming seminars, workshops, or college fests.</p>
+        </div>
+        
+        <form id="admin-form">
+          <div class="form-group">
+            <h4>Event Title</h4>
+            <input type="text" placeholder="e.g. AI Workshop 2024" />
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <h4>Date</h4>
+              <input type="date" />
+            </div>
+            <div class="form-group">
+              <h4>Time</h4>
+              <input type="time" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <h4>Description</h4>
+            <textarea rows="4" placeholder="Event details..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <h4>Registration Link / Image URL</h4>
+            <input type="url" placeholder="https://..." />
+          </div>
+
+          <button type="submit" class="save-btn">Publish Event</button>
+        </form>
+      </section>
+
+      <!-- 2. PLACEMENTS FORM -->
+      <section id="placements" class="panel">
+        <div class="panel-header">
+          <h2>Add Placement Record</h2>
+          <p>Update the achievers wall with new offers.</p>
+        </div>
+
+        <form id="admin-form">
+          <div class="form-group">
+            <h4>Year of Placement</h4>
+            <select>
+              <option>2025-26</option>
+              <option>2024-25</option>
+              <option>2023-24</option>
+              <option>2022-23</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <h4>Student Name</h4>
+            <input type="text" placeholder="e.g. Aditi Rao" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <h4>Company</h4>
+              <input type="text" placeholder="e.g. Google" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <h4>LinkedIn URL</h4>
+              <input type="url" placeholder="https://linkedin.com/in/..." />
+            </div>
+            <div class="form-group">
+              <h4>Email Address</h4>
+              <input type="email" placeholder="student@example.com" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+             <h4>Photo URL</h4>
+             <input type="text" placeholder="/images/students/..." />
+          </div>
+
+          <button type="submit" class="save-btn">Save Record</button>
+        </form>
+      </section>
+
+      <!-- 3. COMMITTEE FORM -->
+      <section id="committee" class="panel">
+        <div class="panel-header">
+          <h2>Update Committee Member</h2>
+          <p>Add or edit core team details.</p>
+        </div>
+
+        <form id="admin-form">
+          <div class="form-group">
+            <h4>Full Name</h4>
+            <input type="text" placeholder="e.g. Rahul Verma" />
+          </div>
+
+          <div class="form-group">
+            <h4>Position / Role</h4>
+            <select>
+              <option>President</option>
+              <option>Vice President</option>
+              <option>Branch Captain</option>
+              <option>Vice Branch Captain</option>
+              <option>Secretary</option>
+              <option>Joint-Secretary</option>
+              <option>Treasurer</option>
+              <option>Co-Treasurer</option>
+              <option>Technical Lead</option>
+              <option>Co-Technical 1</option>
+              <option>Co-Technical 2</option>
+              <option>Cultural Coordinator</option>
+              <option>Co-cultural 1</option>
+              <option>Co-cultural 2</option>
+              <option>Sports</option>
+              <option>Co-sports</option>
+              <option>Graphics</option>
+              <option>Co-graphics</option>
+              <option>Magazine</option>
+              <option>Co-magzine</option>
+              <option>Media Head</option>
+              <option>Co-media 1</option>
+              <option>Co-media 2</option>
+              <option>Publicity</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+             <h4>Profile Image URL</h4>
+             <input type="text" placeholder="/images/committee/..." />
+          </div>
+
+          <button type="submit" class="save-btn">Add Member</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+</section>
+
+<script>
+import { string } from "astro:schema";
+
+  // Simple Tab Switching Logic
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all
+      navBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      // Add active to clicked
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) {
+        document.getElementById(targetId)?.classList.add('active');
+      }
+    });
+  });
+
+  // Mock Form Submission
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Details saved successfully! (Backend integration required to persist data)");
+      form.reset();
+    });
+  });
+</script>
+
+<style>
+  /* --- ADMIN PAGE STYLES --- */
+  
+  .admin-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #0f172a;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+  }
+
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* --- SIDEBAR --- */
+  .sidebar {
+    width: 280px;
+    background: rgba(15, 23, 42, 0.9);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .sidebar-header {
+    margin-bottom: 3rem;
+  }
+
+  .admin-badge {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .nav-btn:hover {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+  }
+
+  .nav-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    font-weight: 500;
+  }
+
+  .sidebar-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+  }
+
+  .back-link {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+    margin-left: 0.5rem
+  }
+
+  .back-link svg{
+    margin-right:0.5rem;
+    vertical-align: middle;
+  }
+
+  .back-link:hover { color: #fff; }
+
+  /* --- CONTENT AREA --- */
+  .content-area {  /*main class content */
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  .panel {
+    display: none; /* Hidden by default */
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .panel.active {
+    display: block; /* Show active tab */
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-header {
+    margin-bottom: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    align-items: relative;
+  }
+
+  .panel-header h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0.7rem;
+  }
+
+  .panel-header p {
+    color: #94a3b8;
+  }
+
+  /* --- FORMS --- */
+  .admin-form {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+    width:100%;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+
+  h4 {   /*form label issue solved ! */
+    display: block;
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #09284f;
+    background: rgba(0, 0, 0, 0.292);
+  }
+
+  /* Specific Input Styles */
+  input[type="date"], input[type="time"] {
+    color-scheme: dark;
+  }
+
+  /* Button */
+  .save-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dashboard-container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .content-area { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</html>
