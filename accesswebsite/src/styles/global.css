@@ -331,24 +331,6 @@ canvas {
   }
 
 
-/* ---------- FEATURES SECTION - FLUID LAYOUT ---------- */
-#features-section {
-  margin: 50px auto;
-  padding: 20px 20px;
-  position: relative;
-}
-
-.features-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  position: relative;
-}
-
-
-
 /* ------------------------------------------------------ */
 /*                AURORA RIBBON WAVE BACKGROUND           */
 /* ------------------------------------------------------ */
@@ -396,7 +378,7 @@ canvas {
 
 /* ---------- PRINCIPAL'S MESSAGE - COMPACT LAYOUT ---------- */
 #headmessage {
-  padding: 60px 60px 80px;
+  padding: 40px 60px 80px;
   position: relative;
 }
 
@@ -463,6 +445,33 @@ canvas {
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+
+/* ===== HEADER ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #8fd3f4, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  color: #b8c1ff;
+  opacity: 0.85;
+  margin-top: 0px;
+  font-size: 1.6rem;
+  margin-bottom: 0px;
+}
+
+/* ===== BENTO GRID ===== */
+
 /* ===== SECTION ===== */
 #features-section {
   padding: 100px 6vw;
@@ -481,30 +490,6 @@ canvas {
   z-index: 0;
 }
 
-/* ===== HEADER ===== */
-.section-header {
-  text-align: center;
-  margin-bottom: 70px;
-  position: relative;
-  z-index: 1;
-}
-
-.section-title {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, #8fd3f4, #c77dff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-subtitle {
-  color: #b8c1ff;
-  opacity: 0.85;
-  margin-top: 0px;
-  font-size: 1.2rem;
-}
-
-/* ===== BENTO GRID ===== */
 .features-grid {
   position: relative;
   z-index: 1;
@@ -516,7 +501,7 @@ canvas {
 
 /* large bento */
 .feature-card-large {
-  grid-row: span 2;
+  grid-row: span 1;
 }
 
 /* ===== CARD BASE ===== */
@@ -524,7 +509,7 @@ canvas {
   background: rgba(18, 22, 45, 0.75);
   backdrop-filter: blur(14px);
   border-radius: 26px;
-  padding: 30px;
+  padding: 25px;
   border: 1px solid rgba(120,160,255,0.25);
   box-shadow:
     0 0 30px rgba(120,160,255,0.15),
@@ -532,24 +517,8 @@ canvas {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
+  margin-top: 0;
 }
-
-/* glow edge 
-.feature-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(140,180,255,0.35),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}*/
-
 .feature-card:hover {
   transform: translateY(-10px);
   box-shadow:
@@ -567,14 +536,17 @@ canvas {
 }
 
 .card-title {
+  text-decoration:dashed underline;
   font-size: 1.6rem;
   letter-spacing: 1px;
   color: #e0e6ff;
+  text-align: center;
 }
 
 .card-content p {
   color: #c6ccff;
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 /* ===== PROGRAM LIST ===== */
@@ -591,7 +563,7 @@ canvas {
   border: 1px solid rgba(160,180,255,0.25);
   text-align: center;
   color: #f2f4ff;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -654,7 +626,7 @@ canvas {
   background: rgba(150, 80, 255, 0.15);
   border: 1px solid rgba(150, 80, 255, 0.3);
   border-radius: 12px;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -670,19 +642,19 @@ canvas {
 }
 
 .vm-text {
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-  line-height: 1.8;
+  font-size: clamp(1.4rem, 2vw, 1.4rem);
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
 /* ---------- Events carousel styles ---------- */
-.eventsSec {
-  padding: 32px 48px 24px;   /* reduced top & bottom */
+/*.eventsSec {
+  padding: 32px 48px 24px;   /* reduced top & bottom 
   margin-top: 40px;
-}
+}*/
 
-/* ---------- HEADER ROW ---------- */
+/* ---------- HEADER ROW ---------- 
 
 .eventsHeader {
   display: grid;
@@ -692,16 +664,16 @@ canvas {
   margin-bottom: 12px;
 }
 
-/* ---------- TEXT ---------- */
+/* ---------- TEXT ---------- 
 
 .headingWrap h2 {
   margin: 0;
   font-size: 3.3rem;
   font-weight: 600;
   color: #fff;
-  margin-left: 40px;
+  margin-left: 0;
 
-  /* subtle galaxy glow */
+  /* subtle galaxy glow 
   text-shadow:
     0 0 12px rgba(120, 90, 255, 0.45),
     0 0 30px rgba(80, 120, 255, 0.25);
@@ -711,10 +683,10 @@ canvas {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
   line-height: 2rem;
-  margin: 20px 0 0 40px;
+  margin: 20px 0 0 0;
 }
 
-/* ---------- ARROW ---------- */
+/* ---------- ARROW ---------- 
 
 .eventsArrow {
   width: 65px;
@@ -722,7 +694,7 @@ canvas {
   border-radius: 33px;
   display: grid;
   place-items: center;
-  margin-right: 40px;
+  margin-right: 0;
   margin-bottom: 60px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -733,7 +705,7 @@ canvas {
   filter: brightness(1.2);
 }
 
-/* Hover micro-interaction */
+/* Hover micro-interaction 
 .eventsArrow:hover {
   transform: translateX(4px) scale(1.05);
   box-shadow:
@@ -741,10 +713,10 @@ canvas {
     inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
-/* event carousel*/
+/* event carousel
 .eventsCarousel {
-  margin-top: 8px;           /* instead of huge default gap */
-}
+  margin-top: 8px;           /* instead of huge default gap 
+}*/
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 1200px) {
