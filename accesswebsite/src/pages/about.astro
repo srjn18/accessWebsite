@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import AccessForceEffect from "../components/accessLogo.astro";
+import accessLogo from "../assets/homePages/accesslogo.png";
 import "../styles/about.css";
 ---
 
@@ -15,40 +17,45 @@ import "../styles/about.css";
   <canvas id="starCanvas"></canvas>
 
   <div class="page-container">
+    <section id="hero-intro" style="padding:80px 20px;text-align:center;">
+      <div style="max-width:900px;margin:0 auto;">
+        <!-- Image Container -->
+        <div style="margin-bottom:40px;">
+          <img src={accessLogo.src} alt="ACCESS Logo" style="max-width:100%;height:auto;border-radius:12px;"/>
+        </div>
+        
+        <!-- Typewriter Text -->
+        <h1 class="typewriter" style="font-size:clamp(2rem, 5vw, 3.5rem);color:#ffffff;margin:0;font-weight:800;letter-spacing:-0.02em;">Where Code Meets Connectivity</h1>
+      </div>
+    </section>
+
     <section id="committee" style="padding:60px 20px;">
       <div style="max-width:1100px;margin:0 auto;">
         <div style="display:flex;gap:30px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
           <div style="flex:1;min-width:320px;">
             <div class="vm-card" style="padding:30px;border-radius:12px;">
-              <h2 style="margin:0 0 10px 0;text-align:left;font-size:1.8rem;">The ACCESS Committee</h2>
-              <h3 style="margin:0 0 18px 0;color:rgba(255,255,255,0.95);">ACCESS stands for the Association of Computer and Communication Engineering Students</h3>
-              <p style="color:rgba(209,209,209,0.95);line-height:1.7;margin:0;">It is the official student branch association of our department and plays a significant role in organizing various events and activities that contribute to the growth and development of students while also supporting the department in multiple ways.</p>
+              <h2 style="margin:0 0 10px 0;text-align:center;font-size:1.8rem;">The ACCESS Committee</h2>
+              <h3 style="margin:0 0 18px 0;color:rgba(255,255,255,0.95);text-align:center;">ACCESS stands for the Association of Computer and Communication Engineering Students</h3>
+              <p style="color:rgba(209,209,209,0.95);line-height:1.7;margin:0;text-align:center;">It is the official student branch association of our department and plays a significant role in organizing various events and activities that contribute to the growth and development of students while also supporting the department in multiple ways.</p>
             </div>
           </div>
 
-          <div class="committee-image image" style="flex:0 0 360px;min-width:280px;">
-            <!-- intentionally left empty for now (no images) -->
-          </div>
+          
         </div>
       </div>
     </section>
 
-    <section id="vision" style="padding:30px 20px;">
-      <div style="max-width:1200px;margin:0 auto;">
-        <div class="vm-card" style="padding:20px;border-radius:10px;margin-bottom:18px;">
-          <h4 style="text-align:center;margin:6px 0 12px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;">VISION</h4>
-          <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:center;">To be a centre of excellence in the Computer Networks and Computer Security education and research, to produce comprehensively trained, technically skilled, ethically strong, innovative engineers to excel globally, take future challenges and contribute for social welfare.</p>
-        </div>
+    <section id="coordinators" style="padding:30px 20px;">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch;">
+          <div class="vm-card" style="padding:40px;border-radius:10px;">
+            <h4 style="text-align:center;margin:6px 0 20px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;font-size:1.3rem;">Placement Coordinator</h4>
+            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+          </div>
 
-        <div class="vm-card" style="padding:20px;border-radius:10px;">
-          <h4 style="text-align:center;margin:6px 0 12px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;">MISSION</h4>
-          <div style="color:rgba(209,209,209,0.95);line-height:1.8;">
-            <ol style="margin:0 0 0 18px;padding:0;">
-              <li>To provide excellent academic environment to students for continuous improvement in Computer Science and Computer Network specialization and by imparting education with innovation, skills and positive attitude to make them competent engineers and leaders to solve the real world problems to inculcate values of professional ethics, leadership qualities and lifelong learning.</li>
-              <li>To strengthen the industry partnership for collaborative work and prepare graduates in cutting edge Computer Network technologies in par with industrial standards by undertaking collaborative projects which offer opportunities for long term interaction between academia and industry.</li>
-              <li>To include research, ethical values, professionalism, lifelong learning to make them globally competent and socially committed.</li>
-              <li>To provide resources that contribute to congenial learning environment and encourages students to pursue higher education and take competitive exams.</li>
-            </ol>
+          <div class="vm-card" style="padding:40px;border-radius:10px;">
+            <h4 style="text-align:center;margin:6px 0 20px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;font-size:1.3rem;">Student Coordinators Message</h4>
+            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
           </div>
         </div>
       </div>
