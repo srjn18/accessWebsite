@@ -1,0 +1,849 @@
+---
+// SpaceShooterGate.astro v8.0 - DELTA WING EDITION
+---
+
+<div id="holo-gate-host">
+    <div class="nebula-bg"></div>
+    <div class="digital-grid"></div>
+    <div class="vignette-overlay"></div>
+
+    <div id="white-out"></div>
+
+    <div id="game-ui">
+        <div class="hud-container glass-panel">
+            <div class="hud-content">
+                <div class="system-status">
+                    <span class="label-small">SYSTEM STATUS</span>
+                    <span class="status-text">ONLINE</span>
+                </div>
+                <div class="progress-circle-container">
+                    <svg class="progress-ring" width="80" height="80">
+                        <circle
+                            class="progress-ring__circle--bg"
+                            stroke="#1a233a"
+                            stroke-width="6"
+                            fill="transparent"
+                            r="36"
+                            cx="40"
+                            cy="40"></circle>
+                        <circle
+                            id="progress-ring-fill"
+                            class="progress-ring__circle--fg"
+                            stroke="url(#gradient)"
+                            stroke-width="6"
+                            fill="transparent"
+                            r="36"
+                            cx="40"
+                            cy="40"></circle>
+                        <defs>
+                            <linearGradient
+                                id="gradient"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop offset="0%" stop-color="#00dbde"></stop>
+                                <stop offset="100%" stop-color="#fc00ff"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="score-readout">
+                        <span id="score-text">0</span><span class="percent"
+                            >%</span
+                        >
+                    </div>
+                </div>
+                <div class="threat-level">
+                    <span class="label-small">DEFENSE PROT.</span>
+                    <span class="threat-text glow-anim">ACTIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="start-screen" class="modal-screen glass-panel">
+            <h1 class="holo-title">SECURITY PROTOCOL</h1>
+            <div class="separator"></div>
+            <p class="holo-text">
+                UNAUTHORIZED TRAFFIC DETECTED. INTERCEPT VECTORS.
+            </p>
+            <button id="btn-start" class="holo-button">
+                <span class="btn-bg"></span>
+                <span class="btn-text">INITIALIZE SYSTEM</span>
+            </button>
+            <div class="controls-subtext">
+                [ MOUSE / ARROWS TO GLIDE &bull; WEAPONS AUTO-ARMED ]
+            </div>
+        </div>
+
+        <div
+            id="game-over-screen"
+            class="modal-screen glass-panel state-failure hidden"
+        >
+            <h1 class="holo-title failure-text">SYSTEM FAILURE</h1>
+            <div class="separator sep-fail"></div>
+            <p class="holo-text">INTEGRITY COMPROMISED. REBOOT REQUIRED.</p>
+            <button id="btn-retry" class="holo-button btn-fail">
+                <span class="btn-bg"></span>
+                <span class="btn-text">REBOOT SEQUENCE</span>
+            </button>
+        </div>
+
+        <div
+            id="victory-screen"
+            class="modal-screen glass-panel state-victory hidden"
+        >
+            <h1 class="holo-title victory-text">ACCESS GRANTED</h1>
+            <div class="separator sep-win"></div>
+            <p class="holo-text">ENGAGING HYPERSPACE DRIVE...</p>
+        </div>
+    </div>
+
+    <canvas id="game-canvas"></canvas>
+</div>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap");
+
+    :root {
+        --primary-glow: #00dbde;
+        --secondary-glow: #fc00ff;
+        --fail-red: #ff2e63;
+        --bg-dark: #050a14;
+        --glass-bg: rgba(10, 16, 30, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    #holo-gate-host {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        background: var(--bg-dark);
+        font-family: "Rajdhani", sans-serif;
+        overflow: hidden;
+        color: white;
+    }
+
+    #white-out {
+        position: absolute;
+        inset: 0;
+        background: white;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 100;
+        transition: opacity 1.5s ease-in;
+    }
+
+    .nebula-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 90%, #10182e 0%, #000000 80%);
+        z-index: 0;
+    }
+
+    .digital-grid {
+        position: absolute;
+        inset: -50%;
+        background-image:
+            linear-gradient(rgba(0, 219, 222, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 219, 222, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        transform: perspective(600px) rotateX(70deg);
+        animation: gridMove 15s linear infinite;
+        opacity: 0.4;
+        z-index: 1;
+    }
+    @keyframes gridMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 0 1000px;
+        }
+    }
+
+    .vignette-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: radial-gradient(
+            circle at center,
+            transparent 30%,
+            black 100%
+        );
+    }
+
+    #game-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+    }
+
+    #game-ui {
+        position: absolute;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s;
+    }
+
+    .hidden {
+        display: none !important;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* --- GLASS UI --- */
+    .glass-panel {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        box-shadow:
+            0 0 30px rgba(0, 0, 0, 0.5),
+            inset 0 0 20px rgba(0, 219, 222, 0.05);
+        border-radius: 12px;
+    }
+
+    .hud-container {
+        position: absolute;
+        top: 20px;
+        pointer-events: none;
+        padding: 10px 30px;
+        border-radius: 50px;
+    }
+    .hud-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .label-small {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #8a9bbd;
+        display: block;
+        font-weight: 600;
+    }
+    .status-text {
+        color: var(--primary-glow);
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px var(--primary-glow);
+    }
+    .threat-text {
+        color: var(--secondary-glow);
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .glow-anim {
+        animation: pulseGlow 2s infinite alternate;
+    }
+    @keyframes pulseGlow {
+        from {
+            text-shadow: 0 0 5px var(--secondary-glow);
+            opacity: 0.8;
+        }
+        to {
+            text-shadow: 0 0 15px var(--secondary-glow);
+            opacity: 1;
+        }
+    }
+
+    .progress-circle-container {
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .progress-ring__circle--fg {
+        transition: stroke-dashoffset 0.1s;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        stroke-dasharray: 226.19;
+        stroke-dashoffset: 226.19;
+        filter: drop-shadow(0 0 5px var(--secondary-glow));
+    }
+    .score-readout {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #score-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+    }
+    .percent {
+        font-size: 14px;
+        color: var(--primary-glow);
+    }
+
+    .modal-screen {
+        pointer-events: auto;
+        text-align: center;
+        padding: 50px 70px;
+        max-width: 500px;
+        width: 90%;
+        transform: perspective(1000px) rotateX(0deg);
+        transition: all 0.3s ease-out;
+    }
+    .modal-screen:hover {
+        transform: scale(1.02);
+    }
+
+    .holo-title {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        background: linear-gradient(
+            to right,
+            var(--primary-glow),
+            var(--secondary-glow)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 10px rgba(0, 219, 222, 0.5));
+    }
+    .separator {
+        height: 2px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--primary-glow),
+            transparent
+        );
+        margin: 20px 0;
+        opacity: 0.5;
+    }
+    .holo-text {
+        color: #b4c6e6;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+    }
+    .controls-subtext {
+        margin-top: 25px;
+        font-size: 0.8rem;
+        color: #6e7f9e;
+        letter-spacing: 1px;
+    }
+
+    .holo-button {
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        outline: offset 4px;
+        transition: filter 0.2s;
+    }
+    .holo-button:hover {
+        filter: brightness(1.2);
+    }
+    .btn-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            45deg,
+            var(--primary-glow),
+            var(--secondary-glow)
+        );
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        padding: 2px;
+        border-radius: 4px;
+        pointer-events: none;
+    }
+    .btn-text {
+        display: block;
+        padding: 15px 40px;
+        background: rgba(0, 219, 222, 0.1);
+        color: white;
+        font-family: "Rajdhani", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        border-radius: 4px;
+    }
+
+    .state-failure .holo-title {
+        background: linear-gradient(to right, var(--fail-red), #ff6b6b);
+        -webkit-background-clip: text;
+    }
+    .state-failure .separator {
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--fail-red),
+            transparent
+        );
+    }
+    .btn-fail .btn-bg {
+        background: linear-gradient(45deg, var(--fail-red), #ff6b6b);
+    }
+    .btn-fail .btn-text {
+        background: rgba(255, 46, 99, 0.1);
+    }
+
+    .state-victory .holo-title {
+        background: linear-gradient(to right, #00dbde, #00ff99);
+        -webkit-background-clip: text;
+    }
+    .state-victory .separator {
+        background: linear-gradient(
+            to right,
+            transparent,
+            #00ff99,
+            transparent
+        );
+    }
+</style>
+
+<script is:inline>
+    (function () {
+        const SETTINGS = {
+            FORCE_SHOW: true, // DEV MODE: ALWAYS ON
+            STORAGE_KEY: "HYBRID_GATE_V8_DELTA",
+            TARGET_SCORE: 50,
+            PLAYER_SPEED: 22,
+            FIRE_RATE: 4,
+            WARP_SPEED_MAX: 80,
+        };
+
+        const host = document.getElementById("holo-gate-host");
+        const whiteOut = document.getElementById("white-out");
+        const canvas = document.getElementById("game-canvas");
+        const ctx = canvas.getContext("2d", { alpha: false });
+
+        // UI References
+        const ui = {
+            main: document.getElementById("game-ui"),
+            start: document.getElementById("start-screen"),
+            gameOver: document.getElementById("game-over-screen"),
+            victory: document.getElementById("victory-screen"),
+            score: document.getElementById("score-text"),
+            ring: document.getElementById("progress-ring-fill"),
+            btnStart: document.getElementById("btn-start"),
+            btnRetry: document.getElementById("btn-retry"),
+        };
+
+        if (
+            !SETTINGS.FORCE_SHOW &&
+            localStorage.getItem(SETTINGS.STORAGE_KEY) === "true"
+        ) {
+            if (host) host.remove();
+            document.body.style.overflow = "auto";
+            return;
+        }
+        document.body.style.overflow = "hidden";
+
+        let width, height;
+
+        const state = {
+            active: false,
+            warping: false,
+            globalSpeed: 4,
+            score: 0,
+            frames: 0,
+            shake: 0,
+            player: { x: 0, y: 0, w: 50, h: 60 },
+            inputs: { left: false, right: false, mouseX: null },
+            bullets: [],
+            enemies: [],
+            particles: [],
+            stars: [],
+        };
+
+        const RING_CIRCUMFERENCE = 2 * Math.PI * 36;
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            state.player.y = height - 130;
+            if (!state.active) state.player.x = width / 2;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        // INPUTS
+        const handleKey = (e, isDown) => {
+            if (e.key === "ArrowLeft" || e.key === "a")
+                state.inputs.left = isDown;
+            if (e.key === "ArrowRight" || e.key === "d")
+                state.inputs.right = isDown;
+        };
+        window.addEventListener("keydown", (e) => handleKey(e, true));
+        window.addEventListener("keyup", (e) => handleKey(e, false));
+        window.addEventListener("mousemove", (e) => {
+            if (state.active) state.inputs.mouseX = e.clientX;
+        });
+        window.addEventListener(
+            "touchmove",
+            (e) => {
+                if (state.active) state.inputs.mouseX = e.touches[0].clientX;
+            },
+            { passive: true },
+        );
+        window.addEventListener("touchend", () => (state.inputs.mouseX = null));
+
+        // CLASSES
+        class Star {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.z = Math.random() * 2 + 0.5;
+            }
+            update() {
+                this.y += state.globalSpeed * this.z;
+                if (this.y > height) {
+                    this.y = -20;
+                    this.x = Math.random() * width;
+                }
+            }
+            draw(ctx) {
+                ctx.fillStyle = "rgba(255, 255, 255, " + 0.5 * this.z + ")";
+                let length = state.warping ? state.globalSpeed * 2 : 2;
+                ctx.fillRect(
+                    this.x,
+                    this.y - length,
+                    Math.max(1, this.z),
+                    length,
+                );
+            }
+        }
+
+        class Particle {
+            constructor(x, y, type) {
+                this.x = x;
+                this.y = y;
+                this.life = 1.0;
+                this.decay = Math.random() * 0.03 + 0.02;
+                if (type === "engine") {
+                    this.vx = (Math.random() - 0.5) * 2;
+                    this.vy = Math.random() * 5 + 2;
+                    this.size = Math.random() * 4 + 2;
+                    this.colorH = 190;
+                } else if (type === "explosion") {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 12;
+                    this.vx = Math.cos(angle) * speed;
+                    this.vy = Math.sin(angle) * speed;
+                    this.size = Math.random() * 3 + 2;
+                    this.colorH = Math.random() > 0.5 ? 320 : 180;
+                }
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vx *= 0.94;
+                this.vy *= 0.94;
+                this.life -= this.decay;
+            }
+            draw(ctx) {
+                ctx.fillStyle = `hsla(${this.colorH}, 100%, 70%, ${this.life})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class Bullet {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.w = 4;
+                this.h = 25;
+                this.speed = 28;
+            }
+            update() {
+                this.y -= this.speed;
+            }
+            draw(ctx) {
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#00dbde";
+                ctx.fillStyle = "#ccffff";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.w / 2, Math.PI, 0);
+                ctx.lineTo(this.x + this.w / 2, this.y + this.h);
+                ctx.arc(this.x, this.y + this.h, this.w / 2, 0, Math.PI);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class Enemy {
+            constructor() {
+                this.size = 50;
+                this.x = Math.random() * (width - this.size * 2) + this.size;
+                this.y = -60;
+                this.speed = Math.random() * 3 + 2 + state.score * 0.1;
+                this.angle = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.1;
+            }
+            update() {
+                this.y += this.speed;
+                this.angle += this.rotSpeed;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = "#fc00ff";
+                ctx.fillStyle = "rgba(252, 0, 255, 0.2)";
+                ctx.strokeStyle = "#fc00ff";
+                ctx.lineWidth = 2;
+
+                // DRAW SHAPE: Spinning Cross-Blade
+                ctx.beginPath();
+                const w = this.size / 2;
+                const t = 8; // thickness
+                ctx.moveTo(-w, -t);
+                ctx.lineTo(-t, -t);
+                ctx.lineTo(-t, -w);
+                ctx.lineTo(t, -w);
+                ctx.lineTo(t, -t);
+                ctx.lineTo(w, -t);
+                ctx.lineTo(w, t);
+                ctx.lineTo(t, t);
+                ctx.lineTo(t, w);
+                ctx.lineTo(-t, w);
+                ctx.lineTo(-t, t);
+                ctx.lineTo(-w, t);
+                ctx.closePath();
+
+                ctx.fill();
+                ctx.stroke();
+
+                // Center Core
+                ctx.fillStyle = "#fff";
+                ctx.shadowBlur = 5;
+                ctx.beginPath();
+                ctx.arc(0, 0, 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        // Initialize Stars
+        for (let i = 0; i < 150; i++) state.stars.push(new Star());
+
+        function startGame() {
+            state.active = true;
+            state.score = 0;
+            state.frames = 0;
+            state.warping = false;
+            state.globalSpeed = 4;
+            state.bullets = [];
+            state.enemies = [];
+            state.particles = [];
+            state.player.x = width / 2;
+            state.shake = 0;
+
+            ui.start.classList.add("hidden");
+            ui.gameOver.classList.add("hidden");
+            updateHUD(0);
+        }
+        ui.btnStart.onclick = startGame;
+        ui.btnRetry.onclick = startGame;
+
+        function updateHUD(score) {
+            const s = Math.min(score, SETTINGS.TARGET_SCORE);
+            ui.score.innerText = s;
+            ui.ring.style.strokeDashoffset =
+                RING_CIRCUMFERENCE -
+                (s / SETTINGS.TARGET_SCORE) * RING_CIRCUMFERENCE;
+        }
+
+        function victory() {
+            state.active = false;
+            ui.victory.classList.remove("hidden");
+            localStorage.setItem(SETTINGS.STORAGE_KEY, "true");
+
+            // --- HYPERSPACE WARP SEQUENCE ---
+            state.warping = true;
+
+            // 1. Fade out UI
+            ui.main.style.opacity = "0";
+
+            // 2. Accelerate Stars
+            const acceleration = setInterval(() => {
+                state.globalSpeed *= 1.1;
+                if (state.globalSpeed > SETTINGS.WARP_SPEED_MAX)
+                    clearInterval(acceleration);
+            }, 50);
+
+            // 3. White Out
+            setTimeout(() => {
+                whiteOut.style.opacity = "1";
+                setTimeout(() => {
+                    host.remove();
+                    document.body.style.overflow = "auto";
+                }, 1500);
+            }, 1500);
+        }
+
+        function loop() {
+            ctx.fillStyle = "#050a14";
+            ctx.fillRect(0, 0, width, height);
+
+            if (state.shake > 0) {
+                ctx.save();
+                ctx.translate(
+                    (Math.random() - 0.5) * state.shake,
+                    (Math.random() - 0.5) * state.shake,
+                );
+                state.shake *= 0.9;
+            }
+
+            // Draw Stars
+            state.stars.forEach((s) => {
+                s.update();
+                s.draw(ctx);
+            });
+
+            if (state.active) {
+                const p = state.player;
+                if (state.inputs.left) p.x -= SETTINGS.PLAYER_SPEED;
+                if (state.inputs.right) p.x += SETTINGS.PLAYER_SPEED;
+                if (state.inputs.mouseX !== null) {
+                    const dx = state.inputs.mouseX - p.x;
+                    if (Math.abs(dx) > 5) p.x += dx * 0.4;
+                }
+                p.x = Math.max(p.w, Math.min(width - p.w, p.x));
+
+                if (state.frames % SETTINGS.FIRE_RATE === 0) {
+                    state.bullets.push(new Bullet(p.x - 18, p.y));
+                    state.bullets.push(new Bullet(p.x + 18, p.y));
+                }
+
+                if (state.frames % 30 === 0) state.enemies.push(new Enemy());
+
+                for (let i = 0; i < 3; i++)
+                    state.particles.push(
+                        new Particle(
+                            p.x + (Math.random() - 0.5) * 10,
+                            p.y + 25,
+                            "engine",
+                        ),
+                    );
+
+                // --- DRAW PLAYER: DELTA WING ---
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = "#00dbde";
+                ctx.strokeStyle = "#00dbde";
+                ctx.lineWidth = 2;
+
+                // Triangle Body
+                ctx.fillStyle = "#000";
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y - 30); // Nose
+                ctx.lineTo(p.x + 25, p.y + 25); // Bottom Right
+                ctx.lineTo(p.x, p.y + 15); // Engine notch
+                ctx.lineTo(p.x - 25, p.y + 25); // Bottom Left
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                // Cockpit
+                ctx.fillStyle = "#fff";
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y - 10);
+                ctx.lineTo(p.x + 5, p.y + 10);
+                ctx.lineTo(p.x - 5, p.y + 10);
+                ctx.fill();
+
+                // Wing Details
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = "rgba(0, 219, 222, 0.3)";
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y + 15);
+                ctx.lineTo(p.x + 25, p.y + 25);
+                ctx.lineTo(p.x - 25, p.y + 25);
+                ctx.fill();
+
+                for (let i = state.bullets.length - 1; i >= 0; i--) {
+                    state.bullets[i].update();
+                    state.bullets[i].draw(ctx);
+                    if (state.bullets[i].y < -50) state.bullets.splice(i, 1);
+                }
+
+                for (let i = state.enemies.length - 1; i >= 0; i--) {
+                    const e = state.enemies[i];
+                    e.update();
+                    e.draw(ctx);
+                    for (let j = state.bullets.length - 1; j >= 0; j--) {
+                        const b = state.bullets[j];
+                        if (
+                            Math.abs(e.x - b.x) < 35 &&
+                            Math.abs(e.y - b.y) < 35
+                        ) {
+                            for (let k = 0; k < 8; k++)
+                                state.particles.push(
+                                    new Particle(e.x, e.y, "explosion"),
+                                );
+                            state.enemies.splice(i, 1);
+                            state.bullets.splice(j, 1);
+                            state.score += 2;
+                            updateHUD(state.score);
+                            state.shake = 5;
+                            if (state.score >= SETTINGS.TARGET_SCORE) victory();
+                            break;
+                        }
+                    }
+                    if (state.active && Math.hypot(e.x - p.x, e.y - p.y) < 40) {
+                        state.active = false;
+                        state.shake = 20;
+                        setTimeout(
+                            () => ui.gameOver.classList.remove("hidden"),
+                            500,
+                        );
+                    }
+                    if (e.y > height + 50) state.enemies.splice(i, 1);
+                }
+                state.frames++;
+            } else if (state.warping) {
+                // Draw Player Flying off into warp
+                let p = state.player;
+                p.y -= 15;
+
+                // Simplified warp shape
+                ctx.shadowBlur = 40;
+                ctx.shadowColor = "#00dbde";
+                ctx.fillStyle = "#fff";
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y - 30);
+                ctx.lineTo(p.x + 25, p.y + 25);
+                ctx.lineTo(p.x - 25, p.y + 25);
+                ctx.fill();
+            }
+
+            for (let i = state.particles.length - 1; i >= 0; i--) {
+                state.particles[i].update();
+                state.particles[i].draw(ctx);
+                if (state.particles[i].life <= 0) state.particles.splice(i, 1);
+            }
+
+            if (state.shake > 0) ctx.restore();
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+    })();
+</script>
