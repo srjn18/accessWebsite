@@ -4,6 +4,15 @@ import Navbar from "../components/Navbar.astro";
 ---
 <Navbar/>
   
+
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+
+  
 <div class="placements-root">
 <div class="acc1" style="position: relative;"></div>
 <div class="year" style="position: relative;"></div>
@@ -330,13 +339,13 @@ body {
 }
 
 .boxcard{
+   position:static !important;
    font-family: "BBH Hegarty", sans-serif;
-  font-weight: 300;
+  font-weight: 200 ;
   font-style: normal;
   color:white;
-  font-size:20px;
-  letter-spacing:1.3px;
-  left:140px; top:10px;  
+  font-size:15px !important;
+  letter-spacing:1px !important;  
 }
 .bonney.disabled {
   pointer-events: none;
@@ -404,7 +413,7 @@ body {
 .studentbox1{
   position:fixed;
   top:200px;
-  left:1195px;
+  left:1165px;
   border-radius:50px;
   width:305px;
   height:430px;
@@ -444,18 +453,17 @@ body {
     #1e40af,    /* galaxy blue */
     #020617     /* loop back to black */
   );
-  border-radius:12px;
-    left:415px;
-      width: 730px;
-      padding-bottom: 40px;
-  height:118px;
+
+  position:static ;
+  width: 300px ;
    z-index: 20;
-  position: absolute; 
+  height:248px ;
   border:2px solid white;
-  border-radius:10px;  position:absolute;
+  border-radius:50px !important;  
   background-size: 400% 100%;
   animation: galaxyHorizontal 35s linear infinite;
 }
+
 @keyframes galaxyHorizontal {
   0% {
     background-position: 0% 50%;
@@ -464,6 +472,15 @@ body {
     background-position: 100% 50%;
   }
 }
+
+.gridparent{
+  position: absolute;
+  left:400px;
+  display:grid;
+grid-template-columns:repeat(2,350px);
+grid-template-rows:250px 250px ;
+gap:40px;
+} 
 .bonney:hover{ 
     background: linear-gradient(
     90deg,
@@ -473,16 +490,13 @@ body {
     #38bdf8,   /* sky blue */
     #0ea5e9    /* deep cyan-blue */
   );
-
   background-size: 300% 100%;
-  
-scale:1.8px;
 animation:orewa 0.3s forwards;
 }
 
 .bonney:hover .boxcard{
   color:black;
-  font-size:26px;
+  font-size:24px !important;
 }
 .hovering{
   position:fixed;
@@ -495,36 +509,36 @@ animation:orewa 0.3s forwards;
   left:10px;
 }
 .bonney:hover .kuma{
-   background:none;
-  animation:orewaimage 0.3s forwards;
+  width:10px !important; height:10px !important;
+opacity:0;
 }
 .kuma{
-   position:absolute; top:0px; width:110px; left:0px; height:115px; 
+   position:static !important; width:140px !important; height:150px !important; 
   border-radius:9px;
 }
 
 .bonney1{
   background:none;
-  position:absolute;
-  background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
+  position:static;
+  background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  width:730px;
-  height:120px;
-  left:415px;
-  border-radius:170px;
+  background-size: 339px;
+  width:300px;
+  height:228px;
+  border-radius:90px;
   animation:none;
+  opacity:0.95;
 }
 .bonney1:hover{
- background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
-  background-repeat: no-repeat;
+   background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png");
   background-position: center;
   background-size: contain;
-  
+  opacity:0.9;
+  height:248px !important;
 }
 .bonney1>.kuma{
-   position:absolute; top:100000px;
+   opacity:0;
 }
 .bonney1>.boxcard{
   opacity:0;
@@ -535,16 +549,16 @@ animation:orewa 0.3s forwards;
 
 @keyframes orewa{
  from{
- width: 730px;
-  height:120px;
-    left:430px;
+ width: 300px;
+  height:248px;
  }
  to{
- width: 800px;
-  height:147px;
-    left:377px;
+ width: 320px ;
+  height:278px ;
+   
  }
 }
+
 @keyframes orewaimage{
  from{
  width: 110px;
@@ -563,7 +577,7 @@ animation:orewa 0.3s forwards;
 
   </style>
 
-<script is:inline>
+<script client:load>
 let activeStudentId = null;
 
 function setPlacementsBackground() {
@@ -806,27 +820,28 @@ function next2025() {
   // Create base layout
   document.querySelector(".acc1").innerHTML = `
     <div class="container"></div>
-
-    <button class="bonney" data-id="0" style="top:200px;">
+  <div class="gridparent">
+    <button class="bonney" data-id="0" >
     <img class="kuma"   src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_01_21 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_01_21_PM-removebg-preview.png">
      <p class="boxcard" style="position:absolute;  left:140px; top:10px;    ">Name:  Swasthik Prabhu</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;  ">placed at:  infosys Edgeverve</p> </button>
 
-    <button class="bonney" data-id="1" style="top:368px;">
+    <button class="bonney" data-id="1">
     <img class="kuma"  src="/images/homePages/ChatGPT Image Dec 26, 2025, 05_50_48 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_01_39_PM-removebg-preview.png">
     <p class="boxcard" style="position:absolute;  left:140px; top:10px;   ">Name:  Aaron Nazareth</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  Shibuya Corporation</p> </button>
 
-    <button class="bonney" data-id="2" style="top:540px;">
+    <button class="bonney" data-id="2" >
     <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_04_45 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_04_45_PM-removebg-preview.png">
    <p class="boxcard" style="position:absolute; ">Name:  Saurabh Kumar</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  infosys</p>  </button>
 
-    <button class="bonney" data-id="3" style="top:710px;">
+    <button class="bonney" data-id="3" >
     <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_06_40 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_06_40_PM-removebg-preview.png">
     <p class="boxcard" style="position:absolute;  ">Name:  Oishanu Brat Bora</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;  ">placed at:  Siemans Services</p> </button>
 
-    <button class="bonney" data-id="4" style="top:890px;">
+    <button class="bonney" data-id="4">
      <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_07_46 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_07_46_PM-removebg-preview.png">
     <p class="boxcard" style="position:absolute;  ">Name:  Bindiya K</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  Sasken Technologies</p> </button>
-  `;
+ </div>
+`;
 
   // Title typing
   titleEffect(text);
