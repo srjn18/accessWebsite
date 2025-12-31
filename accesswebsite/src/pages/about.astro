@@ -50,18 +50,78 @@ import "../styles/about.css";
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch;">
           <div class="vm-card" style="padding:40px;border-radius:10px;">
             <h4 style="text-align:center;margin:6px 0 20px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;font-size:1.3rem;">Placement Coordinator</h4>
-            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button class="read-more-btn" onclick="openModal('placement-modal')" style="margin-top:20px;display:block;margin-left:auto;margin-right:auto;padding:10px 24px;background:#e8eaea;color:#020203;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.95rem;transition:0.3s;">Read More</button>
           </div>
 
           <div class="vm-card" style="padding:40px;border-radius:10px;">
             <h4 style="text-align:center;margin:6px 0 20px 0;color:rgba(255,255,255,0.9);letter-spacing:1px;font-size:1.3rem;">Student Coordinators Message</h4>
-            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <p style="margin:0;color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button class="read-more-btn" onclick="openModal('student-modal')" style="margin-top:20px;display:block;margin-left:auto;margin-right:auto;padding:10px 24px;background:#e8eaea;color:#020203;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-size:0.95rem;transition:0.3s;">Read More</button>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- MODALS -->
+    <div id="placement-modal" class="modal" style="display:none;">
+      <div class="modal-backdrop" onclick="closeModal('placement-modal')"></div>
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('placement-modal')">×</button>
+        <h2 style="margin-top:0;color:#ffffff;text-align:center;">Placement Coordinator</h2>
+        <p style="color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      </div>
+    </div>
+
+    <div id="student-modal" class="modal" style="display:none;">
+      <div class="modal-backdrop" onclick="closeModal('student-modal')"></div>
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('student-modal')">×</button>
+        <h2 style="margin-top:0;color:#ffffff;text-align:center;">Student Coordinators Message</h2>
+        <p style="color:rgba(209,209,209,0.95);line-height:1.8;text-align:justify;font-size:1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      </div>
+    </div>
+
   </div> <!-- page-container -->
+
+  <script is:inline>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Close modal when clicking outside the content
+    window.addEventListener('click', function(event) {
+      const placementModal = document.getElementById('placement-modal');
+      const studentModal = document.getElementById('student-modal');
+      
+      if (placementModal && event.target === placementModal) {
+        closeModal('placement-modal');
+      }
+      if (studentModal && event.target === studentModal) {
+        closeModal('student-modal');
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal('placement-modal');
+        closeModal('student-modal');
+      }
+    });
+  </script>
 
   <script src="/bento-animate.js" is:inline defer></script>
   <script src="/stars.js" is:inline defer></script>
