@@ -1,16 +1,19 @@
 ---
 import Navbar from "../components/Navbar.astro";
-
+import Layout from "../layouts/Layout.astro";
 ---
 <Navbar/>
   
-
+<Layout>
     <div class="bg-animation">
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
         <div id="stars4"></div>
     </div>
+<div class="sci-fi-bg"></div>
+<div class="stars"></div>
+<div class="stars stars2-1"></div>
 
   
 <div class="placements-root">
@@ -27,6 +30,492 @@ import Navbar from "../components/Navbar.astro";
    @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Oldenburg&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&display=swap');
 
 
+
+.sci-fi-bg{
+  opacity:0;
+}
+.stars{
+  opacity:0;
+}
+.stars2-1{
+  opacity:0;
+}
+
+
+
+
+
+@media (max-width:1024px){
+  .bg-animation{
+opacity:0;
+  }
+.sci-fi-bg {
+  opacity:1;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(120, 0, 255, 0.25), transparent 40%),
+    linear-gradient(120deg, #020617, #020617, #050b2e);
+  background-size: 200% 200%;
+  animation: auroraMove 5s ease-in-out infinite alternate;
+}
+
+/* subtle sci-fi motion */
+@keyframes auroraMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 80% 40%, white, transparent),
+    radial-gradient(3px 3px at 60% 70%, white, transparent),
+    radial-gradient(2px 2px at 10% 90%, white, transparent),
+    radial-gradient(2px 2px at 50% 10%, white, transparent);
+  background-size: 200px 200px;
+  animation: starsMove 30s linear infinite;
+  opacity: 1;
+}
+.stars2-1 {
+  z-index: -1;
+  background-size: 400px 400px;
+  animation: starsMove 60s linear infinite;
+  opacity: 1;
+}
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to { background-position: -1000px 1000px; }
+}
+.year22{
+  width:300px !important;
+  height:200px !important;
+}
+  .year22:nth-child(1) {left:240px !important; top:-70px !important; }
+  .year22:nth-child(2) { left:240px !important; top:240px !important;  }
+  .year22:nth-child(3) {left:240px !important; top:540px !important;  }
+  .year22:nth-child(4) { left:240px !important; top:840px !important; }
+
+   .buttonimg{
+    position:absolute;width:300px !important ;height:130px !important;top:-4.5px !important; left:6px; border-radius:35px;
+  }
+
+  .buttonText{
+    position:absolute;  top:90px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
+  }
+    .acc111{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 550 ;
+  letter-spacing:1px !important;
+  font-style:normal;
+  scroll-padding-bottom: 10px !important;
+  position:absolute; color:white; font-size:57px !important; text-align:center; top:10px !important; left:25px !important;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px #ffffff00;
+
+}
+#cl1{
+   position:absolute; color:white; font-size:40px !important; text-align:center; top:-60px !important; left:175px !important;
+}
+
+.acc222:nth-child(1){display:none !important;}
+.acc222:nth-child(2){display:none !important;}
+.acc222:nth-child(3){ background:white !important;color:black !important; position:absolute !important; left:730px !important; top:-720px !important;font-size:30px !important;}
+.temporarysoon{
+   position:absolute;color:white;  left:185px !important; top:350px !important; font-size:70px !important;
+}
+.bonney{
+  background: linear-gradient(
+    90deg,      /* horizontal gradient */
+    #020617,    /* deep space black */
+    #0f172a,    /* midnight blue */
+    #312e81,    /* nebula indigo */
+    #5b21b6,    /* cosmic purple */
+    #1e40af,    /* galaxy blue */
+    #020617     /* loop back to black */
+  );
+
+  position:static !important;
+  width: 300px !important;
+  height:208px !important;
+  border:2px solid white;
+  border-radius:10px !important;  
+  background-size: 400% 100%;
+  animation: galaxyHorizontal 35s linear infinite;
+}
+
+
+.kuma{
+   position:static !important; width:100px !important; height:100px !important; 
+  border-radius:9px;
+}
+.hovering{
+  display:none !important; 
+
+}
+.boxcard{
+   position:static !important;
+   font-family: "BBH Hegarty", sans-serif;
+  font-weight: 200 ;
+  font-style: normal;
+  color:white;
+  font-size:15px !important;
+  letter-spacing:1px !important;  
+}
+.boxcard:nth-of-type(1) {left:140px !important; top:-10px !important; font-size:15px !important; }
+.bonney:hover .boxcard{
+  color:black;
+   font-size:18px !important;
+ left:22px !important;
+}
+.studentbox{
+     font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  position:absolute !important;
+  top:270px !important;
+background: linear-gradient(
+  180deg,
+  #020617,
+  #000000
+);
+  left:55px !important;
+  width:340px;
+  height:430px !important;
+  border:1px solid whitesmoke;
+  border-radius:50px;
+  animation:appears 1s;
+}
+.studentbox1{
+  position:absolute !important;
+  top:270px  !important;
+  left:445px  !important;
+  border-radius:40px !important;
+background: linear-gradient(
+  180deg,
+  #020617,
+  #000000
+);
+  width:340px  !important;
+  height:430px  !important;
+  border:1px solid whitesmoke;
+    animation:appears 1s ;
+}
+.onepiece{
+ 
+  border-radius:10px;
+  position:absolute;
+  top:70px !important;
+  left:20px !important;
+  height:280px !important;
+  width:280px !important;
+}
+.onepiece1{
+ 
+  border-radius:50px;
+  position:absolute;
+  top:70px  !important;
+  left:20px  !important;
+  height:280px  !important;
+  width:280px  !important;
+}
+.greeter{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:40px !important;
+}
+.greeters{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:25px !important; width:400px !important; text-align:center; top:390px !important; left:-40px !important;
+}
+.greeters1{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:30px !important; text-align:center; top:-10px; left:88px !important;
+}
+.greeters11{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:25px !important; width:400px !important; text-align:center; top:340px !important; left:-40px !important;
+}
+.greeters111{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:19px !important;width:200px !important; text-align:center; top:130px !important ; left:128px !important;
+}
+.bonney.disabled {
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+.gridparent{
+  position: absolute;
+  left:80px !important;
+  display:grid;
+grid-template-columns:repeat(2,350px);
+grid-template-rows:210px 210px ;
+gap:40px;
+}
+  body.no-scroll1 {
+  overflow:auto !important;
+  height: 100vh;
+}
+.bonney1{
+  background:none;
+  position:absolute !important;
+  background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width:330px !important;
+  height:190px !important;
+  left:170px !important;
+  top:40px !important;
+  border-radius:50px !important;
+  animation:none;
+}
+.bonney1>.kuma{
+   opacity:0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:460px){
+  .bg-animation{
+opacity:0;
+  }
+  body.no-scroll1 {
+  overflow:auto !important;
+  height: 100vh;
+}
+.sci-fi-bg {
+   position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(transparent 95%, rgba(0,255,255,0.2) 96%),
+    linear-gradient(90deg, transparent 95%, rgba(0,255,255,0.2) 96%),
+    radial-gradient(circle at center, rgba(0,255,255,0.15), transparent 60%),
+    #020617;
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 400px 400px; }
+}
+.acc222:nth-child(1){display:none !important;}
+.acc222:nth-child(2){display:none !important;}
+.acc222:nth-child(3){ background:white !important;color:black !important;position:absolute !important; left:360px !important; top:-665px !important;font-size:20px !important;}
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 80% 40%, white, transparent),
+    radial-gradient(3px 3px at 60% 70%, white, transparent),
+    radial-gradient(2px 2px at 10% 90%, white, transparent),
+    radial-gradient(2px 2px at 50% 10%, white, transparent);
+  background-size: 200px 200px;
+  animation: starsMove 30s linear infinite;
+  opacity: 1;
+}
+.stars2-1 {
+  z-index: -1;
+  background-size: 400px 400px;
+  animation: starsMove 60s linear infinite;
+  opacity: 1;
+}
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to { background-position: -1000px 1000px; }
+}
+.year22{
+  width:200px !important;
+  height:140px !important;
+  border-radius:10px !important;
+}
+  .year22:nth-child(1) {left:110px !important; top:-120px !important; }
+  .year22:nth-child(2) { left:110px !important; top:100px !important;  }
+  .year22:nth-child(3) {left:110px !important; top:300px !important;  }
+  .year22:nth-child(4) { left:110px !important; top:500px !important; }
+
+   .buttonimg{
+    position:absolute;width:200px !important ;height:90px !important;top:-4.5px !important; left:6px; border-radius:35px;
+  }
+
+  .buttonText{
+    position:absolute;  font-size:25px !important; top:70px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
+  }
+    .acc111{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 550 ;
+  letter-spacing:1px !important;
+  font-style:normal;
+  scroll-padding-bottom: 10px !important;
+  position:absolute; color:white; font-size:40px !important; text-align:center; top:40px !important; left:20px !important;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px #ffffff00;
+
+}
+#cl1{
+   position:absolute; color:white; font-size:27px !important; text-align:center; top:-80px !important; left:70px !important;
+}
+
+.temporarysoon{
+   position:absolute;color:white;  left:125px !important; top:300px !important; font-size:50px !important;
+}
+.bonney{
+  background: linear-gradient(
+    90deg,      /* horizontal gradient */
+    #020617,    /* deep space black */
+    #0f172a,    /* midnight blue */
+    #312e81,    /* nebula indigo */
+    #5b21b6,    /* cosmic purple */
+    #1e40af,    /* galaxy blue */
+    #020617     /* loop back to black */
+  );
+
+  position:static !important;
+  width: 150px !important;
+  height:220px !important;
+  border:2px solid white;
+  border-radius:10px !important;  
+  background-size: 400% 100%;
+  animation: galaxyHorizontal 35s linear infinite;
+}
+
+
+.kuma{
+   position:static !important; width:120px !important; height:130px !important; 
+  border-radius:9px;
+}
+.hovering{
+  display:none !important; 
+
+}
+.boxcard{
+   font-family: "BBH Hegarty", sans-serif;
+  font-weight: 200 ;
+  font-style: normal;
+  color:white;
+  font-size:11px !important;
+  letter-spacing:1px !important;  
+}
+.boxcard:nth-of-type(1) {left:140px !important; top:-10px !important; font-size:11px !important; }
+.bonney:hover .boxcard{
+  color:black;
+   font-size:11px !important;
+}
+.studentbox{
+     font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  position:absolute !important;
+  top:128px !important;
+background: linear-gradient(
+  180deg,
+  #020617,
+  #000000
+);
+  left:40px !important;
+  width:325px;
+  height:230px !important;
+  border:1px solid whitesmoke;
+  border-radius:50px;
+  animation:appears 1s;
+}
+.studentbox1{
+  position:absolute !important;
+  top:380px  !important;
+  left:40px  !important;
+  border-radius:50px;
+background: linear-gradient(
+  180deg,
+  #020617,
+  #000000
+);
+  width:325px  !important;
+  height:230px  !important;
+  border:1px solid whitesmoke;
+    animation:appears 1s ;
+}
+.onepiece{
+ 
+  border-radius:10px;
+  position:absolute;
+  top:70px !important;
+  left:15px !important;
+  height:140px !important;
+  width:140px !important;
+}
+.onepiece1{
+ 
+  border-radius:50px;
+  position:absolute;
+  top:70px  !important;
+  left:15px  !important;
+  height:140px  !important;
+  width:140px  !important;
+}
+.greeter{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:40px !important;
+}
+.greeters{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:24px !important; width:200px !important; text-align:center; top:100px !important; left:128px !important;
+}
+.greeters1{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:88px !important;
+}
+.greeters11{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:20px !important; width:200px !important; text-align:center; top:60px !important; left:128px !important;
+}
+.greeters111{
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:19px !important;width:200px !important; text-align:center; top:130px !important ; left:128px !important;
+}
+.bonney.disabled {
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+.gridparent{
+  position: absolute;
+  left:40px !important;
+  display:grid;
+grid-template-columns:repeat(2,150px) !important;
+grid-template-rows:230px 230px  !important;
+gap:40px;
+}
+.bonney1{
+  background:none;
+  position:absolute !important;
+  background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width:130px !important;
+  height:90px !important;
+  left:100px !important;
+  top:10px !important;
+  border-radius:20px !important;
+  animation:none;
+}
+.bonney1>.kuma{
+   opacity:0;
+}
+}
+
+
 .placements-root {
   position: relative;
   padding-top: 10px;
@@ -40,28 +529,7 @@ body.no-scroll1 {
   overflow: hidden;
   height: 100vh;
 }
-.secret{
- font-family: "BBH Hegarty", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  position:fixed;
-  top:110px;
-  left:100px;
-  background: linear-gradient(
-    90deg,
-    #ffffff,   /* pure white */
-    #fffde7,   /* very light yellow */
-    #fff9c4,   /* soft butter yellow */
-    #fff59d    /* gentle warm yellow */
-  );
 
-  background-size: 300% 100%;
-  animation: warmLight 3s ease-in-out infinite;
-  width:1355px;
-  height:430px;
-  border-radius:50px;
-
-}
 @keyframes warmLight {
   0% {
     background-position: 0% 50%;
@@ -246,7 +714,7 @@ body.no-scroll1 {
       text-transform: uppercase;
       font-size:40px;
       color:white;
-  animation: year22 1s ease-in-out forwards;
+  animation: year22 0.65s ease-in-out forwards;
 
   background: radial-gradient(
     circle at center,
@@ -257,6 +725,37 @@ body.no-scroll1 {
     #030d12 100%
   );
 
+  }
+
+  .year22:hover{
+    animation:buttonhover 0.5s forwards;
+     border:5px  solid whitesmoke;
+  }
+
+  @keyframes buttonhover{
+    from{
+width:250px; height:250px;
+    }
+    to{
+       width:270px; height:270px; 
+     border:2px solid white;
+    }
+  }
+  .year22:hover .buttonimg{
+animation:buttonimages 0.5s forwards;
+  }
+    @keyframes buttonimages{
+    from{
+width:253px;height:150px;
+    }
+    to{
+      width:279px;height:170px;
+    }
+  }
+  .year22:hover .buttonText{
+    font-size:40px;
+    left:70px;
+    top:140px;
   }
 
   .year22:nth-child(1) {left:160px; top:0px; }
@@ -580,14 +1079,6 @@ opacity:0;
 <script client:load>
 let activeStudentId = null;
 
-function setPlacementsBackground() {
-  document.body.style.backgroundImage =
-    'url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDZ3ZHl2ZTdjdDByY3VyZjN6Zm5pdHdwZjhsamJzY25uMTdoanVwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UYBDCJjwOd9Re/giphy.gif")';
-
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundPosition = "center";
-}
 document.addEventListener("DOMContentLoaded", () => {
   
   console.log("Placements page JS loaded");
@@ -595,11 +1086,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
    function startAnimation() {
-   
      document.body.classList.remove("no-scroll1");
   console.log("Placements clicked - startAnimation()");
-    //setPlacementsBackground();
-  // Create containers
   document.querySelector(".acc1").innerHTML = `
     <div class="container"></div>
     <div class="container2"></div>
@@ -650,32 +1138,7 @@ document.querySelector(".year").innerHTML = ``;
           <button id="four" class="year22"data-year="2025"><img  class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_33_57 PM.png"><p  class="buttonText" >2025</p></button>
         </div>
       `;
-document.addEventListener("mouseover", (e) => {
-  if (e.target.id === "one") {
-    document.body.classList.add("no-scroll");
-    document.querySelector(".buttyear").innerHTML =
-      `<div class="secret" style=" pointer-events: none;"><p  style="position:absolute; left:590px;  letter-spacing:2px;  top:-40px;  font-size:50px; color:blue; ">Placements-2022</p><p class="hovercards" style="position:absolute; left:590px;  letter-spacing:2px;  top:60px;  font-size:22px; color:black; ">placements in 2022  have been very great in computer and communication with so many  great placements click to continue the placement highlights of 2022</p><img style="position:absolute;width:530px;height:430px;top:0px; left:0px; border-radius:35px; "src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_30_28 PM.png"></div>`;                                                        
-      container.innerHTML=``;
-  }
-  else if(e.target.id === "two"){
-      document.body.classList.add("no-scroll");
- document.querySelector(".buttyear").innerHTML =
-      `<div class="secret"  style=" pointer-events: none;"><p  style="position:absolute; left:590px;  letter-spacing:2px;  top:-40px;  font-size:50px; color:blue; ">Placements-2023</p><p  class="hovercards" style="position:absolute; left:590px;  letter-spacing:2px;  top:60px;  font-size:22px; color:black; ">placements in 2023  have been very great in computer and communication with so many  great placements click to continue the placement highlights of 2023</p><img style="position:absolute;width:530px;height:430px;top:0px; left:0px; border-radius:35px; "src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_31_53 PM.png"></div>`;
-      container.innerHTML=``;
-  }
-   else if(e.target.id === "three"){
-      document.body.classList.add("no-scroll");
- document.querySelector(".buttyear").innerHTML =
-      `<div class="secret"  style=" pointer-events: none;"><p  style="position:absolute; left:200px;  letter-spacing:2px;  top:-40px;  font-size:50px; color:blue; ">Placements-2024</p><p  class="hovercards" style="position:absolute; left:50px;  letter-spacing:2px;width:700px;  top:60px;  font-size:22px; color:black; ">placements in 2024  have been very great in computer and communication with so many  great placements click to continue the placement highlights of 2024</p><img style="position:absolute;width:530px;height:430px;top:0px; left:825px; border-radius:35px; "src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_32_29 PM.png"></div>`;
-      container.innerHTML=``;
-  }
-   else if(e.target.id === "four"){
-      document.body.classList.add("no-scroll");
- document.querySelector(".buttyear").innerHTML =
-      `<div class="secret"  style=" pointer-events: none;"><p  style="position:absolute; left:200px;  letter-spacing:2px;  top:-40px;  font-size:50px; color:blue; ">Placements-2025</p><p  class="hovercards" style="position:absolute; left:50px; letter-spacing:2px;width:700px;  top:60px;  font-size:22px; color:black; ">placements in 2025  have been very great in computer and communication with so many  great placements click to continue the placement highlights of 2025</p><img style="position:absolute;width:530px;height:430px;top:0px; left:825px; border-radius:35px; "src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_33_57 PM.png"></div>`;
- container.innerHTML=``;
-  }
-});
+
 
 document.addEventListener("mouseout", (e) => {
   if (e.target.id === "one") {
@@ -995,3 +1458,4 @@ document.addEventListener("keydown", (e) => {
    
 
 </script>
+</Layout>
