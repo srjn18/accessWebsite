@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
+
 ---
 <Navbar/>
   
@@ -19,7 +20,6 @@ import Layout from "../layouts/Layout.astro";
 <div class="placements-root">
 <div class="acc1" style="position: relative;"></div>
 <div class="year" style="position: relative;"></div>
-<div class="buttyear" style="position:relative;"></div>
 <div class="year1" style="position: relative;"></div>
 </div>
 
@@ -28,8 +28,8 @@ import Layout from "../layouts/Layout.astro";
   @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oldenburg&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Oldenburg&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oldenburg&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wdth,wght@0,18..144,87.5,300..900;1,18..144,87.5,300..900&family=Metal+Mania&family=Oldenburg&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
 
 .sci-fi-bg{
   opacity:0;
@@ -41,11 +41,44 @@ import Layout from "../layouts/Layout.astro";
   opacity:0;
 }
 
-
-
-
-
 @media (max-width:1024px){
+    .acc111{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 550 ;
+  letter-spacing:1px !important;
+  font-style:normal;
+  scroll-padding-bottom: 10px !important;
+  position:absolute; color:white; font-size:67px !important; text-align:center; top:30px !important; left:255px !important;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px #ffffff00;
+
+}
+#cl1{
+   position:absolute; color:white; font-size:35px !important; text-align:center; top:-50px !important; left:325px !important;
+}
+
+.year22{
+  width:200px !important;
+  height:210px !important;
+}
+  .year22:nth-child(1) {left:60px !important; top:-30px !important; }
+  .year22:nth-child(2) { left:300px !important; top:-30px !important;  }
+  .year22:nth-child(3) {left:540px !important; top:-30px !important;  }
+  .year22:nth-child(4) { left:780px !important; top:-30px !important; }
+
+  
+   .buttonimg{
+    position:absolute;width:210px !important ;height:125px !important;top:-5.5px !important; left:-10px !important; border-radius:35px;
+  }
+
+  .buttonText{
+    position:absolute;  top:90px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
+  }
+}
+
+
+
+@media (max-width:850px){
   .bg-animation{
 opacity:0;
   }
@@ -98,7 +131,7 @@ opacity:0;
 }
 .year22{
   width:300px !important;
-  height:200px !important;
+  height:210px !important;
 }
   .year22:nth-child(1) {left:240px !important; top:-70px !important; }
   .year22:nth-child(2) { left:240px !important; top:240px !important;  }
@@ -106,7 +139,7 @@ opacity:0;
   .year22:nth-child(4) { left:240px !important; top:840px !important; }
 
    .buttonimg{
-    position:absolute;width:300px !important ;height:130px !important;top:-4.5px !important; left:6px; border-radius:35px;
+    position:absolute;width:305px !important ;height:140px !important;top:-5.5px !important; left:-8px !important; border-radius:35px;
   }
 
   .buttonText{
@@ -118,7 +151,7 @@ opacity:0;
   letter-spacing:1px !important;
   font-style:normal;
   scroll-padding-bottom: 10px !important;
-  position:absolute; color:white; font-size:57px !important; text-align:center; top:10px !important; left:25px !important;
+  position:absolute; color:white; font-size:57px !important; text-align:center; top:20px !important; left:25px !important;
   text-transform: uppercase;
   text-shadow: 4px 4px 8px #ffffff00;
 
@@ -135,28 +168,31 @@ opacity:0;
 }
 .bonney{
   background: linear-gradient(
-    90deg,      /* horizontal gradient */
-    #020617,    /* deep space black */
-    #0f172a,    /* midnight blue */
-    #312e81,    /* nebula indigo */
-    #5b21b6,    /* cosmic purple */
-    #1e40af,    /* galaxy blue */
-    #020617     /* loop back to black */
-  );
-
+    45deg,
+    #000000,
+    #050816,
+    #2a1b5e,
+    #0b3c5d,
+    #000000
+  ) !important;
   position:static !important;
-  width: 300px !important;
-  height:208px !important;
+  width: 270px !important;
+  height:390px !important;
   border:2px solid white;
-  border-radius:10px !important;  
-  background-size: 400% 100%;
-  animation: galaxyHorizontal 35s linear infinite;
+  border-radius:22px !important;  
+  background-size: 500% 500%;
+  animation: orbitalSweep 5s cubic-bezier(0.45, 0, 0.55, 1) infinite !important;
 }
-
-
+@keyframes orbitalSweep {
+  0%   { background-position: 0% 0%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
 .kuma{
-   position:static !important; width:100px !important; height:100px !important; 
-  border-radius:9px;
+   position:static !important; width:200px !important; height:260px !important; 
+  border-radius:24px !important;
 }
 .hovering{
   display:none !important; 
@@ -164,18 +200,35 @@ opacity:0;
 }
 .boxcard{
    position:static !important;
-   font-family: "BBH Hegarty", sans-serif;
-  font-weight: 200 ;
+    font-family: "Merriweather", serif !important;
+  font-optical-sizing: auto;
+  font-weight:500 !important;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 100 !important;
   color:white;
-  font-size:15px !important;
+  font-size:21px !important;
   letter-spacing:1px !important;  
 }
-.boxcard:nth-of-type(1) {left:140px !important; top:-10px !important; font-size:15px !important; }
+.bonney:hover{ 
+    background: linear-gradient(
+    90deg,
+    #ffffff,   /* pure white */
+    #e0faff,   /* very light cyan */
+    #7dd3fc,   /* soft cyan blue */
+    #38bdf8,   /* sky blue */
+    #0ea5e9    /* deep cyan-blue */
+  ) !important;
+  background-size: 300% 100%;
+animation:orewa 0.3s forwards ;
+}
 .bonney:hover .boxcard{
   color:black;
-   font-size:18px !important;
- left:22px !important;
+   font-size:30px !important;
+ 
+}
+.bonney:hover .kuma{
+  display:none !important;
 }
 .studentbox{
      font-family: "Trade Winds", system-ui;
@@ -190,7 +243,7 @@ background: linear-gradient(
 );
   left:55px !important;
   width:340px;
-  height:430px !important;
+  height:530px !important;
   border:1px solid whitesmoke;
   border-radius:50px;
   animation:appears 1s;
@@ -198,7 +251,7 @@ background: linear-gradient(
 .studentbox1{
   position:absolute !important;
   top:270px  !important;
-  left:445px  !important;
+  left:430px  !important;
   border-radius:40px !important;
 background: linear-gradient(
   180deg,
@@ -206,17 +259,17 @@ background: linear-gradient(
   #000000
 );
   width:340px  !important;
-  height:430px  !important;
+  height:530px  !important;
   border:1px solid whitesmoke;
     animation:appears 1s ;
 }
 .onepiece{
  
-  border-radius:10px;
+  border-radius:10px !important;
   position:absolute;
-  top:70px !important;
+  top:80px !important;
   left:20px !important;
-  height:280px !important;
+  height:300px !important;
   width:280px !important;
 }
 .onepiece1{
@@ -224,24 +277,24 @@ background: linear-gradient(
   border-radius:50px;
   position:absolute;
   top:70px  !important;
-  left:20px  !important;
-  height:280px  !important;
-  width:280px  !important;
+  left:0px  !important;
+  height:270px  !important;
+  width:330px  !important;
 }
 .greeter{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:40px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:35px !important; text-align:center; top:-10px; left:20px !important;
 }
 .greeters{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:25px !important; width:400px !important; text-align:center; top:390px !important; left:-40px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:27px !important; width:350px !important; text-align:center; top:410px !important; left:-10px !important;
 }
 .greeters1{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:30px !important; text-align:center; top:-10px; left:88px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:35px !important; text-align:center; top:-10px; left:88px !important;
 }
 .greeters11{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:25px !important; width:400px !important; text-align:center; top:340px !important; left:-40px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; width:400px !important; text-align:center; top:340px !important; left:-30px !important;
 }
 .greeters111{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:19px !important;width:200px !important; text-align:center; top:130px !important ; left:128px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:25px !important;width:200px !important; text-align:center; top:380px !important ; left:128px !important;
 }
 .bonney.disabled {
   pointer-events: none !important;
@@ -250,11 +303,11 @@ background: linear-gradient(
 
 .gridparent{
   position: absolute;
-  left:80px !important;
+  left:90px !important;
   display:grid;
-grid-template-columns:repeat(2,350px);
-grid-template-rows:210px 210px ;
-gap:40px;
+grid-template-columns:repeat(2,300px) !important;
+grid-template-rows:400px 400px !important ;
+gap:40px !important;
 }
   body.no-scroll1 {
   overflow:auto !important;
@@ -263,10 +316,10 @@ gap:40px;
 .bonney1{
   background:none;
   position:absolute !important;
-  background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
+  background-image:  url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png") !important;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position: 355px !important;
+  background-size: 379px !important;
   width:330px !important;
   height:190px !important;
   left:170px !important;
@@ -277,17 +330,14 @@ gap:40px;
 .bonney1>.kuma{
    opacity:0;
 }
+.bonney1:hover{
+   background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png") !important;
+  background-position:355px !important;
+  background-size: 379px !important;
+  opacity:0.6;
+  height:190px !important;
 }
-
-
-
-
-
-
-
-
-
-
+}
 
 @media (max-width:460px){
   .bg-animation{
@@ -343,7 +393,7 @@ opacity:0;
 }
 .year22{
   width:200px !important;
-  height:140px !important;
+  height:150px !important;
   border-radius:10px !important;
 }
   .year22:nth-child(1) {left:110px !important; top:-120px !important; }
@@ -352,7 +402,7 @@ opacity:0;
   .year22:nth-child(4) { left:110px !important; top:500px !important; }
 
    .buttonimg{
-    position:absolute;width:200px !important ;height:90px !important;top:-4.5px !important; left:6px; border-radius:35px;
+    position:absolute;width:205px !important ;height:100px !important;top:-5.5px !important; left:-6px !important; border-radius:15px !important;
   }
 
   .buttonText{
@@ -377,46 +427,67 @@ opacity:0;
    position:absolute;color:white;  left:125px !important; top:300px !important; font-size:50px !important;
 }
 .bonney{
-  background: linear-gradient(
-    90deg,      /* horizontal gradient */
-    #020617,    /* deep space black */
-    #0f172a,    /* midnight blue */
-    #312e81,    /* nebula indigo */
-    #5b21b6,    /* cosmic purple */
-    #1e40af,    /* galaxy blue */
-    #020617     /* loop back to black */
-  );
+   background: linear-gradient(
+  120deg,
+    #020617,   /* deep navy */
+    #0f172a,   /* dark blue */
+    #312e81,   /* brighter indigo (key change) */
+    #020617
+  )!important;
 
   position:static !important;
-  width: 150px !important;
-  height:220px !important;
-  border:2px solid white;
-  border-radius:10px !important;  
-  background-size: 400% 100%;
-  animation: galaxyHorizontal 35s linear infinite;
+  width: 160px !important;
+  height:260px !important;
+  border:2px solid white !important;
+  border-radius:20px !important;  
+  background-size: 450% 450% !important;
+ animation: cyberFlow 8s ease infinite !important;
+}
+
+@keyframes cyberFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 
 .kuma{
-   position:static !important; width:120px !important; height:130px !important; 
-  border-radius:9px;
+   position:static !important; width:120px !important; height:160px !important; 
+  border-radius:17px !important;
 }
 .hovering{
   display:none !important; 
 
 }
 .boxcard{
-   font-family: "BBH Hegarty", sans-serif;
-  font-weight: 200 ;
-  font-style: normal;
+   font-family: "Merriweather", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight:700 !important;
+  font-style: normal !important;
+  font-variation-settings:
+    "wdth" 87.5 !important;
   color:white;
-  font-size:11px !important;
+  font-size:11.5px !important;
   letter-spacing:1px !important;  
 }
-.boxcard:nth-of-type(1) {left:140px !important; top:-10px !important; font-size:11px !important; }
+.bonney:hover{ 
+    background: linear-gradient(
+    90deg,
+    #ffffff,   /* pure white */
+    #e0faff,   /* very light cyan */
+    #7dd3fc,   /* soft cyan blue */
+    #38bdf8,   /* sky blue */
+    #0ea5e9    /* deep cyan-blue */
+  ) !important;
+  background-size: 300% 100%;
+animation:orewa 0.3s forwards !important;
+}
 .bonney:hover .boxcard{
   color:black;
-   font-size:11px !important;
+   font-size:20px !important;
+}
+.bonney:hover .kuma{
+  display:none !important;
 }
 .studentbox{
      font-family: "Trade Winds", system-ui;
@@ -431,14 +502,14 @@ background: linear-gradient(
 );
   left:40px !important;
   width:325px;
-  height:230px !important;
+  height:280px !important;
   border:1px solid whitesmoke;
   border-radius:50px;
   animation:appears 1s;
 }
 .studentbox1{
   position:absolute !important;
-  top:380px  !important;
+  top:420px  !important;
   left:40px  !important;
   border-radius:50px;
 background: linear-gradient(
@@ -447,42 +518,42 @@ background: linear-gradient(
   #000000
 );
   width:325px  !important;
-  height:230px  !important;
+  height:170px  !important;
   border:1px solid whitesmoke;
     animation:appears 1s ;
 }
 .onepiece{
  
-  border-radius:10px;
+  border-radius:15px !important;
   position:absolute;
-  top:70px !important;
+  top:60px !important;
   left:15px !important;
-  height:140px !important;
-  width:140px !important;
+  height:190px !important;
+  width:155px !important;
 }
 .onepiece1{
  
   border-radius:50px;
   position:absolute;
-  top:70px  !important;
-  left:15px  !important;
+  top:30px  !important;
+  left:-10px  !important;
   height:140px  !important;
-  width:140px  !important;
+  width:160px  !important;
 }
 .greeter{
   position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:40px !important;
 }
 .greeters{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:24px !important; width:200px !important; text-align:center; top:100px !important; left:128px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:22px !important; width:150px !important; text-align:center; top:100px !important; left:168px !important;
 }
 .greeters1{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; text-align:center; top:-10px; left:88px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:26px !important; text-align:center; top:-10px; left:88px !important;
 }
 .greeters11{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:20px !important; width:200px !important; text-align:center; top:60px !important; left:128px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:18px !important; width:200px !important; text-align:center; top:45px !important; left:128px !important;
 }
 .greeters111{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:19px !important;width:200px !important; text-align:center; top:130px !important ; left:128px !important;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:15px !important;width:150px !important; text-align:center; top:80px !important ; left:128px !important;
 }
 .bonney.disabled {
   pointer-events: none !important;
@@ -490,25 +561,33 @@ background: linear-gradient(
 }
 .gridparent{
   position: absolute;
-  left:40px !important;
+  left:35px !important;
   display:grid;
 grid-template-columns:repeat(2,150px) !important;
-grid-template-rows:230px 230px  !important;
-gap:40px;
+grid-template-rows:260px 260px  !important;
+gap:35px !important;
 }
 .bonney1{
-  background:none;
+  background:none !important;
   position:absolute !important;
-  background-image: url("https://raw.githubusercontent.com/srjn18/accessWebsite/3c28ecc5f053f0bfbec11007d82db100041024c2/accesswebsite/public/images/homePages/access.svg");
+ background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png") !important; 
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width:130px !important;
-  height:90px !important;
-  left:100px !important;
-  top:10px !important;
+  background-position: center !important;
+  background-size:279px !important ;
+  width:280px !important;
+  height:110px !important;
+  left:30px !important;
+  top:30px !important;
   border-radius:20px !important;
   animation:none;
+}
+.bonney1:hover{
+  
+   background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png") !important;
+  background-position:279px !important;
+  background-size:279px !important;
+  opacity:0.6;
+  height:110px !important;
 }
 .bonney1>.kuma{
    opacity:0;
@@ -764,7 +843,7 @@ width:253px;height:150px;
   .year22:nth-child(4) { left:1110px; top:0px; }
 
   .buttonimg{
-    position:absolute;width:253px;height:150px;top:-4.5px; left:-6px; border-radius:35px;
+    position:absolute;width:253px;height:150px ;top:-4.5px; left:-6px; border-radius:35px;
   }
 
   .buttonText{
@@ -776,15 +855,6 @@ width:253px;height:150px;
       50%{opacity:0.8; transform:scale(1.15);}
       100%{opacity:1; transform:scale(1);}
   }
-
-  /*button in home page styling ends here*/
-
-
-body {
-  background-color: #0a0a0f;
-
-  color: #eaeaea;
-}
 
     ::-webkit-scrollbar {
   width: 4px;
@@ -831,20 +901,19 @@ body {
 .greeters111{
   position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:30px; text-align:center; top:300px; left:40px;
 }
-.hovercards{
-    font-family: "Oldenburg", serif;
-  font-weight: 200;
-  font-style: normal;
-}
+
 
 .boxcard{
-   position:static !important;
-   font-family: "BBH Hegarty", sans-serif;
-  font-weight: 200 ;
+   position:static ;
+    font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight:800;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 90.2;
   color:white;
-  font-size:15px !important;
-  letter-spacing:1px !important;  
+  font-size:17px ;
+  letter-spacing:1px ;  
 }
 .bonney.disabled {
   pointer-events: none;
@@ -860,16 +929,11 @@ body {
   letter-spacing:2px;
   font-style:normal;
   scroll-padding-bottom: 40px;
-  position:absolute; color:white; font-size:70px; text-align:center; top:60px; left:459px;
+  position:absolute; color:white; font-size:70px; text-align:center;  left:459px;
   text-transform: uppercase;
-  text-shadow: 4px 4px 8px #ffffff00;
+top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);
 
 }
-
-
-
-  
-
 
 .acc222{
     position:fixed;
@@ -944,41 +1008,26 @@ body {
 
 .bonney{
   background: linear-gradient(
-    90deg,      /* horizontal gradient */
-    #020617,    /* deep space black */
-    #0f172a,    /* midnight blue */
-    #312e81,    /* nebula indigo */
-    #5b21b6,    /* cosmic purple */
-    #1e40af,    /* galaxy blue */
-    #020617     /* loop back to black */
+    180deg,
+    #020617,
+    #020617,
+    #030712,
+    #020617
   );
-
   position:static ;
-  width: 300px ;
+  width: 280px ;
+  border:1px solid whitesmoke;
    z-index: 20;
-  height:248px ;
-  border:2px solid white;
-  border-radius:50px !important;  
-  background-size: 400% 100%;
-  animation: galaxyHorizontal 35s linear infinite;
+  height:410px ;
+  border-radius:30px ;  
 }
-
-@keyframes galaxyHorizontal {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
 .gridparent{
   position: absolute;
-  left:400px;
+  left:430px;
   display:grid;
-grid-template-columns:repeat(2,350px);
-grid-template-rows:250px 250px ;
-gap:40px;
+grid-template-columns:repeat(2,300px);
+grid-template-rows:420px 420px ;
+gap:50px;
 } 
 .bonney:hover{ 
     background: linear-gradient(
@@ -990,17 +1039,14 @@ gap:40px;
     #0ea5e9    /* deep cyan-blue */
   );
   background-size: 300% 100%;
-animation:orewa 0.3s forwards;
+animation:orewa 0.3s forwards ;
 }
 
 .bonney:hover .boxcard{
   color:black;
-  font-size:24px !important;
+  font-size:30px;
 }
-.hovering{
-  position:fixed;
-  top:10000000000px;
-}
+
 .bonney:hover .hovering{
   width:360px;
   height:534px;
@@ -1008,33 +1054,36 @@ animation:orewa 0.3s forwards;
   left:10px;
 }
 .bonney:hover .kuma{
-  width:10px !important; height:10px !important;
+  width:10px ; height:10px;
 opacity:0;
 }
 .kuma{
-   position:static !important; width:140px !important; height:150px !important; 
+   position:static ; width:200px ; height:250px ; 
   border-radius:9px;
 }
 
 .bonney1{
   background:none;
   position:static;
-  background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png");
+  background-image: url("images/homePages/ChatGPT_Image_Jan_1__2026__10_22_37_PM-removebg-preview.png");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 339px;
-  width:300px;
-  height:228px;
-  border-radius:90px;
+  background-position:30px;
+  background-size: 200px;
+  width:280px;
+  height:420px;
+  border:none;
   animation:none;
   opacity:0.95;
 }
+
+/*when studentbox and studentbox1 are active*/
 .bonney1:hover{
-   background-image: url("images/homePages/ChatGPT Image Dec 30, 2025, 11_47_54 AM.png");
-  background-position: center;
-  background-size: contain;
+    background-image: url("images/homePages/ChatGPT_Image_Jan_1__2026__10_22_37_PM-removebg-preview.png");
+  background-position:30px;
+  background-size:230px ;
+  background-repeat: no-repeat;
   opacity:0.9;
-  height:248px !important;
+  height:430px;
 }
 .bonney1>.kuma{
    opacity:0;
@@ -1046,41 +1095,24 @@ opacity:0;
   opacity:0;
 }
 
+/* increase box size when hovering*/
 @keyframes orewa{
  from{
- width: 300px;
-  height:248px;
+ width: 280px;
+  height:410px;
  }
  to{
- width: 320px ;
-  height:278px ;
+ width: 290px ;
+  height:420px ;
    
  }
 }
-
-@keyframes orewaimage{
- from{
- width: 110px;
-  height:115px;
-    left:0px;
- }
- to{
- width: 167px;
-  height:148px;
-    left:-2px;
-    top:10000000000px;
-    border-radius:5px;
- }
-}
-
-
   </style>
 
 <script client:load>
 let activeStudentId = null;
-
+// this enables by placements page
 document.addEventListener("DOMContentLoaded", () => {
-  
   console.log("Placements page JS loaded");
   startAnimation();
 });
@@ -1139,38 +1171,6 @@ document.querySelector(".year").innerHTML = ``;
         </div>
       `;
 
-
-document.addEventListener("mouseout", (e) => {
-  if (e.target.id === "one") {
-  document.body.classList.remove("no-scroll");
-    document.querySelector(".buttyear").innerHTML = ``;
-    container.innerHTML = `
-    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);" >Placements </p>
-  `;
-  }
-  else if(e.target.id === "two"){
-     document.body.classList.remove("no-scroll");
-      document.querySelector(".buttyear").innerHTML = ``;
-    container.innerHTML = `
-    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);" >Placements </p>
-  `;
-  }
-    else if(e.target.id === "three"){
-       document.body.classList.remove("no-scroll");
-      document.querySelector(".buttyear").innerHTML = ``;
-    container.innerHTML = `
-    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);" >Placements </p>
-  `;
-  }
-    else if(e.target.id === "four"){
-       document.body.classList.remove("no-scroll");
-      document.querySelector(".buttyear").innerHTML = ``;
-    container.innerHTML = `
-    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);" >Placements </p>
-  `;
-  }
-   document.body.classList.remove("no-scroll");
-});
   document.querySelectorAll(".year22").forEach(btn => {
   btn.addEventListener("click", () => {
     const year = btn.dataset.year;
@@ -1190,38 +1190,47 @@ document.addEventListener("mouseout", (e) => {
 const detailobject = {
   students: [
     {
+      counterid:1,
       name: "Mr Swasthik Prabhu",
       company: "Edgeverve Infosys",
       salary: "8 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_01_21 PM.png",
+      hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_01_21_PM-removebg-preview.png",
       companyImage: "/images/homePages/edgeversve.png"
     },
     {
+      counterid:2,
       name: "Mr Aron Nazreeth",
       company: "Shibuya Corporation",
       salary: "24 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 05_50_48 PM.png",
+       hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_01_39_PM-removebg-preview.png",
       companyImage: "/images/homePages/shibuya.png"
     },
     {
+      counterid:3,
       name: "Mr Saurabh Kumar",
       company: "Infosys Technologies ",
       salary: "8 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_04_45 PM.png",
+      hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_04_45_PM-removebg-preview.png",
       companyImage: "/images/homePages/infosys.png"
     },
-    {
+    { counterid:4,
       name: "Mr Oshainu Brat Bora",
       company: "Siemens Corporation",
       salary: "9 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_06_40 PM.png",
+      hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_06_40_PM-removebg-preview.png",
       companyImage: "/images/homePages/siemens.png"
     },
     {
+      counterid:5,
       name: "Ms Bindhi",
       company: "Cohesity Corporation",
       salary: "15 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_07_46 PM.png",
+          hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_07_46_PM-removebg-preview.png",
       companyImage: "/images/homePages/cohesity1.png"
     }
   ],
@@ -1231,7 +1240,6 @@ function next2022() {
    document.body.classList.remove("no-scroll1");
     document.body.classList.remove("no-scroll");
   console.log("Loading Placements 2022");
- document.querySelector(".buttyear").innerHTML = ``;
   document.querySelector(".acc1").innerHTML = `
     <div class="container"></div>
     <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
@@ -1250,7 +1258,6 @@ function next2023() {
     <div class="container"></div>
     <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
   `;
-   document.querySelector(".buttyear").innerHTML = ``;
   document.querySelector(".year").innerHTML = "";
   document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2022()">&#8678;</button> <button class="acc222" style="left:1470px;" onclick="next2024()">&#8680;</button><button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
   titleEffect("Placements - 2023");
@@ -1264,58 +1271,45 @@ function next2024() {
     <div class="container"></div>
     <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
   `;
-   document.querySelector(".buttyear").innerHTML = ``;
   document.querySelector(".year").innerHTML = "";
   document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2023()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="next2025()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
   titleEffect("Placements - 2024");
 }
 
-function next2025() {
-    document.body.classList.remove("no-scroll");
-  console.log("Loading Placements 2025");
- document.querySelector(".buttyear").innerHTML = ``;
-  const text = "Placements - 2025";
-
-  // Reset containers
-  document.querySelector(".year").innerHTML = "";
-  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2024()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="startAnimation()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
-
-  // Create base layout
-  document.querySelector(".acc1").innerHTML = `
-    <div class="container"></div>
-  <div class="gridparent">
-    <button class="bonney" data-id="0" >
-    <img class="kuma"   src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_01_21 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_01_21_PM-removebg-preview.png">
-     <p class="boxcard" style="position:absolute;  left:140px; top:10px;    ">Name:  Swasthik Prabhu</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;  ">placed at:  infosys Edgeverve</p> </button>
-
-    <button class="bonney" data-id="1">
-    <img class="kuma"  src="/images/homePages/ChatGPT Image Dec 26, 2025, 05_50_48 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_01_39_PM-removebg-preview.png">
-    <p class="boxcard" style="position:absolute;  left:140px; top:10px;   ">Name:  Aaron Nazareth</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  Shibuya Corporation</p> </button>
-
-    <button class="bonney" data-id="2" >
-    <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_04_45 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_04_45_PM-removebg-preview.png">
-   <p class="boxcard" style="position:absolute; ">Name:  Saurabh Kumar</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  infosys</p>  </button>
-
-    <button class="bonney" data-id="3" >
-    <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_06_40 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_06_40_PM-removebg-preview.png">
-    <p class="boxcard" style="position:absolute;  ">Name:  Oishanu Brat Bora</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;  ">placed at:  Siemans Services</p> </button>
-
-    <button class="bonney" data-id="4">
-     <img class="kuma" src="/images/homePages/ChatGPT Image Dec 26, 2025, 12_07_46 PM.png"><img class="hovering" src="images/homePages/ChatGPT_Image_Dec_26__2025__12_07_46_PM-removebg-preview.png">
-    <p class="boxcard" style="position:absolute;  ">Name:  Bindiya K</p><p style="color:white;"><p  class="boxcard" style=" position:absolute; left:140px; top:42px;   ">placed at:  Sasken Technologies</p> </button>
- </div>
-`;
-
-  // Title typing
-  titleEffect(text);
-
-  // Attach click logic to students
+function  createcards(id){
+  if(id===0){ 
+    document.querySelector(".acc1").innerHTML += `<div class="gridparent"></div>`;
+  }
+  else{
+    id=id-1;
+document.querySelector(".gridparent").innerHTML += `<button class="bonney" data-id="${id}">
+    <img class="kuma"   src="${detailobject.students[id].studentImage}"><img class="hovering" src="${detailobject.students[id].hoverstudentImage}">
+     <p class="boxcard" style="position:static">${detailobject.students[id].name}</p><p  class="boxcard" style=" position:static  ">${detailobject.students[id].company}</p> </button>
+`;}
   document.querySelectorAll(".bonney").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.id);
       showStudent(id, btn);
     });
   });
+}     
+
+function next2025() {
+  let i=10;
+    document.body.classList.remove("no-scroll");
+  console.log("Loading Placements 2025");
+  const text = "Placements - 2025"; 
+  // Reset containers
+  document.querySelector(".year").innerHTML = "";
+  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2024()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="startAnimation()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
+    document.querySelector(".acc1").innerHTML = `<div class="container"></div>`;
+
+for(i=0;i<6;i++){
+  if(i===0||i>0){  
+    titleEffect(text);
+     createcards(i);
+    }
+}
 }
 let counter = 0;
 
@@ -1332,14 +1326,16 @@ function showStudent(id, btn) {
     b.classList.remove("bonney1")
   );
   btn.classList.add("bonney1");
+
+  //when the more details card(studentbox and studentbox1) are active
 document.body.classList.add("no-scroll1");
   document.querySelectorAll(".bonney").forEach(b => {
   if (b !== btn) {
     b.classList.add("disabled");
   }
 });
+
   document.querySelector(".year").innerHTML = `
-    <div class="overlay" id="overlay">
       <div class="studentbox">
         <div class="container1"></div>
        <img style="position:absolute; width:230px; height:270px; left:50px;  border-radius:50px;" class="onepiece" src="${detailobject.students[id].studentImage}">
@@ -1352,19 +1348,14 @@ document.body.classList.add("no-scroll1");
         <div class="container4"></div>
         <div class="container5"></div>
       </div>
-    </div>
+  
   `;
 
-  // Click outside to close
-  document.getElementById("overlay").addEventListener("click", (e) => {
-    if (e.target.id === "overlay") {
-      closeStudentView();
-    }
-  });
 
   typeStudentText(id);
 }
 
+//loads studentinfo into studentbox and studentbox1
 function typeStudentText(id) {
   const student = detailobject.students[id];
 
@@ -1440,6 +1431,7 @@ function titleEffect(text) {
 
   type();
 }
+//used to disable effects caused by (studentbox and studentbox1)
 function closeStudentView() {
   document.querySelectorAll(".bonney").forEach(b =>
   b.classList.remove("disabled")
@@ -1450,12 +1442,7 @@ function closeStudentView() {
   document.body.classList.remove("no-scroll1");
 }
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && activeStudentId !== null) {
-    closeStudentView();
-  }
-});
-   
+
 
 </script>
 </Layout>
