@@ -1,6 +1,5 @@
 --- 
 import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
 ---
 
 
@@ -8,11 +7,10 @@ import Navbar from "../components/Navbar.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computer And Communication department</title>
+    <title>CCE</title>
   </head>
 
   <body>
-    <Navbar />
-    <slot />
+    <slot /> <!--removed navbar because it will be imported in evry page-->
   </body>
 </html>
