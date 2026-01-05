@@ -25,11 +25,7 @@ import Layout from "../layouts/Layout.astro";
 
 
   <style is:global >
-  @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oldenburg&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
-   @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Oldenburg&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oldenburg&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Merriweather:ital,opsz,wdth,wght@0,18..144,87.5,300..900;1,18..144,87.5,300..900&family=Metal+Mania&family=Oldenburg&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bungee+Spice&family=Merriweather:ital,opsz,wdth,wght@0,18..144,90.2,300..900;1,18..144,90.2,300..900&family=Metal+Mania&family=Oldenburg&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Doodle+Shadow&family=Sekuya&family=Trade+Winds&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
 
 .sci-fi-bg{
   opacity:0;
@@ -64,7 +60,7 @@ import Layout from "../layouts/Layout.astro";
   .year22:nth-child(1) {left:60px !important; top:-30px !important; }
   .year22:nth-child(2) { left:300px !important; top:-30px !important;  }
   .year22:nth-child(3) {left:540px !important; top:-30px !important;  }
-  .year22:nth-child(4) { left:780px !important; top:-30px !important; }
+
 
   
    .buttonimg{
@@ -136,7 +132,7 @@ opacity:0;
   .year22:nth-child(1) {left:240px !important; top:-70px !important; }
   .year22:nth-child(2) { left:240px !important; top:240px !important;  }
   .year22:nth-child(3) {left:240px !important; top:540px !important;  }
-  .year22:nth-child(4) { left:240px !important; top:840px !important; }
+
 
    .buttonimg{
     position:absolute;width:305px !important ;height:140px !important;top:-5.5px !important; left:-8px !important; border-radius:35px;
@@ -197,6 +193,13 @@ opacity:0;
 .hovering{
   display:none !important; 
 
+}
+.bonney:hover .more-details{
+  opacity:1;
+   font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:15px !important;
 }
 .boxcard{
    position:static !important;
@@ -293,9 +296,7 @@ background: linear-gradient(
 .greeters11{
   position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:28px !important; width:400px !important; text-align:center; top:340px !important; left:-30px !important;
 }
-.greeters111{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:25px !important;width:200px !important; text-align:center; top:380px !important ; left:128px !important;
-}
+
 .bonney.disabled {
   pointer-events: none !important;
   opacity: 0 !important;
@@ -399,7 +400,7 @@ opacity:0;
   .year22:nth-child(1) {left:110px !important; top:-120px !important; }
   .year22:nth-child(2) { left:110px !important; top:100px !important;  }
   .year22:nth-child(3) {left:110px !important; top:300px !important;  }
-  .year22:nth-child(4) { left:110px !important; top:500px !important; }
+
 
    .buttonimg{
     position:absolute;width:205px !important ;height:100px !important;top:-5.5px !important; left:-6px !important; border-radius:15px !important;
@@ -552,9 +553,7 @@ background: linear-gradient(
 .greeters11{
   position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:18px !important; width:200px !important; text-align:center; top:45px !important; left:128px !important;
 }
-.greeters111{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:15px !important;width:150px !important; text-align:center; top:80px !important ; left:128px !important;
-}
+
 .bonney.disabled {
   pointer-events: none !important;
   opacity: 0 !important;
@@ -594,11 +593,9 @@ gap:35px !important;
 }
 }
 
-
-.placements-root {
-  position: relative;
-  padding-top: 10px;
-    min-height: 1100px;
+body{
+  min-height: 100dvh;
+  min-height:100vh;
 }
 body.no-scroll {
   overflow: hidden;
@@ -837,10 +834,9 @@ width:253px;height:150px;
     top:140px;
   }
 
-  .year22:nth-child(1) {left:160px; top:0px; }
-  .year22:nth-child(2) { left:480px; top:0px;  }
-  .year22:nth-child(3) {left:800px; top:0px;  }
-  .year22:nth-child(4) { left:1110px; top:0px; }
+  .year22:nth-child(1) {left:300px; top:0px; }
+  .year22:nth-child(2) { left:610px; top:0px;  }
+  .year22:nth-child(3) {left:930px; top:0px;  }
 
   .buttonimg{
     position:absolute;width:253px;height:150px ;top:-4.5px; left:-6px; border-radius:35px;
@@ -849,7 +845,22 @@ width:253px;height:150px;
   .buttonText{
     position:absolute;  top:130px; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
   }
-  
+  .linkedbtn{
+position:absolute;
+width:55px;
+height:55px;
+top:370px;
+left:50px;
+border-radius:90px;
+  }
+  .emaillink{
+    position:absolute;
+width:55px;
+height:55px;
+border-radius:90px;
+top:370px;
+left:220px;
+  }
   @keyframes year22{
       0%{opacity:0; transform:scale(0.85);}
       50%{opacity:0.8; transform:scale(1.15);}
@@ -887,21 +898,37 @@ width:253px;height:150px;
     opacity: 0;
 }
 .greeter{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:35px; text-align:center; top:-10px; left:25px;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal;  text-shadow:
+    0 0 6px rgba(196,153,82,0.5),
+    0 0 14px rgba(196,153,82,0.35),
+    0 0 28px rgba(196,153,82,0.2);color:white; font-size:32px; text-align:center; top:-30px; left:35px;
 }
 .greeters{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:26px; width:400px; text-align:center; top:390px; left:-38px;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 300;font-style: normal; color:white; font-size:23.5px;   text-shadow:
+    0 0 6px rgba(196,153,82,0.5),
+    0 0 14px rgba(196,153,82,0.35),
+    0 0 28px rgba(196,153,82,0.2); width:400px; text-align:center; top:350px; left:-38px;
 }
 .greeters1{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:35px; text-align:center; top:-10px; left:58px;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; text-shadow:
+    0 0 6px rgba(196,153,82,0.5),
+    0 0 14px rgba(196,153,82,0.35),
+    0 0 28px rgba(196,153,82,0.2); color:white; font-size:35px; text-align:center; top:-10px; left:58px;
 }
 .greeters11{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:30px; text-align:center; top:220px; left:13px;
-}
-.greeters111{
-  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white; font-size:30px; text-align:center; top:300px; left:40px;
+  position:absolute; font-family: "Trade Winds", system-ui;font-weight: 400;font-style: normal; color:white;   text-shadow:
+    0 0 6px rgba(196,153,82,0.5),
+    0 0 14px rgba(196,153,82,0.35),
+    0 0 28px rgba(196,153,82,0.2);font-size:30px; text-align:center; top:220px; left:13px;
 }
 
+.boxcard.one{
+font-size:24px;
+  color: #C49952;
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 0 8px rgba(196, 153, 82, 0.35);
+}
 
 .boxcard{
    position:static ;
@@ -959,11 +986,11 @@ top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);
   font-weight: 400;
   font-style: normal;
   position:fixed;
-  top:200px;
+  top:180px;
   left:45px;
-  width:325px;
+  width:330px;
   height:430px;
-  border:1px solid whitesmoke;
+  border:1.5px solid #C49952;
   border-radius:50px;
   animation:appears 1s;
 }
@@ -975,22 +1002,22 @@ top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);
 }
 .studentbox1{
   position:fixed;
-  top:200px;
-  left:1165px;
+  top:240px;
+  left:1150px;
   border-radius:50px;
   width:305px;
-  height:430px;
-  border:1px solid whitesmoke;
+  height:350px;
+  border:1.5px solid #C49952;
     animation:appears 1s ;
 }
 .onepiece{
  
-  border-radius:10px;
+  border-radius:5px;
   position:absolute;
-  top:90px;
+  top:50px;
   left:25px;
-  height:300px;
-  width:290px;
+  height:280px;
+  width:270px;
 }
 .onepiece1{
  
@@ -1016,18 +1043,22 @@ top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);
   );
   position:static ;
   width: 280px ;
-  border:1px solid whitesmoke;
+  border:1px solid  #C49952;;
    z-index: 20;
-  height:410px ;
+  height:370px ;
   border-radius:30px ;  
+}
+.more-details{
+  opacity:0;
 }
 .gridparent{
   position: absolute;
-  left:430px;
+  left:450px;
   display:grid;
 grid-template-columns:repeat(2,300px);
-grid-template-rows:420px 420px ;
-gap:50px;
+grid-template-rows:380px 380px ;
+gap:40px;
+column-gap:60px;
 } 
 .bonney:hover{ 
     background: linear-gradient(
@@ -1041,10 +1072,18 @@ gap:50px;
   background-size: 300% 100%;
 animation:orewa 0.3s forwards ;
 }
+.bonney:hover .more-details{
+  opacity:1;
+   font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:25px;
 
+}
 .bonney:hover .boxcard{
   color:black;
   font-size:30px;
+  text-shadow:none;
 }
 
 .bonney:hover .hovering{
@@ -1058,7 +1097,7 @@ animation:orewa 0.3s forwards ;
 opacity:0;
 }
 .kuma{
-   position:static ; width:200px ; height:250px ; 
+   position:static ; width:190px ; height:235px ; 
   border-radius:9px;
 }
 
@@ -1085,6 +1124,9 @@ opacity:0;
   opacity:0.9;
   height:430px;
 }
+.bonney1:hover .more-details{
+  opacity:0;
+}
 .bonney1>.kuma{
    opacity:0;
 }
@@ -1099,11 +1141,11 @@ opacity:0;
 @keyframes orewa{
  from{
  width: 280px;
-  height:410px;
+  height:370px;
  }
  to{
  width: 290px ;
-  height:420px ;
+  height:380px ;
    
  }
 }
@@ -1164,10 +1206,9 @@ document.querySelector(".year").innerHTML = ``;
   
       document.querySelector(".year").innerHTML = `
         <div class="parentbutton">
-          <button  id="one" class="year22" data-year="2022"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_30_28 PM.png"><p class="buttonText" >2022</p></button>
-          <button id="two" class="year22" data-year="2023"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_31_53 PM.png"><p  class="buttonText" >2023</p></button>
-          <button id="three" class="year22" data-year="2024"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_32_29 PM.png"><p  class="buttonText" >2024</p></button>
-          <button id="four" class="year22"data-year="2025"><img  class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_33_57 PM.png"><p  class="buttonText" >2025</p></button>
+          <button id="one" class="year22" data-year="2024"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_31_53 PM.png"><p  class="buttonText" >2024</p></button>
+          <button id="two" class="year22" data-year="2025"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_32_29 PM.png"><p  class="buttonText" >2025</p></button>
+          <button id="three" class="year22"data-year="2026"><img  class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_33_57 PM.png"><p  class="buttonText" >2026</p></button>
         </div>
       `;
 
@@ -1175,10 +1216,9 @@ document.querySelector(".year").innerHTML = ``;
   btn.addEventListener("click", () => {
     const year = btn.dataset.year;
 
-    if (year === "2022") next2022();
-    else if (year === "2023") next2023();
-    else if (year === "2024") next2024();
+    if (year === "2024") next2024();
     else if (year === "2025") next2025();
+    else if (year === "2026") next2026();
   });
 });
 
@@ -1196,7 +1236,9 @@ const detailobject = {
       salary: "8 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_01_21 PM.png",
       hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_01_21_PM-removebg-preview.png",
-      companyImage: "/images/homePages/edgeversve.png"
+      companyImage: "/images/homePages/edgeversve.png",
+      linkedin:"https://in.linkedin.com/",
+      emaillinks:"https://mail.google.com/mail/u/0/"
     },
     {
       counterid:2,
@@ -1205,7 +1247,9 @@ const detailobject = {
       salary: "24 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 05_50_48 PM.png",
        hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_01_39_PM-removebg-preview.png",
-      companyImage: "/images/homePages/shibuya.png"
+      companyImage: "/images/homePages/shibuya.png",
+       linkedin:"https://www.linkedin.com/in/aaron-n27/",
+      emaillinks:"aaronnazareth27@gmail.com"
     },
     {
       counterid:3,
@@ -1214,7 +1258,9 @@ const detailobject = {
       salary: "8 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_04_45 PM.png",
       hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_04_45_PM-removebg-preview.png",
-      companyImage: "/images/homePages/infosys.png"
+      companyImage: "/images/homePages/infosys.png",
+       linkedin:"https://in.linkedin.com/",
+      emaillinks:"https://mail.google.com/mail/u/0/"
     },
     { counterid:4,
       name: "Mr Oshainu Brat Bora",
@@ -1222,7 +1268,9 @@ const detailobject = {
       salary: "9 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_06_40 PM.png",
       hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_06_40_PM-removebg-preview.png",
-      companyImage: "/images/homePages/siemens.png"
+      companyImage: "/images/homePages/siemens.png",
+       linkedin:"https://www.linkedin.com/in/oishanu-brat-borah-264313268/",
+      emaillinks:"oishanubora@gmail.com"
     },
     {
       counterid:5,
@@ -1231,37 +1279,13 @@ const detailobject = {
       salary: "15 LPA",
       studentImage: "/images/homePages/ChatGPT Image Dec 26, 2025, 12_07_46 PM.png",
           hoverstudentImage:"images/homePages/ChatGPT_Image_Dec_26__2025__12_07_46_PM-removebg-preview.png",
-      companyImage: "/images/homePages/cohesity1.png"
+      companyImage: "/images/homePages/cohesity1.png",
+       linkedin:"https://www.linkedin.com/in/bindiya-kirlaya-510629229",
+      emaillinks:"bindiyakirlaya03@gmail.com"
     }
   ],
   greetings: ["Congratulations", "Placed At", "Salary:"]
 };
-function next2022() {
-   document.body.classList.remove("no-scroll1");
-    document.body.classList.remove("no-scroll");
-  console.log("Loading Placements 2022");
-  document.querySelector(".acc1").innerHTML = `
-    <div class="container"></div>
-    <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
-  `;
-  document.querySelector(".year").innerHTML = "";
-  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="startAnimation()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="next2023()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px; font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
-
-  titleEffect("Placements - 2022");
-}
-
-function next2023() {
-   document.body.classList.remove("no-scroll1");
-    document.body.classList.remove("no-scroll");
-  console.log("Loading Placements 2023");
-   document.querySelector(".acc1").innerHTML = `
-    <div class="container"></div>
-    <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
-  `;
-  document.querySelector(".year").innerHTML = "";
-  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2022()">&#8678;</button> <button class="acc222" style="left:1470px;" onclick="next2024()">&#8680;</button><button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
-  titleEffect("Placements - 2023");
-}
 
 function next2024() {
    document.body.classList.remove("no-scroll1");
@@ -1272,9 +1296,10 @@ function next2024() {
     <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
   `;
   document.querySelector(".year").innerHTML = "";
-  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2023()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="next2025()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
+  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="startAnimation()">&#8678;</button> <button class="acc222" style="left:1470px;" onclick="next2025()">&#8680;</button><button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
   titleEffect("Placements - 2024");
 }
+
 
 function  createcards(id){
   if(id===0){ 
@@ -1284,7 +1309,7 @@ function  createcards(id){
     id=id-1;
 document.querySelector(".gridparent").innerHTML += `<button class="bonney" data-id="${id}">
     <img class="kuma"   src="${detailobject.students[id].studentImage}"><img class="hovering" src="${detailobject.students[id].hoverstudentImage}">
-     <p class="boxcard" style="position:static">${detailobject.students[id].name}</p><p  class="boxcard" style=" position:static  ">${detailobject.students[id].company}</p> </button>
+     <p class="boxcard one" style="position:static">${detailobject.students[id].name}</p><p class="more-details">View Details</p></button>
 `;}
   document.querySelectorAll(".bonney").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1301,7 +1326,7 @@ function next2025() {
   const text = "Placements - 2025"; 
   // Reset containers
   document.querySelector(".year").innerHTML = "";
-  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2024()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="startAnimation()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
+  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2024()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="next2026()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px;  font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
     document.querySelector(".acc1").innerHTML = `<div class="container"></div>`;
 
 for(i=0;i<6;i++){
@@ -1311,10 +1336,24 @@ for(i=0;i<6;i++){
     }
 }
 }
+function next2026() {
+   document.body.classList.remove("no-scroll1");
+    document.body.classList.remove("no-scroll");
+  console.log("Loading Placements 2026");
+  document.querySelector(".acc1").innerHTML = `
+    <div class="container"></div>
+    <p style=" position:absolute;color:white;  left:450px; top:200px; font-size:100px; ">Coming Soon!!</p>
+  `;
+  document.querySelector(".year").innerHTML = "";
+  document.querySelector(".year1").innerHTML = `<button class="acc222" style="left:10px;" onclick="next2025()">&#8678;</button><button class="acc222" style="left:1470px;" onclick="startAnimation()">&#8680;</button> <button class="acc222" style=" padding-top:5px; padding-bottom:5px; left:1480px; top:84px; font-size:20px; border:none;  " onclick="startAnimation()" >X</button>`;
+
+  titleEffect("Placements - 2026");
+}
 let counter = 0;
 
 function showStudent(id, btn) {
   // Toggle logic
+  
   if (activeStudentId === id) {
     closeStudentView();
     btn.classList.remove("bonney1");
@@ -1328,7 +1367,6 @@ function showStudent(id, btn) {
   btn.classList.add("bonney1");
 
   //when the more details card(studentbox and studentbox1) are active
-document.body.classList.add("no-scroll1");
   document.querySelectorAll(".bonney").forEach(b => {
   if (b !== btn) {
     b.classList.add("disabled");
@@ -1340,6 +1378,8 @@ document.body.classList.add("no-scroll1");
         <div class="container1"></div>
        <img style="position:absolute; width:230px; height:270px; left:50px;  border-radius:50px;" class="onepiece" src="${detailobject.students[id].studentImage}">
         <div style="position:absolute; top:-45px; "class="container2"></div>
+        <button onclick="window.open('${detailobject.students[id].linkedin}', '_blank')"  class="linkedbtn"><img style="width:85px;position:absolute; left:-17px; top:-17px; height:85px;"src="images/homePages/vecteezy_linkedin-logo-png-linkedin-icon-transparent-png_18930480.png"></button>
+        <button    onclick="window.open('mailto:${detailobject.students[id].emaillinks}')" class="emaillink"><img style=" position:absolute; left:-3.2px; top:-1.8px; width:53px; height:53px;"src="images/homePages/vecteezy_google-mail-gmail-icon-logo-symbol_22613021.png"></button>
       </div>
 
       <div class="studentbox1">
@@ -1363,27 +1403,26 @@ function typeStudentText(id) {
   const t2 = student.name;
   const t3 = detailobject.greetings[1]; // "Placed At"
   const t4 = student.company;
-  const t5 = detailobject.greetings[2] + " " + student.salary;
 
-  let i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
+
+  let i1 = 0, i2 = 0, i3 = 0, i4 = 0;
 
   const c1 = document.querySelector(".container1");
   const c2 = document.querySelector(".container2");
   const c3 = document.querySelector(".container3");
   const c4 = document.querySelector(".container4");
-  const c5 = document.querySelector(".container5");
+
 
   c1.innerHTML = `<p class="greeter"></p>`;
   c2.innerHTML = `<p class="greeters"></p>`;
   c3.innerHTML = `<p class="greeters1"></p>`;
   c4.innerHTML = `<p class="greeters11"></p>`;
-  c5.innerHTML = `<p class="greeters111"></p>`;
+
 
   const p1 = c1.querySelector("p");
   const p2 = c2.querySelector("p");
   const p3 = c3.querySelector("p");
   const p4 = c4.querySelector("p");
-  const p5 = c5.querySelector("p");
 
   function run() {
     if (i1 < t1.length) {
@@ -1397,9 +1436,6 @@ function typeStudentText(id) {
     }
     else if (i4 < t4.length) {
       p4.textContent += t4[i4++];
-    }
-    else if (i5 < t5.length) {
-      p5.textContent += t5[i5++];
     }
     else {
      
@@ -1439,7 +1475,7 @@ function closeStudentView() {
   document.querySelector(".year").innerHTML = "";
   activeStudentId = null;
   console.log("Student view closed");
-  document.body.classList.remove("no-scroll1");
+
 }
 
 
