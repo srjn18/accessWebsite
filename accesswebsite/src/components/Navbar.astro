@@ -20,7 +20,7 @@ const current = Astro.url.pathname;
       <li><a href="/faculty" class={current === "/faculty" ? "active" : ""}>Faculty</a></li>
       <li><a href="/committee1" class={current === "/committee1" || current === "/committee" ? "active" : ""}>Committee</a></li>
       <li><a href="/placements" class={current === "/placements" ? "active" : ""}>Placements</a></li>
-      <li><a href="/events" class={current === "/events" ? "active" : ""}>Events</a></li>
+      <li><a href="/notes" class={current === "/notes" ? "active" : ""}>Notes</a></li>
       <li><a href="/about" class={current === "/about" ? "active" : ""}>About Us</a></li>
       <li><a href="/loginAdmin" class={current === "/loginAdmin" || current === "/admin" ? "active" : ""}><img src="/images/icons/user.svg" alt="user" /></a></li>
     </ul>
@@ -69,7 +69,7 @@ const current = Astro.url.pathname;
           e.preventDefault();
           const target = document.querySelector(href);
           if (target) {
-            const offset = 80; // Navbar height
+            const offset = 90; // Navbar height
             const targetPosition = target.offsetTop - offset;
             window.scrollTo({
               top: targetPosition,
@@ -331,7 +331,7 @@ const current = Astro.url.pathname;
 
   .nav-links a {
     font-size: 1.5rem;
-    padding: 12px 20px;
+    padding: 12px 15px;
   }
 
   .burger span {
