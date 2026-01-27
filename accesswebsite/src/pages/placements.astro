@@ -16,12 +16,14 @@ import Layout from "../layouts/Layout.astro";
 <div class="stars"></div>
 <div class="stars stars2-1"></div>
 
-  
-<div class="placements-root">
+<div class="flowlayout">
+<div class="placements-root"></div>
+</div>
 <div class="acc1" style="position: relative;"></div>
 <div class="year" style="position: relative;"></div>
 <div class="year1" style="position: relative;"></div>
-</div>
+<div class="secretyear" style="position:relative;"></div>
+
 
 
   <style is:global >
@@ -37,7 +39,225 @@ import Layout from "../layouts/Layout.astro";
   opacity:0;
 }
 
-@media (max-width:1024px){
+@media (max-width:1490px){
+  .parentbutton{
+  display:flex;
+  position:absolute !important;
+  flex-direction:column;
+  gap:70px !important;
+  left:-90px !important;
+  top:110px !important;
+}
+     .acc111{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 550 ;
+  letter-spacing:1px !important;
+  font-style:normal;
+  scroll-padding-bottom: 10px !important;
+  position:absolute; color:white; font-size:75px !important; text-align:center; top:30px !important; left:350px !important;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px #ffffff00;
+
+}
+#cl1{
+   display:none !important;
+}
+
+.year22{
+  
+}
+.nittecollegeimg{
+    position:absolute;
+    top:430px !important;
+    left:345px !important;
+    width:440px  !important;
+    height:220px  !important;
+    border-radius:170px;
+    border:5px solid #C49952;
+   animation:nitteimg 3s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }  
+    .nittecollegeimg1{
+   display:none !important;
+
+  }
+
+ .parentplacement{
+    position:absolute;
+    width:900px !important;
+    height:900px !important;
+    left:90px !important;
+    top:280px !important;
+    border:4px solid #C49952 !important;
+    animation:placementinfo 1.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
+  }  
+  .placement-info{
+    position:absolute;
+    width:855px!important;
+    height:860px !important;
+    top:20px !important;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll-X;
+  }  
+  .info1{
+  position:absolute;
+  left:210px !important;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;          /* super bold */
+  font-size: 40px !important;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:20px !important;
+  
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 3s forwards !important;
+  }
+.placementsummary{
+  width:530px !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 25px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+ .placementsummary:nth-child(2) {left:320px !important; top:105px !important;}
+  .placementsummary:nth-child(3) {  left:35px !important; top:505px !important;}
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:30px !important;
+  top:455px !Important;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 30px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+
+}
+@media (max-width:1350px){
+      .acc111{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 550 ;
+  letter-spacing:1px !important;
+  font-style:normal;
+  scroll-padding-bottom: 10px !important;
+  position:absolute; color:white; font-size:87px !important; text-align:center; top:30px !important; left:280px !important;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 8px #ffffff00;
+
+}
+#cl1{
+   display:none !important;
+}
+
+.year22{
+  display:none !important;
+}
+.nittecollegeimg{
+    position:absolute;
+    top:430px !important;
+    left:345px !important;
+    width:440px  !important;
+    height:220px  !important;
+    border-radius:170px;
+    border:5px solid #C49952;
+   animation:nitteimg 3s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }  
+    .nittecollegeimg1{
+    display:none !important;
+  }
+
+ .parentplacement{
+    position:absolute;
+    width:940px !important;
+    height:900px !important;
+    left:140px !important;
+    top:280px !important;
+    border:4px solid #C49952 !important;
+    animation:placementinfo 1.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
+  }  
+  .placement-info{
+    position:absolute;
+    width:895px!important;
+    height:860px !important;
+    top:20px !important;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll-X;
+  }  
+  .info1{
+  position:absolute;
+  left:210px !important;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;          /* super bold */
+  font-size: 40px !important;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:20px !important;
+  
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 3s forwards !important;
+  }
+.placementsummary{
+  width:790px !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 30px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+ .placementsummary:nth-child(2) {left:40px !important; top:105px !important;}
+  .placementsummary:nth-child(3) {  left:35px !important; top:505px !important;}
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:30px !important;
+  top:455px !Important;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 30px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+}
+@media (max-width:1200px){
     .acc111{
   font-family: "Rubik Doodle Shadow", system-ui;
   font-weight: 550 ;
@@ -50,31 +270,98 @@ import Layout from "../layouts/Layout.astro";
 
 }
 #cl1{
-   position:absolute; color:white; font-size:35px !important; text-align:center; top:-50px !important; left:325px !important;
+   display:none !important;
 }
 
 .year22{
-  width:200px !important;
-  height:210px !important;
+  display:none !important;
 }
-  .year22:nth-child(1) {left:60px !important; top:-30px !important; }
-  .year22:nth-child(2) { left:300px !important; top:-30px !important;  }
-  .year22:nth-child(3) {left:540px !important; top:-30px !important;  }
+.nittecollegeimg{
+    position:absolute;
+    top:430px !important;
+    left:350px !important;
+    width:320px  !important;
+    height:200px  !important;
+    border-radius:170px;
+    border:5px solid #C49952;
+   animation:nitteimg 3s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }  
+    .nittecollegeimg1{
+    display:none !important;
+  }
 
-
+ .parentplacement{
+    position:absolute;
+    width:820px !important;
+    height:850px !important;
+    left:90px !important;
+    top:200px !important;
+    border:4px solid #C49952 !important;
+    animation:placementinfo 1.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
+  }  
+  .placement-info{
+    position:absolute;
+    width:775px!important;
+    height:790px !important;
+    top:20px !important;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll-X;
+  }  
+  .info1{
+  position:absolute;
+  left:180px !important;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;          /* super bold */
+  font-size: 40px !important;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:20px !important;
   
-   .buttonimg{
-    position:absolute;width:210px !important ;height:125px !important;top:-5.5px !important; left:-10px !important; border-radius:35px;
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 3s forwards !important;
   }
-
-  .buttonText{
-    position:absolute;  top:90px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
-  }
+.placementsummary{
+  width:700px !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 25px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
 }
-
-
-
-@media (max-width:850px){
+ .placementsummary:nth-child(2) {left:40px !important; top:105px !important;}
+  .placementsummary:nth-child(3) {  left:35px !important; top:405px !important;}
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:30px !important;
+  top:355px !Important;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 30px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+}
+@media (max-width:950px){
   .bg-animation{
 opacity:0;
   }
@@ -126,34 +413,22 @@ opacity:0;
   to { background-position: -1000px 1000px; }
 }
 .year22{
-  width:300px !important;
-  height:210px !important;
+  display:none !important;
 }
-  .year22:nth-child(1) {left:240px !important; top:-70px !important; }
-  .year22:nth-child(2) { left:240px !important; top:240px !important;  }
-  .year22:nth-child(3) {left:240px !important; top:540px !important;  }
 
-
-   .buttonimg{
-    position:absolute;width:305px !important ;height:140px !important;top:-5.5px !important; left:-8px !important; border-radius:35px;
-  }
-
-  .buttonText{
-    position:absolute;  top:90px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
-  }
     .acc111{
   font-family: "Rubik Doodle Shadow", system-ui;
   font-weight: 550 ;
   letter-spacing:1px !important;
   font-style:normal;
   scroll-padding-bottom: 10px !important;
-  position:absolute; color:white; font-size:57px !important; text-align:center; top:20px !important; left:25px !important;
+  position:absolute; color:white; font-size:57px !important; text-align:center; top:20px !important; left:200px !important;
   text-transform: uppercase;
   text-shadow: 4px 4px 8px #ffffff00;
 
 }
 #cl1{
-   position:absolute; color:white; font-size:40px !important; text-align:center; top:-60px !important; left:175px !important;
+   display:none !important;
 }
 
 .acc222:nth-child(1){display:none !important;}
@@ -185,6 +460,90 @@ opacity:0;
   50%  { background-position: 100% 100%; }
   75%  { background-position: 0% 100%; }
   100% { background-position: 0% 0%; }
+}
+.nittecollegeimg{
+    position:absolute;
+    top:330px !important;
+    left:120px !important;
+    width:270px  !important;
+    height:150px  !important;
+    border-radius:150px;
+    border:3px solid #C49952;
+   animation:nitteimg 3s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }  
+  .nittecollegeimg1{
+   display:none !important;
+  }   
+
+ .parentplacement{
+    position:absolute;
+    width:650px !important;
+    height:710px !important;
+    left:90px !important;
+    top:160px !important;
+    border:4px solid #C49952 !important;
+    animation:placementinfo 1.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
+  }  
+  .placement-info{
+    position:absolute;
+    width:620px!important;
+    height:670px !important;
+    top:36px;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll-X;
+  }  
+  .info1{
+  position:absolute;
+  left:100px !important;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;          /* super bold */
+  font-size: 40px !important;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:20px !important;
+  
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 3s forwards !important;
+  }
+.placementsummary{
+  width:580px !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 25px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+ .placementsummary:nth-child(2) {left:35px !important; top:105px !important;}
+  .placementsummary:nth-child(3) {  left:35px !important; top:435px !important;}
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:30px !important;
+  top:375px !Important;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 30px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
 }
 .kuma{
    position:static !important; width:200px !important; height:260px !important; 
@@ -393,37 +752,107 @@ opacity:0;
   to { background-position: -1000px 1000px; }
 }
 .year22{
-  width:200px !important;
-  height:150px !important;
-  border-radius:10px !important;
+ display:none !important;
 }
-  .year22:nth-child(1) {left:110px !important; top:-120px !important; }
-  .year22:nth-child(2) { left:110px !important; top:100px !important;  }
-  .year22:nth-child(3) {left:110px !important; top:300px !important;  }
 
-
-   .buttonimg{
-    position:absolute;width:205px !important ;height:100px !important;top:-5.5px !important; left:-6px !important; border-radius:15px !important;
-  }
-
-  .buttonText{
-    position:absolute;  font-size:25px !important; top:70px !important; text-shadow:  0 0 6px rgba(255,255,255,0.6),0 2px 10px rgba(0,0,0,0.8);
-  }
     .acc111{
   font-family: "Rubik Doodle Shadow", system-ui;
   font-weight: 550 ;
   letter-spacing:1px !important;
   font-style:normal;
   scroll-padding-bottom: 10px !important;
-  position:absolute; color:white; font-size:40px !important; text-align:center; top:40px !important; left:20px !important;
+  position:absolute; color:white; font-size:40px !important; text-align:center; top:40px !important; left:50px !important;
   text-transform: uppercase;
   text-shadow: 4px 4px 8px #ffffff00;
 
 }
 #cl1{
-   position:absolute; color:white; font-size:27px !important; text-align:center; top:-80px !important; left:70px !important;
+  display:none !important;
 }
+ .nittecollegeimg{
+    position:absolute;
+    top:200px !important;
+    left:50px !important;
+    width:270px  !important;
+    height:150px  !important;
+    border-radius:150px;
+    border:3px solid #C49952;
+   animation:nitteimg 3s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }  
+  .nittecollegeimg1{
+   display:none !important;
+  }   
 
+ .parentplacement{
+    position:absolute;
+    width:350px !important;
+    height:600px !important;
+    left:20px !important;
+    top:150px !important;
+    border:3px solid #C49952 !important;
+    animation:placementinfo 1.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
+  }  
+  .placement-info{
+    position:absolute;
+    width:320px!important;
+    height:550px !important;
+    top:36px;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll-X;
+  }  
+  .info1{
+  position:absolute;
+  left:30px !important;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;          /* super bold */
+  font-size: 25px !important;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:20px !important;
+  
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 3s forwards !important;
+  }
+.placementsummary{
+  width:300px !important;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 18px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+ .placementsummary:nth-child(2) {left:20px !important; top:65px;}
+  .placementsummary:nth-child(3) {  left:20px !important; top:415px !important;}
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:10px !important;
+  top:375px !Important;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 21px !important;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
 .temporarysoon{
    position:absolute;color:white;  left:125px !important; top:300px !important; font-size:50px !important;
 }
@@ -772,19 +1201,26 @@ body.no-scroll1 {
   min-height: 150px;
 }
 .year {
-  position: relative;
+  position:absolute;
+  left:1150px;
   min-height: 600px;
+  top:-160px;
+  
 }
 
 /*button in home page styling*/
-
+.parentbutton{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
   .year22 {
-    width:250px; height:250px;  border:5px  solid whitesmoke;
+    width:250px; height:250px;  border:none;
       letter-spacing:3px;
       font-family: "Rubik Doodle Shadow", system-ui;
       font-weight: 550;
-      position:absolute;
-      border-radius: 45px;
+      position:static;
+      border-radius: 50px;
       padding-left:20px;
       padding-right:20px;
       text-transform: uppercase;
@@ -804,42 +1240,94 @@ body.no-scroll1 {
   }
 
   .year22:hover{
-    animation:buttonhover 0.5s forwards;
-     border:5px  solid whitesmoke;
+    position:relative;
+     transform: scale(1.5);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 2px solid #c49952;
   }
 
-  @keyframes buttonhover{
-    from{
-width:250px; height:250px;
-    }
-    to{
-       width:270px; height:270px; 
-     border:2px solid white;
-    }
-  }
   .year22:hover .buttonimg{
-animation:buttonimages 0.5s forwards;
+animation:buttonimages 0.1s forwards;
   }
     @keyframes buttonimages{
     from{
-width:253px;height:150px;
+transform: scale(1);
     }
     to{
-      width:279px;height:170px;
+      transform: scale(1.1);
     }
   }
   .year22:hover .buttonText{
     font-size:40px;
+  
+    
+  }
+ 
+
+  .placement-info{
+    position:absolute;
+    width:990px;
+    height:700px;
     left:70px;
-    top:140px;
+    top:36px;
+    left:10px;
+   font-family: 'Manrope', sans-serif;
+   overflow:scroll;
+  }
+  .parentplacement{
+    position:absolute;
+    width:1020px;
+    height:800px;
+    left:70px;
+    top:170px;
+    border:5px solid #C49952;
+    animation:placementinfo 3.55s forwards;
+  }
+  @keyframes placementinfo{
+     0%{opacity:0; transform:scale(0.1);}
+     50%{opacity:0; transform:scale(0.5);}
+      99%{opacity:0.9; transform:scale(1);}
+      100%{opacity:1; transform:scale(1);  border-radius:100px;}
   }
 
-  .year22:nth-child(1) {left:300px; top:0px; }
-  .year22:nth-child(2) { left:610px; top:0px;  }
-  .year22:nth-child(3) {left:930px; top:0px;  }
-
+.nitteplaceholder{
+  overflow:hidden;
+}
+  .nittecollegeimg{
+    position:absolute;
+    top:300px;
+    left:450px;
+    width:270px;
+    height:150px;
+    border-radius:150px;
+    border:3px solid #C49952;
+   animation:nitteimg 2s forwards;
+  }
+  @keyframes nitteimg{
+    0%{opacity:0;}
+    50%{opacity:0.7;}
+    100%{opacity:1;}
+  }
+  .nittecollegeimg1{
+    position:absolute;
+   top:340px;
+    left:480px;
+    width:230px;
+    height:170px;
+    border-radius:20px;
+    animation: nitteimg1 3s forwards;
+  }
+  @keyframes nitteimg1{
+    0%{ top:300px;
+    left:450px;
+    width:270px;
+     border-radius:150px;
+    height:170px;}
+    50%{width:670px; height:460px; left:300px; top:200px;}
+    100%{  width:350px; height:300px; left:150px; top:340px;}
+  }
   .buttonimg{
-    position:absolute;width:253px;height:150px ;top:-4.5px; left:-6px; border-radius:35px;
+    position:absolute;width:253px;height:160px ;top:-4.5px; left:-6px; border-radius:45px;
   }
 
   .buttonText{
@@ -929,7 +1417,56 @@ font-size:24px;
     0 1px 2px rgba(0, 0, 0, 0.6),
     0 0 8px rgba(196, 153, 82, 0.35);
 }
+.placementsummary{
+  position:absolute;
+  color:white;
+  width:400px;
+  font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 23px;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 400;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+ .placementsummary:nth-child(2) {left:520px; top:65px;}
+  .placementsummary:nth-child(3) {  left:80px; top:575px;}
 
+.placementsummary1{
+  position:absolute;
+  color:white;
+  width:600px;
+  left:80px;
+  top:475px;
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 43px;              /* perfect for reports & dashboards */
+  line-height: 1.6;             /* readability boost */
+  font-weight: 500;
+  color: #eaeaea;               /* light text for dark background */
+  max-width: 70ch;
+}
+
+.info1{
+  position:absolute;
+  left:90px;
+  top:-30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;          /* super bold */
+  font-size: 40px;           /* adjust as needed */
+  letter-spacing: 2px;       /* important for that look */
+  text-transform: uppercase;
+ border-radius:30px;
+  
+  background: linear-gradient(90deg, #ffffff, #C49952);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;           /* off-white / cream */
+  background-color: #000;    /* black background */
+animation: info1 5s forwards;
+  }
+    @keyframes info1{
+    0%{opacity:0;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+  }
 .boxcard{
    position:static ;
     font-family: "Merriweather", serif;
@@ -1158,39 +1695,88 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Placements page JS loaded");
   startAnimation();
 });
+  let index2 = 0;
+  let index3 = 0;
+  let index4 = 0;
+  let index5 = 0;
+  let index6 = 0;
+  let index7 = 0;
+  const text2 = "Computer and Communication";
+const text4 = "Placement Trends & Strengths";
+const text5 = `Steady placement consistency observed across all three batches.
 
+Mass recruiters + product/service-based companies both actively recruited CCE students.
+
+A noticeable number of students received multiple offers, indicating competitive skill levels.
+
+Some students opted for higher studies, reflecting academic confidence and research inclination. CCE students were placed across diverse domains such as:
+
+IT Services & Consulting
+
+Software Development
+
+Networking & Communication Technologies
+
+Product-based Software Companies
+
+FinTech & Enterprise Solutions";
+const text6 = "Key Recruiters";
+const text7 = "Infosys
+
+Cognizant (GenC / GenC Next)
+
+Accenture
+
+Wipro
+
+EdgeVerve (Infosys Finacle)
+
+Extreme Networks
+
+Black Duck Software
+
+Sasken Technologies
+
+Cohesity`;
+const text3="The Computer and Communication Engineering (CCE) department has shown consistent and improving placement performance across multiple academic batches. Students have been successfully placed in reputed IT, software, consulting, and core technology companies, reflecting strong academic preparation and industry alignment.";
    function startAnimation() {
      document.body.classList.remove("no-scroll1");
   console.log("Placements clicked - startAnimation()");
   document.querySelector(".acc1").innerHTML = `
     <div class="container"></div>
     <div class="container2"></div>
+    <div class="container3"></div>
   `;
 
   const text = "Placements";
   const text1 = "Select The Year";
+
    document.querySelector(".year1").innerHTML = ``;
 document.querySelector(".year").innerHTML = ``;
   let index = 0;
   let index1 = 0;
+ 
+ 
 
   // First line
   const container = document.querySelector(".container");
   container.innerHTML = `
-    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7);" > </p>
+    <p class="acc111" style="top:20px;   text-shadow:2px 2px 8px rgba(255, 255, 255, 0.7); position:absolute;   font-size:65px; left:360px; " > </p>
   `;
   const paragraph = container.querySelector("p");
 
   // Second line
   const container2 = document.querySelector(".container2");
+  const container3 = document.querySelector(".container3");
   container2.innerHTML = `
     <p id="cl1" class="acc111"
        style="position:absolute; color:white;
-              font-size:50px; text-align:center;
-              top:-25px; left:470px;">
+              font-size:35px; text-align:center;
+              top:-100px; left:1100px;">
     </p>
   `;
   const paragraph1 = container2.querySelector("p");
+  const paragraph2 = container3.querySelector("p");
 
   function typeEffect() {
     if (index < text.length) {
@@ -1203,15 +1789,21 @@ document.querySelector(".year").innerHTML = ``;
     }
     else {
       document.getElementById("cl1").classList.add("done");
-  
+ document.querySelector(".placements-root").innerHTML+=`<div class="nitteplaceholder"><img  class="nittecollegeimg" src="/images/homePages/nittointroimg.png"><div class="parentplacement" ><div class="placement-info"><p class="info1"></p><p class="placementsummary" data-id="ones"></p><p class="placementsummary" data-id="twos"></p><p class="placementsummary1"></p></div></div></div>`;
       document.querySelector(".year").innerHTML = `
         <div class="parentbutton">
-          <button id="one" class="year22" data-year="2024"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_31_53 PM.png"><p  class="buttonText" >2024</p></button>
-          <button id="two" class="year22" data-year="2025"><img class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_32_29 PM.png"><p  class="buttonText" >2025</p></button>
-          <button id="three" class="year22"data-year="2026"><img  class="buttonimg" src="/images/homePages/ChatGPT Image Dec 26, 2025, 03_33_57 PM.png"><p  class="buttonText" >2026</p></button>
+          <button id="one" class="year22" data-year="2024"><img class="buttonimg" src="/images/homePages/button22img.png"><p  class="buttonText" >2024</p></button>
+          <button id="two" class="year22" data-year="2025"><img class="buttonimg" src="/images/homePages/button23img.png"><p  class="buttonText" >2025</p></button>
+          <button id="three" class="year22"data-year="2026"><img  class="buttonimg" src="/images/homePages/button24img.png"><p  class="buttonText" >2026</p></button>
         </div>
       `;
-
+  const nitteplaceholder = document.querySelector(".nitteplaceholder");
+   nitteplaceholder.addEventListener("animationend", () => {
+    document.querySelector(".nittecollegeimg").remove();
+    document.querySelector(".nitteplaceholder").innerHTML+=`<img  class="nittecollegeimg1"  src="/images/homePages/collegeintro.png">`;
+    starter();
+});
+   
   document.querySelectorAll(".year22").forEach(btn => {
   btn.addEventListener("click", () => {
     const year = btn.dataset.year;
@@ -1226,6 +1818,37 @@ document.querySelector(".year").innerHTML = ``;
   }
 
   typeEffect();
+   }
+   function starter(){
+let nitteplaceholder = document.querySelector(".nitteplaceholder");
+  const placementsummary1=nitteplaceholder.querySelector(".placementsummary1");
+ const placementsummary = document.querySelector('.placementsummary[data-id="ones"]');
+const placementsummary2 = document.querySelector('.placementsummary[data-id="twos"]');
+const info = nitteplaceholder.querySelector(".info1");
+     if(index2<text2.length ){
+      info.textContent += text2[index2++];
+      setTimeout(starter, 55);
+   }
+   else if(index3<text3.length){
+    placementsummary.textContent+=text3[index3++];
+    setTimeout (starter,20);
+   }
+   else if(index4<text4.length){
+    placementsummary1.textContent+=text4[index4++];
+    setTimeout(starter,20);
+   }
+     else if(index5<text5.length){
+    placementsummary2.textContent+=text5[index5++];
+    setTimeout(starter,30);
+   }
+     /*else if(index6<text6.length){
+    placementsummary1.textContent+=text6[index6++];
+    setTimeout(starter,20);
+   }
+     else if(index7<text7.length){
+    placementsummary1.textContent+=text7[index7++];
+    setTimeout(starter,20);
+   }*/
    }
 const detailobject = {
   students: [
@@ -1288,6 +1911,7 @@ const detailobject = {
 };
 
 function next2024() {
+   document.querySelector(".nitteplaceholder").remove();
    document.body.classList.remove("no-scroll1");
     document.body.classList.remove("no-scroll");
   console.log("Loading Placements 2024");
@@ -1320,6 +1944,7 @@ document.querySelector(".gridparent").innerHTML += `<button class="bonney" data-
 }     
 
 function next2025() {
+ document.querySelector(".nitteplaceholder").remove();
   let i=10;
     document.body.classList.remove("no-scroll");
   console.log("Loading Placements 2025");
@@ -1337,6 +1962,7 @@ for(i=0;i<6;i++){
 }
 }
 function next2026() {
+ document.querySelector(".nitteplaceholder").remove();
    document.body.classList.remove("no-scroll1");
     document.body.classList.remove("no-scroll");
   console.log("Loading Placements 2026");
@@ -1467,6 +2093,8 @@ function titleEffect(text) {
 
   type();
 }
+
+
 //used to disable effects caused by (studentbox and studentbox1)
 function closeStudentView() {
   document.querySelectorAll(".bonney").forEach(b =>
