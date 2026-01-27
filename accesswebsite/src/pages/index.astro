@@ -3,10 +3,13 @@ import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import Carousel from "../components/eventsCarousel.astro";
+import rightArrow from '@assets/icons/arrow-right.svg'; 
 import Game from '../components/SpaceShooterGame.astro';
 ---
-<Navbar />
 <Layout>
+
+  <Navbar />  
   <div class="aurora-ribbon aurora-1"></div>
   <div class="aurora-ribbon aurora-2"></div>
   <div class="aurora-ribbon aurora-3"></div>
@@ -15,20 +18,7 @@ import Game from '../components/SpaceShooterGame.astro';
   <canvas id="starCanvas"></canvas>
 
   <div class="page-container">
-    <!--<img src="/images/homePages/image1.svg" alt="Decorative Image" class="decorative-image" />
-    Welcome section of the page 
-    <section id="welcoming">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            <span class="gradient-text">Welcome to</span><br>
-            <span class="hero-main">Department of Computer and<br>Communication Engineering</span>
-          </h1>
-          <p class="hero-subtitle">Shaping the future of technology through innovation, excellence, and transformative education</p>
-        </div>
-        <!-- <div class="hero-accent"></div>
-      </div>
-    </section>-->
+    
 
     <section id="welcoming">
       <div class="hero-container">
@@ -75,7 +65,7 @@ import Game from '../components/SpaceShooterGame.astro';
       <div class="features-grid">
         <div class="feature-card feature-card-large">
           <div class="card-header">
-            <h3 class="card-title">Programs We Offer</h3>
+            <h3 class="card-title">Courses We Offer</h3>
           </div>
           <div class="card-content">
             <div class="program-list">
@@ -112,15 +102,15 @@ import Game from '../components/SpaceShooterGame.astro';
 
         <div class="feature-card">
           
-            <div class="card-header">
-              <h3 class="card-title"> Experiential Learning</h3>
-            </div>
-            <div class="card-content">
-              <p>Hands-on labs in networks, security & computing.<br>
-                 Projects tied to real problems.
-              </p>
-            </div>
+          <div class="card-header">
+            <h3 class="card-title"> Experiential Learning</h3>
           </div>
+          <div class="card-content">
+            <p>Hands-on labs in networks, security & computing.<br>
+                Projects tied to real problems.
+            </p>
+          </div>
+        </div>
       
       </div>
     </section>
@@ -143,22 +133,22 @@ import Game from '../components/SpaceShooterGame.astro';
       </div>
     </section>
 
-    <!--Hod's message -->
+    <!-- HoD's message -->
     <section id="headmessage">
       <div class="vm-card">
-        <div class="message-container">
+        <div class="message-container reverse">
           <div class="message-image">
-            <img src="/images/homePages/principal.jpg" alt="Principal">
-            <!-- <Image src={principal.src} alt="Principal" />-->
+            <img src="/images/homePages/principal.jpg" alt="HoD">
           </div>
           <div class="message-text">
             <span class="message-label">HoD's Message</span>
             <blockquote class="message-quote">""</blockquote>
-            <cite class="message-author"> Dr. Radhakrishna</cite>
+            <cite class="message-author">Dr. Radhakrishna</cite>
           </div>
         </div>
       </div>
     </section>
+
 
     <section id="vision-mission">
       <div class="vm-grid">
@@ -188,7 +178,7 @@ import Game from '../components/SpaceShooterGame.astro';
     <!--till here the main part is completed, welcom, programs offered, principal's message a
     and vision and mission of college -->
 
-    <!--corosel effect of events section 
+    <!--corosel effect of events section-->
     <div class="eventsSec">
       <div class="eventsHeader">
         <div class="headingWrap">
@@ -203,7 +193,7 @@ import Game from '../components/SpaceShooterGame.astro';
       <div class="eventsCarousel">
         <Carousel />
       </div>
-    </div>-->
+    </div>
   
 
     <!--game section  -->
@@ -216,7 +206,7 @@ import Game from '../components/SpaceShooterGame.astro';
     </div>
     
 
-    <!--<AccessForceEffect />-->
+    
 
   </div><!--of page container, so dont delete -->
 
