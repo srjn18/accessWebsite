@@ -120,42 +120,43 @@
 /* Tablet */
 @media (max-width: 768px) {
     .bg-img {
-        padding: 15px;
+        height:100%;
+        width:100%;
     }
     
     .wrapper {
-        padding: 25px 30px;
+        padding: 25px 25px 25px 25px;
     }
 
     .wrapper h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .input-box input {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .wrapper .access-btn {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
     .bg-img {
-        padding: 10px;
         min-height: 100vh;
+        padding: 0px;
     }
     
     .wrapper {
-        max-width: 100%;
-        width: 100%;
+        max-width: 90%;
+        width: 90%;
         padding: 20px 20px;
         border-width: 2px;
     }
 
     .wrapper h1 {
-        font-size: 24px;
+        font-size: 30px;
         margin-bottom: 15px;
     }
 
@@ -176,12 +177,12 @@
 
     .wrapper .access-btn {
         height: 42px;
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 15px;
     }
 
     .wrapper .goback a {
-        font-size: 0.95rem;
+        font-size: 1rem;
         gap: 6px;
     }
 
@@ -194,7 +195,7 @@
 /* Small Mobile */
 @media (max-width: 360px) {
     .wrapper {
-        padding: 18px 16px;
+        padding: 18px 18px;
     }
 
     .wrapper h1 {

@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+
+
 ---
-<Navbar />
+
 <Layout>
+  <Navbar />
   <div class="aurora-ribbon aurora-1"></div>
   <div class="aurora-ribbon aurora-2"></div>
   <div class="aurora-ribbon aurora-3"></div>
@@ -182,7 +185,7 @@ import Footer from "../components/Footer.astro";
   <script src="/stars.js" is:inline defer></script>
   
 </Layout>
-<Footer />
+
 
 <style>
     /* Header styles */

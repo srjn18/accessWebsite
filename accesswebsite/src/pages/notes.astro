@@ -1,8 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import Carousel from "../components/eventsCarousel.astro";
-import rightArrow from '@assets/icons/arrow-right.svg';
+import Layout from "../layouts/Layout.astro"
 
 
 
@@ -40,8 +39,8 @@ const yearData = [
 ---
 
 <Navbar />
-
-  <!--corosel effect of events section -->
+<Layout>
+  <!--corosel effect of events section 
   <div class="eventsSec">
     <div class="eventsHeader">
       <div class="headingWrap">
@@ -56,7 +55,7 @@ const yearData = [
     <div class="eventsCarousel">
       <Carousel />
     </div>
-  </div>
+  </div>-->
   
   <!-- BACKGROUND: Distinct from Home (Grid + Deep Space) -->
   <div class="space-background">
@@ -148,6 +147,7 @@ const yearData = [
   </div>
 
 <script src="/stars.js" is:inline defer></script>
+</layout>
 <Footer />
 
 <style>
