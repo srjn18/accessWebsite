@@ -1,0 +1,443 @@
+---
+// Props passed from the parent page (Events Page)
+const { eventId, eventName, whatsappLink = "#", maxTeamSize = 4 } = Astro.props;
+---
+
+<!-- MODAL BACKDROP -->
+<div id="reg-modal" class="modal-backdrop hidden">
+  
+  <!-- THE HOLOGRAPHIC DATA-PAD -->
+  <div class="holo-pad">
+    
+    <!-- Scanning Line Effect -->
+    <div class="scan-line"></div>
+    
+    <!-- Close 'X' -->
+    <button id="close-modal" class="close-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <!-- CONTENT: FORM STATE -->
+    <div id="form-content" class="content-wrapper">
+      <header class="pad-header">
+        <div class="h-badge">ACCESS REQUEST</div>
+        <h2 class="h-title">EVENT REGISTRATION <span class="blink">_</span></h2>
+        <p class="h-subtitle">Target: <span class="cyan-text">{eventName}</span></p>
+      </header>
+
+      <form id="registration-form">
+        <!-- Hidden Context Fields -->
+        <input type="hidden" name="event_name" value={eventName} />
+        <input type="hidden" name="event_id" value={eventId} />
+
+        <!-- Cyber Toggle -->
+        <div class="cyber-toggle-wrapper">
+          <label class="toggle-label">
+            <input type="radio" name="type" value="individual" checked onchange="toggleTeam(false)">
+            <span class="cyber-btn">INDIVIDUAL</span>
+          </label>
+          <label class="toggle-label">
+            <input type="radio" name="type" value="team" onchange="toggleTeam(true)">
+            <span class="cyber-btn">TEAM</span>
+          </label>
+        </div>
+
+        <!-- Leader Details -->
+        <div class="field-group">
+          <div class="label-glitch" data-text="PRIMARY_CONTACT">PRIMARY_CONTACT</div>
+          <div class="input-grid">
+            <div class="holo-input-box">
+              <input type="text" name="leader_name" placeholder=" " required />
+              <label>FULL NAME</label>
+            </div>
+            <div class="holo-input-box">
+              <input type="text" name="leader_usn" placeholder=" " required />
+              <label>USN ID</label>
+            </div>
+          </div>
+          <div class="input-grid">
+            <div class="holo-input-box">
+              <input type="email" name="leader_email" placeholder=" " required />
+              <label>EMAIL ADDRESS</label>
+            </div>
+            <div class="holo-input-box">
+              <input type="tel" name="leader_phone" placeholder=" " required />
+              <label>PHONE NO.</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Members (Hidden initially) -->
+        <div id="team-section" class="hidden">
+          <div class="label-glitch" data-text="SQUAD_MEMBERS">SQUAD_MEMBERS</div>
+          <div id="members-container">
+            <!-- Dynamic rows injected here -->
+          </div>
+          <button type="button" id="add-member-btn" class="add-member-btn">
+            [ + ] ADD OPERATIVE
+          </button>
+        </div>
+
+        <button type="submit" class="register-action-btn">
+          <span class="btn-text">INITIALIZE REGISTRATION</span>
+          <div class="btn-glitch"></div>
+        </button>
+      </form>
+    </div>
+
+    <!-- CONTENT: SUCCESS TICKET STATE -->
+    <div id="success-content" class="content-wrapper hidden">
+      <div class="digital-ticket">
+        <div class="ticket-header">
+          <span>REGISTRATION CONFIRMED</span>
+          <span class="status-ok">● ACTIVE</span>
+        </div>
+        
+        <div class="ticket-body">
+          <div class="qr-placeholder">
+            <svg viewBox="0 0 100 100" fill="currentColor">
+              <rect x="10" y="10" width="30" height="30" />
+              <rect x="60" y="10" width="30" height="30" />
+              <rect x="10" y="60" width="30" height="30" />
+              <rect x="50" y="50" width="10" height="10" />
+              <rect x="70" y="50" width="10" height="10" />
+              <rect x="50" y="70" width="10" height="10" />
+              <rect x="70" y="70" width="10" height="10" />
+            </svg>
+          </div>
+          <div class="ticket-details">
+            <h4>{eventName}</h4>
+            <p>Access Granted. Your data has been encrypted and stored.</p>
+          </div>
+        </div>
+
+        <div class="whatsapp-section">
+          <p>⚠️ <strong>MISSION UPDATE:</strong> Join the comms channel.</p>
+          <a href={whatsappLink} target="_blank" class="whatsapp-holo-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.993.592 1.956.913 3.033.913 3.19 0 5.766-2.587 5.766-5.766 0-3.181-2.587-5.766-5.766-5.766zm-5.766 5.766c0 3.181 2.586 5.766 5.766 5.766 1.077 0 2.04-.321 3.033-.913l2.664.698-.711-2.598c.639-1.017 1.02-1.989 1.019-3.287 0-3.18-2.586-5.766-5.766-5.766-3.181 0-5.767 2.586-5.768 5.766z"/></svg>
+            JOIN WHATSAPP SQUAD
+          </a>
+        </div>
+      </div>
+      <button id="close-success-btn" class="close-text-btn">CLOSE INTERFACE</button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* --- THEME CONSTANTS --- */
+  :root {
+    --holo-cyan: #00f3ff;
+    --holo-pink: #bc13fe;
+    --holo-bg: rgba(10, 15, 30, 0.85);
+    --glass-border: rgba(0, 243, 255, 0.3);
+  }
+
+  .hidden { display: none !important; }
+
+  /* 1. BACKDROP */
+  .modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px); /* Deep blur background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* 2. HOLOGRAPHIC PAD CONTAINER */
+  .holo-pad {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    background: var(--holo-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 0 30px rgba(0, 243, 255, 0.1),
+      inset 0 0 20px rgba(0, 243, 255, 0.05);
+    border-radius: 4px; /* Slightly sharp corners for sci-fi feel */
+    overflow: hidden;
+    color: #fff;
+    transform: perspective(1000px) rotateX(0deg);
+    animation: hologramPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes hologramPop {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  /* Scanline Animation */
+  .scan-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 5px;
+    background: linear-gradient(90deg, transparent, var(--holo-cyan), transparent);
+    opacity: 0.5;
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+  }
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--holo-cyan);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    z-index: 20;
+  }
+  .close-btn:hover { background: var(--holo-cyan); color: #000; box-shadow: 0 0 15px var(--holo-cyan); }
+
+  /* CONTENT STYLES */
+  .content-wrapper { padding: 2.5rem 2rem; }
+
+  .pad-header { text-align: center; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+  
+  .h-badge {
+    display: inline-block;
+    font-size: 0.7rem; letter-spacing: 2px;
+    border: 1px solid var(--holo-pink); color: var(--holo-pink);
+    padding: 2px 8px; margin-bottom: 0.5rem;
+  }
+
+  .h-title {
+    margin: 0; font-size: 2rem; font-family: 'Courier New', monospace; font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  }
+  .blink { animation: blinker 1s infinite; }
+  @keyframes blinker { 50% { opacity: 0; } }
+
+  .h-subtitle { color: #8892b0; font-size: 0.9rem; margin-top: 0.5rem; }
+  .cyan-text { color: var(--holo-cyan); }
+
+  /* CYBER TOGGLE */
+  .cyber-toggle-wrapper {
+    display: flex; gap: 1rem; margin-bottom: 2rem;
+    background: rgba(0,0,0,0.3); padding: 5px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .toggle-label { flex: 1; cursor: pointer; }
+  .toggle-label input { display: none; }
+  .cyber-btn {
+    display: block; text-align: center; padding: 0.8rem;
+    color: #64748b; font-weight: 600; letter-spacing: 1px; font-size: 0.9rem;
+    transition: all 0.3s; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .toggle-label input:checked + .cyber-btn {
+    background: rgba(0, 243, 255, 0.15);
+    color: var(--holo-cyan);
+    border: 1px solid var(--holo-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  }
+
+  /* INPUT FIELDS (HOLO STYLE) */
+  .field-group { margin-bottom: 1.5rem; }
+  .label-glitch {
+    font-size: 0.8rem; color: var(--holo-pink); margin-bottom: 0.8rem;
+    letter-spacing: 1px; font-weight: 700;
+  }
+  
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  
+  .holo-input-box { position: relative; }
+  .holo-input-box input {
+    width: 100%; padding: 0.8rem 0;
+    background: transparent; border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 1rem; font-family: inherit;
+    transition: all 0.3s;
+  }
+  .holo-input-box label {
+    position: absolute; top: 0.8rem; left: 0;
+    font-size: 0.8rem; color: #64748b; pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .holo-input-box input:focus ~ label,
+  .holo-input-box input:not(:placeholder-shown) ~ label {
+    top: -10px; font-size: 0.7rem; color: var(--holo-cyan);
+  }
+  
+  .holo-input-box input:focus {
+    border-bottom-color: var(--holo-cyan);
+    box-shadow: 0 5px 10px -5px rgba(0, 243, 255, 0.3);
+    outline: none;
+  }
+
+  /* ADD MEMBER BUTTON */
+  .add-member-btn {
+    width: 100%; background: rgba(255,255,255,0.02);
+    border: 1px dashed rgba(255,255,255,0.2);
+    color: #94a3b8; padding: 1rem; margin-top: 0.5rem;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .add-member-btn:hover { border-color: var(--holo-cyan); color: var(--holo-cyan); }
+
+  /* SUBMIT BUTTON */
+  .register-action-btn {
+    position: relative; width: 100%; padding: 1.2rem; margin-top: 2rem;
+    background: var(--holo-cyan); border: none;
+    color: #000; font-weight: 800; letter-spacing: 2px;
+    cursor: pointer; overflow: hidden; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+    transition: transform 0.2s;
+  }
+  .register-action-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0, 243, 255, 0.4); }
+  
+  /* SUCCESS TICKET */
+  .digital-ticket {
+    border: 1px solid var(--holo-pink);
+    background: rgba(188, 19, 254, 0.05);
+    padding: 2px; /* Inner border space */
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .digital-ticket::before {
+    content: ''; position: absolute; left: -5px; top: 50%; width: 10px; height: 20px;
+    background: #000; border-radius: 0 10px 10px 0; border: 1px solid var(--holo-pink); border-left: none;
+  }
+  .digital-ticket::after {
+    content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 20px;
+    background: #000; border-radius: 10px 0 0 10px; border: 1px solid var(--holo-pink); border-right: none;
+  }
+
+  .ticket-header {
+    background: rgba(188, 19, 254, 0.2);
+    padding: 0.8rem; display: flex; justify-content: space-between;
+    font-size: 0.8rem; letter-spacing: 1px; font-weight: 700; color: #e879f9;
+  }
+  .status-ok { color: #4ade80; }
+
+  .ticket-body {
+    display: flex; gap: 1.5rem; padding: 2rem; align-items: center;
+  }
+  .qr-placeholder {
+    width: 80px; height: 80px; color: #fff; flex-shrink: 0;
+  }
+  .ticket-details h4 { margin: 0 0 0.5rem 0; font-size: 1.5rem; color: #fff; }
+  .ticket-details p { margin: 0; color: #94a3b8; font-size: 0.9rem; }
+
+  .whatsapp-section { text-align: center; padding: 0 1rem 1.5rem; }
+  .whatsapp-holo-btn {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: #25D366; color: #fff; padding: 1rem 2rem;
+    text-decoration: none; font-weight: 700; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: transform 0.2s;
+  }
+  .whatsapp-holo-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+
+  .close-text-btn {
+    background: none; border: none; color: #64748b; width: 100%;
+    cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
+  }
+  .close-text-btn:hover { color: #fff; }
+
+  /* Member Row Style (Dynamic) */
+  .member-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; margin-bottom: 1rem; animation: slideDown 0.2s; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  .remove-btn { background: rgba(255, 0, 0, 0.2); color: red; border: 1px solid red; width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+  @media (max-width: 600px) {
+    .input-grid { grid-template-columns: 1fr; gap: 1rem; }
+  }
+</style>
+
+<script define:vars={{ maxTeamSize }}>
+  // --- CLIENT SIDE LOGIC (Pure JS) ---
+  const modal = document.getElementById('reg-modal');
+  const form = document.getElementById('registration-form');
+  const closeBtn = document.getElementById('close-modal');
+  const closeSuccess = document.getElementById('close-success-btn');
+  const teamSection = document.getElementById('team-section');
+  const membersContainer = document.getElementById('members-container');
+  const addMemberBtn = document.getElementById('add-member-btn');
+
+  // 1. OPEN LOGIC (Called from parent page)
+  window.openRegistration = () => {
+    modal.classList.remove('hidden');
+  };
+
+  // 2. CLOSE LOGIC
+  const closeModal = () => {
+    modal.classList.add('hidden');
+    setTimeout(() => {
+      document.getElementById('form-content').classList.remove('hidden');
+      document.getElementById('success-content').classList.add('hidden');
+      form.reset();
+      membersContainer.innerHTML = '';
+      toggleTeam(false); // Reset to individual
+    }, 300);
+  };
+  closeBtn.addEventListener('click', closeModal);
+  closeSuccess.addEventListener('click', closeModal);
+
+  // 3. TOGGLE TEAM
+  window.toggleTeam = (isTeam) => {
+    if (isTeam) {
+      teamSection.classList.remove('hidden');
+    } else {
+      teamSection.classList.add('hidden');
+      membersContainer.innerHTML = ''; 
+    }
+  };
+
+  // 4. ADD MEMBERS LOGIC
+  let memberCount = 0;
+  addMemberBtn.addEventListener('click', () => {
+    if (memberCount >= maxTeamSize - 1) {
+      alert("Maximum squad size reached.");
+      return;
+    }
+    memberCount++;
+    
+    const div = document.createElement('div');
+    div.className = 'member-row';
+    div.innerHTML = `
+      <div class="holo-input-box">
+        <input type="text" name="member_name[]" placeholder=" " required />
+        <label>MEMBER NAME</label>
+      </div>
+      <div class="holo-input-box">
+        <input type="text" name="member_usn[]" placeholder=" " required />
+        <label>MEMBER USN</label>
+      </div>
+      <button type="button" class="remove-btn" onclick="this.parentElement.remove(); memberCount--;">×</button>
+    `;
+    membersContainer.appendChild(div);
+  });
+
+  // 5. SUBMIT SIMULATION
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.register-action-btn');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = "ENCRYPTING DATA...";
+    btn.style.opacity = "0.7";
+    
+    // Simulate API Call
+    setTimeout(() => {
+      document.getElementById('form-content').classList.add('hidden');
+      document.getElementById('success-content').classList.remove('hidden');
+      btn.innerHTML = originalText;
+      btn.style.opacity = "1";
+    }, 1500);
+  });
+</script>
