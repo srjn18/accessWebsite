@@ -3,21 +3,29 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+ 
+//for making configurable stars
+const STAR_CONFIG = {
+  count: window.STAR_CONFIG?.count ?? 200,
+  color: window.STAR_CONFIG?.color ?? "255,255,255",
+  sizeMultiplier: window.STAR_CONFIG?.sizeMultiplier ?? 1.1,
+  speedMultiplier: window.STAR_CONFIG?.speedMultiplier ?? 0.1,
+  shootingStars: window.STAR_CONFIG?.shootingStars ?? 1
+};
 let stars = [];
-const STAR_COUNT = 400;
+let STAR_COUNT = STAR_CONFIG.count;
 
 class Star {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.z = Math.random() * 2;   // depth
-        this.size = this.z * 1.1;     //size of stars
-        this.speed = this.z * 0.1;    // speed of stars
+    this.size = this.z * STAR_CONFIG.sizeMultiplier;
+   this.speed = (0.3 + this.z) * STAR_CONFIG.speedMultiplier;
     }
 
     draw() {
-        ctx.fillStyle = `rgba(255, 255, 255, ${0.5 + Math.random() * 0.5})`;
+       ctx.fillStyle = `rgba(${STAR_CONFIG.color}, ${0.5 + Math.random() * 0.5})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -51,11 +59,7 @@ window.addEventListener("mousemove", e => {
     mouse.y = e.clientY;
 });
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    stars.forEach(star => star.update(mouse));
-    requestAnimationFrame(animate);
-}
+
 
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
@@ -63,8 +67,6 @@ window.addEventListener("resize", () => {
     init();
 });
 
-init();
-animate();
 
 /* ----------------------------------------------------
    SHOOTING STARS
@@ -122,25 +124,22 @@ class ShootingStar {
     }
 }
 
-// Create shooting stars
-let shootingStars = [
-    new ShootingStar(),
-    new ShootingStar(),
-    new ShootingStar()
-];
+let shootingStars = Array.from(
+  { length: STAR_CONFIG.shootingStars },
+  () => new ShootingStar()
+);
 
-// Modify your main animate() function to draw these:
-const oldAnimate = animate;
-animate = function () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    stars.forEach(star => star.update(mouse));
-    shootingStars.forEach(s => {
-        s.update();
-        s.draw();
-    });
+  stars.forEach(star => star.update(mouse));
+  shootingStars.forEach(s => {
+    s.update();
+    s.draw();
+  });
 
-    requestAnimationFrame(animate);
-};
+  requestAnimationFrame(animate);
+}
 
+init();
 animate();
