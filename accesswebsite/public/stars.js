@@ -204,12 +204,31 @@ window.addEventListener("click", () => {
     });
 });
 
+function drawGalaxyBG() {
+    const gradient = ctx.createRadialGradient(
+        canvas.width * 0.3,
+        canvas.height * 0.4,
+        0,
+        canvas.width * 0.3,
+        canvas.height * 0.4,
+        canvas.width
+    );
+
+    gradient.addColorStop(0, "#1b1f4a");   // rich purple-blue
+    gradient.addColorStop(0.4, "#0a0b1e");
+    gradient.addColorStop(0.8, "#05050a");
+    gradient.addColorStop(1, "#000000");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 /* ----------------------------------------------------
    MAIN LOOP
 ---------------------------------------------------- */
 function animate() {
 
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    drawGalaxyBG();
 
     // Idle drift if no interaction
     if (mouse.targetX === null) {
