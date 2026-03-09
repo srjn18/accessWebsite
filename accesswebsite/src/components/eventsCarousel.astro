@@ -78,7 +78,7 @@ import event8 from '@assets/Events/2025-26/Deepavali.png';
     --card-bg: rgba(255, 255, 255, 0.095);
     --card-border: rgba(255, 255, 255, 1);
     --radius: 20px;
-    --gap: 24px;
+    --gap: 20px;
     --blur: 9px;
     --shadow: 0 1px 0 rgba(15, 13, 13, 0.02), 0 10px 30px rgba(0, 0, 0, .08);
     --duration: 120s;
@@ -87,14 +87,14 @@ import event8 from '@assets/Events/2025-26/Deepavali.png';
   * { box-sizing: border-box; }
 
   .page {
-    min-height: 100vh;
+    min-height: 60vh;
     display: grid;
     place-items: center;
-    padding: 32px;
+    padding: 20px;
   }
 
   .marquee {
-    width: min(1600px, 100%);
+    width: min(1500px, 100%);
     overflow: hidden;
     padding: 8px;
   }
@@ -142,13 +142,25 @@ import event8 from '@assets/Events/2025-26/Deepavali.png';
   }
 
   /*=====Responsiveness of the section=====*/
-  @media (mex-width: 900px) {
+  @media (max-width: 900px) {
     .page{
-      padding: 10px;
+      padding: 0px;
+      min-height: 40vh;
     }
     .card {
-      width: 180px;
+      width: 300px;
       aspect-ratio: 3 / 4;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .card {
+      width: 250px;
+      aspect-ratio: 6 / 8;
     }
   }
 </style>
