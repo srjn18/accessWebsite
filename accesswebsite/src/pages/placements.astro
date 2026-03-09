@@ -24,8 +24,8 @@ import Layout from "../layouts/Layout.astro";
 </div>
  <div class="slide">
   <div class="image-box">
-    <img class="slide-img" src="/images/homePages/placements_2d_graph.png" />
-    </div>
+  <img class="slide-img graph-img" src="/images/homePages/placements_2d_graph.png" />
+</div>
      <div class="slide-text">
     <p class="scrollpagetexts-highlight">Placement Highlights</p>
     <p class="summary">
@@ -486,6 +486,9 @@ border: 2px solid #ffd88a;
     transform: translateY(0px);
   }
 }
+.image-box:has(.graph-img) {
+  width: min(480px, 50vw);
+}
 .modal-card .close {
   position: absolute;
   top: 0.9rem;
@@ -919,15 +922,15 @@ document.querySelector(".close").onclick = () => {
   document.body.style.overflow = "";
 };
 </script>
-<script is:inline>
-
-  window.STAR_CONFIG = {
-    count: 800,
-   color: "255, 180, 50",
-    shootingStars: 0,
-    speedMultiplier: 0.5
-  };
+<script>
+window.STAR_CONFIG = {
+  count: 800,
+  color: "255,180,50",
+  shootingStars: 0,
+  speedMultiplier: 0.5
+};
 </script>
+
 <script src="/stars.js" defer></script>
 </Layout>
 <Footer />
