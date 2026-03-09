@@ -10,6 +10,7 @@ import Game from '../components/SpaceShooterGame.astro';
 <Layout>
 
   <Navbar />  
+  <!--The ribbons in the background -->
   <div class="aurora-ribbon aurora-1"></div>
   <div class="aurora-ribbon aurora-2"></div>
   <div class="aurora-ribbon aurora-3"></div>
@@ -48,15 +49,12 @@ import Game from '../components/SpaceShooterGame.astro';
         <!-- Right: Image with Floating Animation -->
         <div class="hero-image-right">
           <div class="glow-backdrop"></div>
-          <!-- Using the image path from your comments. 
-               Make sure image1.svg exists in public/images/homePages/ -->
           <img 
             src="/images/homePages/img2.png" 
             alt="CCE Department Illustration" 
             class="hero-illustration floating-anim" 
           />
         </div>
-      
       </div>
     </section>
 
@@ -87,35 +85,30 @@ import Game from '../components/SpaceShooterGame.astro';
         </div>
 
         <div class="feature-card">
-          
-            <div class="card-header">
-              <h3 class="card-title">Pathway to Innovation</h3>
-            </div>
-            <div class="card-content">
-              <p>Industry-oriented curriculum<br>
-                Skill building for next-gen tech careers<br>
-                Research, simulation & problem solving focus<br>
-              </p>
-            </div>
-          
+          <div class="card-header">
+            <h3 class="card-title">Pathway to Innovation</h3>
+          </div>
+          <div class="card-content">
+            <p>Industry-oriented curriculum<br>
+              Skill building for next-gen tech careers<br>
+              Research, simulation & problem solving focus<br>
+            </p>
+          </div>
         </div>
 
         <div class="feature-card">
-          
           <div class="card-header">
             <h3 class="card-title"> Experiential Learning</h3>
           </div>
           <div class="card-content">
             <p>Hands-on labs in networks, security & computing.<br>
-                Projects tied to real problems.
+              Projects tied to real problems.
             </p>
           </div>
         </div>
-      
       </div>
     </section>
 
-    
     <!--Principals message -->
     <section id="headmessage">
       <div class="vm-card">
@@ -149,7 +142,7 @@ import Game from '../components/SpaceShooterGame.astro';
       </div>
     </section>
 
-
+    <!--vision and mission of the cce -->
     <section id="vision-mission">
       <div class="vm-grid">
         <div class="vm-card vm-mission">
@@ -157,7 +150,6 @@ import Game from '../components/SpaceShooterGame.astro';
             <span class="vm-badge">Mission</span>
             <h2 class="vm-title">CCE Mission</h2>
           </div>
-          <!--<p class="vm-text">To develop NMAM Institute of Technology, Nitte, as Center of Excellence by imparting Quality Education to generate Competent, Skilled and Humane Manpower to face emerging Scientific, Technological, Managerial and Social Challenges with Credibility, Integrity, Ethics and Social Concern</p>-->
           <p class="vm-text">
             <li>To provide excellent academic environment to students for continuous improvement in Computer Science and Computer Network specialization and by imparting education with innovation, skills and positive attitude to make them competent engineers and leaders to solve the real world problems to inculcate values of professional ethics, leadership qualities and lifelong learning.</li>
             <li>To strengthen the industry partnership for collaborative work and prepare graduates in cutting edge Computer Network technologies in par with industrial standards by undertaking collaborative projects which offer opportunities for long term interaction between academia and industry.</li>
@@ -170,13 +162,10 @@ import Game from '../components/SpaceShooterGame.astro';
             <span class="vm-badge">Vision</span>
             <h2 class="vm-title">CCE Vision</h2>
           </div>
-          <!--<p class="vm-text">Pursuing Excellence, Empowering people, Partnering in Community Development</p>-->
           <p class="vm-text">To be a centre of excellence in the Computer Networks and Computer Security education and research, to produce comprehensively trained, technically skilled, ethically strong, innovative engineers to excel globally, take future challenges and contribute for social welfare.</p></p>
         </div>
       </div>
     </section>
-    <!--till here the main part is completed, welcom, programs offered, principal's message a
-    and vision and mission of college -->
 
     <!--corosel effect of events section-->
     <div class="eventsSec">
@@ -195,7 +184,6 @@ import Game from '../components/SpaceShooterGame.astro';
       </div>
     </div>
   
-
     <!--game section  -->
     <div class="game-section">
       <h2 class="game-title">Interactive Starfield</h2>
@@ -205,19 +193,11 @@ import Game from '../components/SpaceShooterGame.astro';
       </div>
     </div>
     
-
-    
-
   </div><!--of page container, so dont delete -->
-
   
+
   <script src="/bento-animate.js" is:inline defer></script>
-
 <script src="/stars.js" defer></script>
-
   <script src="/scroll-animations.js" is:inline defer></script>
-  
-  
-  
 </Layout>
 <Footer />
