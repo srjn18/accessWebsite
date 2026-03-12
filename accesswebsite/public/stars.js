@@ -1,11 +1,12 @@
 const canvas = document.getElementById("starCanvas");
+const hasAurora = document.querySelector(".aurora-ribbon");
 const ctx = canvas.getContext("2d");
 
 /* ----------------------------------------------------
    STAR CONFIG
 ---------------------------------------------------- */
 const STAR_CONFIG = {
-  count: window.STAR_CONFIG?.count ?? 200,
+  count: window.STAR_CONFIG?.count ?? 250,
   color: window.STAR_CONFIG?.color ?? "255,255,255",
   sizeMultiplier: window.STAR_CONFIG?.sizeMultiplier ?? 1.1,
   speedMultiplier: window.STAR_CONFIG?.speedMultiplier ?? 0.1,
@@ -147,7 +148,7 @@ class ShootingStar {
     this.velX = 2 + Math.random() * 4;
     this.velY = 1 + Math.random() * 2;
     this.length = 150 + Math.random() * 100;
-    this.opacity = 0.6;
+    this.opacity = 0.7;
     this.active = true;
   }
 
@@ -193,7 +194,20 @@ let shootingStars = Array.from(
    GALAXY BACKGROUND
 ---------------------------------------------------- */
 function drawGalaxyBG() {
-  ctx.fillStyle = "black";
+  const gradient = ctx.createRadialGradient(
+    canvas.width * 0.3,
+    canvas.height * 0.4,
+    0,
+    canvas.width * 0.3,
+    canvas.height * 0.4,
+    canvas.width
+  );
+
+  gradient.addColorStop(0, "#1b1f4a");
+  gradient.addColorStop(0.4, "#0a0b1e");
+  gradient.addColorStop(0.8, "#05050a");
+
+  ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -202,7 +216,9 @@ function drawGalaxyBG() {
 ---------------------------------------------------- */
 function animate() {
 
-  drawGalaxyBG();
+  if (hasAurora) {
+    drawGalaxyBG();
+  }
 
   if (mouse.targetX !== null) {
     if (mouse.x === null) {
