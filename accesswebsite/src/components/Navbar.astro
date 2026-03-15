@@ -18,7 +18,7 @@ const current = Astro.url.pathname;
     <ul class="nav-links" id="navLinks">
       <li><a href="/" class={current === "/" ? "active" : ""}>Home</a></li>
       <li><a href="/faculty" class={current === "/faculty" ? "active" : ""}>Faculty</a></li>
-      <li><a href="/committee1" class={current === "/committee1" || current === "/committee" ? "active" : ""}>Committee</a></li>
+      <li><a href="/committee" class={current === "/committee" || current === "/committee" ? "active" : ""}>Committee</a></li>
       <li><a href="/placements" class={current === "/placements" ? "active" : ""}>Placements</a></li>
       <li><a href="/notes" class={current === "/notes" ? "active" : ""}>Notes</a></li>
       <li><a href="/about" class={current === "/about" ? "active" : ""}>About Us</a></li>
@@ -314,17 +314,18 @@ const current = Astro.url.pathname;
   .nav-links a.active::after {
     width: 60%;
   }
-
   .logo img {
     height: 50px;
   }
-
   .navbar.scrolled {
     padding: 12px 20px;
   }
 }
 
 @media (max-width: 768px) {
+  .logo img{
+    height: 60px;
+  }
   .navbar {
     padding: 12px 15px;
   }
@@ -333,7 +334,9 @@ const current = Astro.url.pathname;
     font-size: 1.5rem;
     padding: 12px 15px;
   }
-
+  .burger{
+    margin-left: auto;
+  }
   .burger span {
     width: 28px;
     height: 2.5px;
@@ -342,7 +345,7 @@ const current = Astro.url.pathname;
 
 @media (max-width: 480px) {
   .logo img {
-    height: 40px;
+    height: 50px;
   }
 
   .navbar.scrolled .logo img {
@@ -354,6 +357,9 @@ const current = Astro.url.pathname;
     padding: 10px 15px;
   }
 
+  .burger{
+    margin-left: auto;
+  }
   .burger span {
     width: 26px;
   }

@@ -14,13 +14,9 @@ import Game from '../components/SpaceShooterGame.astro';
   <div class="aurora-ribbon aurora-1"></div>
   <div class="aurora-ribbon aurora-2"></div>
   <div class="aurora-ribbon aurora-3"></div>
-  
-
   <canvas id="starCanvas"></canvas>
 
-  <div class="page-container">
-    
-
+  <div class="page-container">    
     <section id="welcoming">
       <div class="hero-container">
         
@@ -40,7 +36,7 @@ import Game from '../components/SpaceShooterGame.astro';
             <a href="#features-section" class="primary-btn">
               Explore Department
             </a>
-            <a href="/notes" class="secondary-btn">
+            <a href="#student-corner" class="secondary-btn">
               Student Corner
             </a>
           </div>
@@ -131,7 +127,7 @@ import Game from '../components/SpaceShooterGame.astro';
       <div class="vm-card">
         <div class="message-container reverse">
           <div class="message-image">
-            <img src="/images/homePages/principal.jpg" alt="HoD">
+            <img src="/images/homePages/hod.jpg" alt="HoD">
           </div>
           <div class="message-text">
             <span class="message-label">HoD's Message</span>
@@ -168,36 +164,38 @@ import Game from '../components/SpaceShooterGame.astro';
     </section>
 
     <!--corosel effect of events section-->
-    <div class="eventsSec">
-      <div class="eventsHeader">
-        <div class="headingWrap">
-          <h2>Events</h2>
-          <p>Explore the latest happenings and memorable moments from our department's events and activities.</p>
-        </div>
+    <section id="student-corner">
+      <div class="eventsSec">
+        <div class="eventsHeader">
+          <div class="headingWrap">
+            <h2>Events</h2>
+            <p>Explore the latest happenings and memorable moments from our department's events and activities.</p>
+          </div>
 
-        <a href="/events" class="eventsArrow" aria-label="View all events">
-          <img src={rightArrow.src} alt="View all events" />
-        </a>
+          <a href="/events" class="eventsArrow" aria-label="View all events">
+            <img src={rightArrow.src} alt="View all events" />
+          </a>
+        </div>
+        <div class="eventsCarousel">
+          <Carousel />
+        </div>
       </div>
-      <div class="eventsCarousel">
-        <Carousel />
+    
+      <!--game section  -->
+      <div class="game-section">
+        <h2 class="game-title">Interactive Starfield</h2>
+        <p class="game-instructions">Click the button to start the game ! </p>
+        <div class="hero-cta-group">
+          <a href="/SpaceShooterGame" class="primary-btn">Start Space shooter</a>
+        </div>
       </div>
-    </div>
-  
-    <!--game section  -->
-    <div class="game-section">
-      <h2 class="game-title">Interactive Starfield</h2>
-      <p class="game-instructions">Click the button to start the game ! </p>
-      <div class="hero-cta-group">
-        <a href="/SpaceShooterGame" class="primary-btn">Start Space shooter</a>
-      </div>
-    </div>
+    </section>
     
   </div><!--of page container, so dont delete -->
   
 
-  <script src="/bento-animate.js" is:inline defer></script>
-<script src="/stars.js" defer></script>
+  <script src="/bento-animate.js" is:inline defer></script> <!--for tilt of the messages -->
+  <script src="/stars.js" defer></script>
   <script src="/scroll-animations.js" is:inline defer></script>
 </Layout>
 <Footer />

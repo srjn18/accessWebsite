@@ -5,213 +5,233 @@ import { Image } from "astro:assets";
 
 /* Assets */
 import astronaut from "../assets/developers/astronaut.png";
+
 import dev1 from "../assets/developers/developer1.jpg";
+import dev1b from "../assets/developers/flip1.jpg";
+
 import dev2 from "../assets/developers/developer2.jpg";
+import dev2b from "../assets/developers/flip2.jpeg";
+
 import dev3 from "../assets/developers/developer3.jpg";
+import dev3b from "../assets/developers/flip3.jpg";
+
 import dev4 from "../assets/developers/developer4.jpg";
+import dev4b from "../assets/developers/flip4.jpg";
+
 import dev5 from "../assets/developers/developer5.jpg";
-import git from "../assets/icons/github.svg";
+import dev5b from "../assets/developers/flip5.jpg";
 
 const team = [
-  { name: "Soham Misra", quote: "Hare Krishna", img: dev1, github: "SohamMisra", linkedin: "soham-misra135", insta: "krishna_sohamisra" },
-  { name: "Gurudutt R Pai", quote: "Twilio, Finacle & HPE Cracked...", img: dev2, github: "GuruduttRPai", linkedin: "gurudutt-r-pai-09551124b", insta: "gurudutt_r_pai_" },
-  { name: "Anirudh Pai", quote: "Faith over Difficulty.", img: dev3, github: "AnirudhPai13", linkedin: "anirudh-pai-296714291", insta: "paiboi_398" },
-  { name: "Yajnesh Kumar", quote: "SELECT * FROM life...", img: dev4, github: "YajneshKumar2004", linkedin: "yajneshkumar2004", insta: "kulal_.2004" },
-  { name: "Vaishnavi K S", quote: "There's a lot of beauty in ordinary things. Isn't that the whole point?", img: dev5, github: "2vaishnavi-ks", linkedin: "vaishnavi-k-s-57b13a28b", insta: "vaish_ks_" },
+  { name: "Soham Misra", quote: "Hare Krishna", img: dev1, imgBack: dev1b, github: "SohamMisra", linkedin: "soham-misra135", insta: "krishna_sohamisra" },
+  { name: "Gurudutt R Pai", quote: "Twilio, Finacle & HPE Cracked...", img: dev2, imgBack: dev2b, github: "GuruduttRPai", linkedin: "gurudutt-r-pai-09551124b", insta: "gurudutt_r_pai_" },
+  { name: "Anirudh Pai", quote: "Faith over Difficulty.", img: dev3, imgBack: dev3b, github: "AnirudhPai13", linkedin: "anirudh-pai-296714291", insta: "paiboi_398" },
+  { name: "Yajnesh Kumar", quote: "SELECT * FROM life...", img: dev4, imgBack: dev4b, github: "YajneshKumar2004", linkedin: "yajneshkumar2004", insta: "kulal_.2004" },
+  { name: "Vaishnavi K S", quote: "There's a lot of beauty in ordinary things. Isn't that the whole point?", img: dev5, imgBack: dev5b, github: "2vaishnavi-ks", linkedin: "vaishnavi-k-s-57b13a28b", insta: "vaish_ks_" },
 ];
 ---
 
-<Layout title="Meet the Dev Team">
-  <Navbar />
+<Layout>
+<Navbar />
 
-  <div class="prison-wall">
-    <div class="grid-layer"></div>
-    <div class="height-markers"></div>
-  </div>
+<!-- Aurora Background 
+<div class="aurora-ribbon aurora-1"></div>
+<div class="aurora-ribbon aurora-2"></div>
+<div class="aurora-ribbon aurora-3"></div>-->
+<canvas id="cosmos"></canvas>
 
-  <div class="character-space">
-    <Image 
-      src={astronaut} 
-      alt="Astronaut floating in space" 
-      class="drifting-char" 
-      loading="eager" 
-    />
-  </div>
+<!-- Floating Character -->
+<div class="character-space">
+  <Image src={astronaut} alt="Astronaut floating" class="drifting-char" loading="eager"/>
+</div>
 
-  <main class="content-wrapper">
-    <header>
-      <h1 class="page-title">The Dev Team</h1>
-    </header>
 
-    <div class="team-grid">
-      {team.map((member) => (
-        <div class="member-card">
-          <div class="image-box">
-            <Image 
-              src={member.img} 
-              alt={`Portrait of ${member.name}`} 
-              loading="eager" 
-            />
+<main class="content-wrapper">
+
+  <header>
+    <h1 class="page-title">Dev Team</h1>
+  </header>
+
+  <div class="team-grid">
+    {team.map((member) => (
+
+      <div class="member-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <Image src={member.img} alt={member.name} loading="eager"/>
           </div>
-          <div class="info-overlay">
-            <h3>{member.name}</h3>
-            <p>"{member.quote}"</p>
-            <div class="social-links">
-              <a href={`https://github.com/${member.github}`} target="_blank" aria-label={`${member.name}'s GitHub`}>
-                <img src="/images/icons/github.svg" alt="Github" />
-              </a>
-              <a href={`https://linkedin.com/in/${member.linkedin}`} target="_blank" aria-label={`${member.name}'s LinkedIn`}>
-                <img src="/images/icons/linkedin.svg" alt="LinkedIn" />
-              </a>
-              <a href={`https://instagram.com/${member.insta}`} target="_blank" aria-label={`${member.name}'s Instagram`}>
-                <img src="/images/icons/instagram.svg" alt="Instagram" />
-              </a>
-            </div>
+          <div class="card-back">
+            <Image src={member.imgBack} alt={`${member.name} alt`} loading="eager"/>
           </div>
         </div>
-      ))}
-    </div>
-  </main>
+
+        <div class="info-overlay">
+
+          <h3>{member.name}</h3>
+          <p>"{member.quote}"</p>
+
+          <div class="social-links">
+
+            <a href={`https://github.com/${member.github}`} target="_blank">
+              <img src="/images/icons/github.svg" alt="Github" loading="eager"/>
+            </a>
+
+            <a href={`https://linkedin.com/in/${member.linkedin}`} target="_blank">
+              <img src="/images/icons/linkedin.svg" alt="LinkedIn" loading="eager"/>
+            </a>
+
+            <a href={`https://instagram.com/${member.insta}`} target="_blank">
+              <img src="/images/icons/instagram.svg" alt="Instagram" loading="eager"/>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    ))}
+  </div>
+  <script type="module">
+    import { initCosmicBackground } from "../cosmic.js";
+
+    initCosmicBackground();
+  </script>
+</main>
 </Layout>
 
 <style>
-  /* Fix: Background Lines */
-  .prison-wall {
-    position: fixed;
-    inset: 0;
-    background: #080a0c;
-    z-index: -1;
-    overflow: hidden;
-  }
+  #cosmos{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-3;
+  background:#02072b;
+}
 
-  .grid-layer {
-    position: absolute;
-    inset: 0;
-    background-image: 
-      linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
+.content-wrapper{
+  position:relative;
+  z-index:10;
+  padding:50px 30px;
+  max-width:1300px;
+  margin:auto;
+  text-align:center;
+}
 
-  .height-markers {
-    position: absolute;
-    width: 100%;
-    height: 1000%; /* Long height for infinite scroll */
-    background: repeating-linear-gradient(
-      transparent,
-      transparent 120px,
-      rgba(0, 242, 255, 0.2) 120px,
-      rgba(0, 242, 255, 0.2) 122px
-    );
-    animation: marker-scroll 30s linear infinite;
-  }
+.page-title{
+  color:white;
+  font-size:2.7rem;
+  letter-spacing:5px;
+  margin-bottom:50px;
+  text-shadow:0 0 20px rgba(0,242,255,0.4);
+}
 
-  @keyframes marker-scroll {
-    from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
-  }
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+  /* Card */
 
-  /* Fix: Social Icons Visibility */
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 15px;
-    position: relative;
-  }
+.member-card{
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
+  overflow:hidden;
+  transition:0.3s;
+  perspective:1000px;
+}
 
-  .social-links a {
-    color: #00f2ff;  /*Bright Cyan */
-    font-size: 1.8rem; /* Increased size for visibility */
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /*filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.8));*/
-    text-decoration: none;
-  }
+.member-card:hover{
+  box-shadow:0 0 30px rgba(0,242,255,0.3);
+}
+  /* Flip Animation */
 
-  .social-links a:hover {
-    color: #ffffff;
-    transform: scale(1.3);
-    /*filter: drop-shadow(0 0 15px #00f2ff);*/
-  }
+.card-inner{
+  position:relative;
+  width:100%;
+  height:350px;
+  transform-style:preserve-3d;
+  transition:transform 0.8s;
+}
 
-  .social-links img {
-    width: 38px; /* Adjusted size for better visibility */
-    height: 38px;
-  }
+.member-card:hover .card-inner{
+  transform:rotateY(180deg);
+}
 
-  /* Layout and General Styles */
-  .content-wrapper {
-    position: relative;
-    z-index: 10;
-    padding: 50px 30px;
-    max-width: 1300px;
-    margin: 0 auto;
-    text-align: center;
-  }
+.card-front,
+.card-back{
+  position:absolute;
+  width:100%;
+  height:350px;
+  backface-visibility:hidden;
+}
 
-  .page-title {
-    color: #fff;
-    font-size: 2.7rem;
-    /*text-transform: uppercase;*/
-    letter-spacing: 5px;
-    margin-bottom: 40px;
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-  }
+.card-front img,
+.card-back img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-  }
+.card-back{
+  transform:rotateY(180deg);
+}
 
-  .member-card {
-    background: rgba(13, 17, 23, 0.8);
-    border: 1px solid rgba(0, 242, 255, 0.3);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-    backdrop-filter: blur(10px);
-  }
+.info-overlay{
+  padding:25px;
+}
 
-  .member-card:hover {
-    border-color: #00f2ff;
-    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
-  }
+.info-overlay h3{
+  color:white;
+  font-size:1.4rem;
+  margin:0;
+}
 
-  .image-box {
-    height: 350px;
-    border-bottom: 2px solid rgba(0, 242, 255, 0.1);
-  }
+.info-overlay p{
+  color:#aaa;
+  font-style:italic;
+  margin:0px ;
+}
 
-  .image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 
-  .info-overlay {
-    padding: 25px;
-  }
+  /* Social */
 
-  .info-overlay h3 { color: white; margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
-  .info-overlay p { color: #888; font-size: 0.95rem; margin: 12px 0; font-style: italic; }
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:15px;
+}
 
-  /* Drifting Character */
-  .character-space {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 5;
-  }
+.social-links img{
+  width:34px;
+  height:34px;
+  transition:0.3s;
+}
 
-  .drifting-char {
-    width: 250px;
-    position: absolute;
-    animation: drift-away 40s linear infinite;
-  }
+.social-links img:hover{
+  transform:scale(1.4);
+}
 
-  @keyframes drift-away {
-    0% { top: 10%; left: -200px; transform: rotate(0deg); }
-    100% { top: 80%; left: 110vw; transform: rotate(360deg); }
-  }
-</style>
+
+  /* Floating Astronaut */
+
+.character-space{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
+
+.drifting-char{
+  width:250px;
+  position:absolute;
+  animation:drift-away 40s linear infinite;
+}
+
+@keyframes drift-away{
+  0%{top:10%;left:-200px;transform:rotate(0deg);}
+  100%{top:80%;left:110vw;transform:rotate(360deg);}
+}
+
+  </style>

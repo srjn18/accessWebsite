@@ -40,24 +40,7 @@ const yearData = [
 
 <Navbar />
 <Layout>
-  <!--corosel effect of events section 
-  <div class="eventsSec">
-    <div class="eventsHeader">
-      <div class="headingWrap">
-        <h2>Events</h2>
-        <p>Explore the latest happenings and memorable moments from our department's events and activities.</p>
-      </div>
 
-      <a href="/events" class="eventsArrow" aria-label="View all events">
-        <img src={rightArrow.src} alt="View all events" />
-      </a>
-    </div>
-    <div class="eventsCarousel">
-      <Carousel />
-    </div>
-  </div>-->
-  
-  <!-- BACKGROUND: Distinct from Home (Grid + Deep Space) -->
   <div class="space-background">
     <canvas id="starCanvas"></canvas>
     <div class="image1"><img src="/images/homePages/spaceship.png" alt="spaceship" /></div>
@@ -148,7 +131,7 @@ const yearData = [
 
 <script src="/stars.js" defer></script>
 
-</layout>
+</Layout>
 <Footer />
 
 <style>
@@ -196,8 +179,8 @@ const yearData = [
   @media (max-width: 640px) {
     .space-background .image1,
     .space-background .image2{ opacity: 0.9; }
-    .space-background .image1 { top: 10%; left: 4%; transform: translate(-50%, 0); }
-    .space-background .image2 { top: 50%; left: 82%; transform: translate(-50%, -40%); }
+    .space-background .image1 { top: 10%; left: 4%; transform: translate(-20%, -10%); }
+    .space-background .image2 { top: 50%; left: 82%; transform: translate(-50%, -20%); }
     
   }
 
@@ -283,7 +266,7 @@ const yearData = [
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    height: 500px;
   }
 
   /* Theme Colors */
